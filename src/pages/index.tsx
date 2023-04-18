@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Menu from '@/components/menu'
-import Typical from 'react-typical';
+import Typewriter from 'typewriter-effect';
 import { typicalStepsHome } from '@/utils';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,10 +17,12 @@ export default function Home() {
         <Menu />
         <div className="flex flex-col items-center justify-center max-h-screen">
           <h2 className="text-blue text-3xl mt-10">
-            <Typical
-              steps={typicalStepsHome}
-              wrapper="p"
-              loop={Infinity}
+            <Typewriter
+              options={{
+                strings: typicalStepsHome,
+                autoStart: true,
+                loop: true,
+              }}
             />
           </h2>
           <div>
