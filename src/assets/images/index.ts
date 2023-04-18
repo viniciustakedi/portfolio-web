@@ -21,3 +21,5 @@ export { default as SqlServerIcon } from './tech-icons/microsoftsqlserver-plain.
 export { default as NestJsIcon } from './tech-icons/nestjs-plain.webp';
 export { default as NodeJsIcon } from './tech-icons/nodejs-original.webp';
 export { default as PostgreSqlIcon } from './tech-icons/postgresql-original.webp';
+export { default as PhpIcon } from './tech-icons/php-original.webp';
+export { default as PythonIcon } from './tech-icons/python-original.webp';

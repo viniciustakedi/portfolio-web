@@ -7,7 +7,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export default function Introduction() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <section className="flex flex-col items-center justify-center h-screen">
       <h2 className="text-blue text-3xl">
         <Typewriter
           options={{
@@ -37,6 +37,6 @@ export default function Introduction() {
       <div className='absolute bottom-8'>
         <ScrollIndicator />
       </div>
-    </div>
+    </section>
   );
 } 
