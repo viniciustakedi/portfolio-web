@@ -4,7 +4,6 @@ export const typicalStepsHome = [
   'ReactJs',
   'React Native',
   'NextJs',
-  'React Native',
   'CSharp',
   'HTML',
   'CSS',
@@ -26,4 +25,10 @@ export const typicalStepsHome = [
   'Trello',
   'Jira',
   'Linux',
+  'TailwindCSS',
+  'Styled Components',
+  'React Query',
+  'React Hook Form',
+  'React Router',
+  'React Context',
 ]

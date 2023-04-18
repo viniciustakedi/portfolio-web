@@ -24,9 +24,9 @@ const Menu = () => {
     return () => { document.removeEventListener("mousedown", checkIfClickedOutside); };
   }, [isMenuOpen]);
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 rounded-b-lg">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 rounded-b-lg sticky top-0 z-50">
       <div ref={ref} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="https://flowbite.com/" className="flex items-center">
+        <Link href="" className="flex items-center">
           {/* <Image src={logo} className="h-8 mr-3" alt="Flowbite Logo" /> */}
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Takedi</span>
         </Link>
