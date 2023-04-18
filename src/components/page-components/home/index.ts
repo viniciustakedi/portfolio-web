@@ -1,1 +1,2 @@
-export { default as Titles } from './titles';
+export { default as Habilities } from './habilities';
+export { default as Introduction } from './introduction';

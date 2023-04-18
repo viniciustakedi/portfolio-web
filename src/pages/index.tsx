@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Menu from '@/components/menu'
-import { Titles } from '@/components/page-components/home'
+import { Habilities, Introduction } from '@/components/page-components/home'
 
 export default function Home() {
   return (
@@ -10,7 +10,8 @@ export default function Home() {
       </Head>
       <main className="min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
         <Menu />
-        <Titles/>
+        <Introduction />
+        <Habilities />
       </main>
     </>
   )
