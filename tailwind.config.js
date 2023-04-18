@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -23,7 +25,32 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        pulseAnimation: 'pulseAnimation 2s infinite',
+      },
+      keyframes: {
+        pulseAnimation: {
+          '0%': { transform: 'scale(0.8)', boxShadow: '0 0 0 0 #F0EBD8' },
+          '70%': { transform: 'scale(1)', boxShadow: '0 0 0 15px #F0EBD800' },
+          '100%': { transform: 'scale(0.8)' },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 }

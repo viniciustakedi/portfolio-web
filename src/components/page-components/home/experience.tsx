@@ -12,6 +12,7 @@ export default function Experience() {
       <ol className="relative border-l ml-5 border-gray-200 dark:border-gray-700">
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
           <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-100" />
             <MdOutlineWork size={22} />
           </span>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
@@ -55,6 +56,7 @@ export default function Experience() {
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
           <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[300ms]" />
             <MdOutlineWork size={22} />
           </span>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
@@ -94,6 +96,7 @@ export default function Experience() {
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
           <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[500ms]" />
             <MdOutlineWork size={22} />
           </span>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
@@ -126,6 +129,7 @@ export default function Experience() {
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
           <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[700ms]" />
             <MdOutlineWork size={22} />
           </span>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
@@ -164,6 +168,7 @@ export default function Experience() {
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
           <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation delay-[800ms]" />
             <MdOutlineWork size={22} />
           </span>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
