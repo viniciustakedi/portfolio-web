@@ -70,8 +70,8 @@ export default function Habilities() {
           </p>
 
           <p className="text-lg text-gray-400 leading-6 mb-2">
-            Tenho conhecimento em diversas tecnologias e frameworks, como você pode ver logo abaixo
-            para mais informações, entre em contato comigo, vamos conversar, trocar pensamentos, 
+            Tenho conhecimento em diversas tecnologias e frameworks, como você pode ver logo 
+            abaixo. Para mais informações, entre em contato comigo, vamos conversar, trocar pensamentos, 
             ideias e experiências.
           </p>
         </div>

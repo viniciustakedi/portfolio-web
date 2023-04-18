@@ -23,7 +23,7 @@ export default function Experience() {
           </time>
           <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
             <li>
-              - Trabalhei como engenheiro de software full-stack
+              - Trabalhei como engenheiro de software full-stack.
             </li>
             <li>
               - Desenvolvi novos recursos, corrigi bugs, verifiquei/analisei códigos
@@ -67,7 +67,7 @@ export default function Experience() {
           </time>
           <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
             <li>
-              - Trabalhei como desenvolvedor full-stack
+              - Trabalhei como desenvolvedor front-end.
             </li>
             <li>
               - Desenvolvi todos os projetos front-end na época em que
@@ -115,7 +115,7 @@ export default function Experience() {
               robos para automação de dados.
             </li>
             <li>
-              - Desenvolvi e aprendi os melhores métodos para resolver
+              - Desenvolvi projetos e aprendi os melhores métodos para resolver
               problemas que a empresa necessitava resolver com automação.
             </li>
           </ul>
