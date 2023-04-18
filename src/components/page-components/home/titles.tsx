@@ -20,7 +20,7 @@ export default function Titles() {
           <span className='text-transparent bg-clip-text bg-gradient-to-r from-soft-blue to-blue'> Takedi</span>!
         </h1>
       </div>
-      <h2 className='mt-2 text-3xl text-soft-blue text-center p-4 mb-10'>Engenheiro de Software Full-Stack 💻</h2>
+      <h2 className='mt-2 text-2xl text-soft-blue text-center p-4 mb-10'>Engenheiro de Software Full-Stack 💻</h2>
       <ScrollIndicator/>
     </div>
   );
