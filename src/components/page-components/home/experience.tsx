@@ -5,7 +5,7 @@ import { MdOutlineWork } from "react-icons/md";
 
 export default function Experience() {
   return (
-    <section className="flex flex-col lg:px-24 md:px-10 px-5 py-8">
+    <section id="experience" className="flex flex-col lg:px-24 md:px-10 px-5 py-8">
       <Tag>Trabalho</Tag>
       <h1 className="text-4xl mt-4 mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue">Experiência</h1>
 

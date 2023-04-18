@@ -30,7 +30,7 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 
 export default function Habilities() {
   return (
-    <section className="flex flex-col justify-center items-center lg:px-24 md:px-10 px-5 py-8">
+    <section id="habilities" className="flex flex-col justify-center items-center lg:px-24 md:px-10 px-5 py-8">
       <div className="flex gap-5 lg:flex-row flex-col">
         <div className="lg:w-2/4 lg:mb-0 md:mb-10 mb-6">
           <Tag>Soft Skills</Tag>

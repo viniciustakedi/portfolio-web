@@ -7,7 +7,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export default function Introduction() {
   return (
-    <section className="flex flex-col items-center justify-center h-screen">
+    <section id="introduction" className="flex flex-col items-center justify-center h-screen">
       <h2 className="text-blue text-3xl">
         <Typewriter
           options={{
