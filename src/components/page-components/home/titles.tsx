@@ -5,7 +5,7 @@ import ScrollIndicator from '@/components/scroll-indicator';
 export default function Titles() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <h2 className="text-blue text-3xl mt-10">
+      <h2 className="text-blue text-3xl">
         <Typewriter
           options={{
             strings: typicalStepsHome,
