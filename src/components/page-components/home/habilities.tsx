@@ -1,31 +1,4 @@
-import {
-  AWSIcon,
-  BitBucketIcon,
-  CSSIcon,
-  CsharpIcon,
-  ExpressIcon,
-  GitHubIcon,
-  GitIcon,
-  HTMLIcon,
-  JiraIcon,
-  LinuxIcon,
-  MySqlIcon,
-  NestJsIcon,
-  NextJsIcon,
-  NodeJsIcon,
-  NpmIcon,
-  PostgreSqlIcon,
-  ReactIcon,
-  RedisIcon,
-  SassIcon,
-  SqlServerIcon,
-  TrelloIcon,
-  TypescriptIcon,
-  YarnIcon
-} from "@/assets/images";
 import Tag from "@/components/elements/tag";
-import Image from "next/image";
-import Marquee from "react-fast-marquee";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 
 export default function Habilities() {
@@ -63,97 +36,18 @@ export default function Habilities() {
 
           <p className="text-lg text-gray-400 leading-6 mb-2">
             Tenho habilidades com lógica de programação, desenvolvimento de aplicações web e mobile,
-            mesmo atualmente minha stack principal sendo NodeJs com Typescript eu não me limito a 
-            utilizar somente uma linguagem de programação, é muito interessante descobrir novas 
+            mesmo atualmente minha stack principal sendo NodeJs com Typescript eu não me limito a
+            utilizar somente uma linguagem de programação, é muito interessante descobrir novas
             tecnologias e estuda-las para entender melhor o seu propósito e como elas podem ser
-            utilizadas para resolver certos problemas. 
+            utilizadas para resolver certos problemas.
           </p>
 
           <p className="text-lg text-gray-400 leading-6 mb-2">
-            Tenho conhecimento em diversas tecnologias e frameworks, como você pode ver logo 
-            abaixo. Para mais informações, entre em contato comigo, vamos conversar, trocar pensamentos, 
+            Tenho conhecimento em diversas tecnologias e frameworks, como você pode ver logo
+            abaixo. Para mais informações, entre em contato comigo, vamos conversar, trocar pensamentos,
             ideias e experiências.
           </p>
         </div>
-      </div>
-      <div className="mt-16 mb-5 w-full">
-        <Marquee gradient={false}>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={YarnIcon} alt="yarn-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={TypescriptIcon} alt="typescript-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={TrelloIcon} alt="trello-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={SassIcon} alt="sass-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={RedisIcon} alt="redis-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={ReactIcon} alt="react-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={NpmIcon} alt="npm-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={BitBucketIcon} alt="bitbucket-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={AWSIcon} alt="aws-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={CsharpIcon} alt="csharp-icon" />
-          </div>
-          {/* <div>
-            <Image className="w-12 h-12 mx-4" src={DockerIcon} alt="docker-icon" />
-          </div> */}
-          <div>
-            <Image className="w-12 h-12 mx-4" src={CSSIcon} alt="css-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={ExpressIcon} alt="express-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={GitHubIcon} alt="github-icon" />
-          </div>
-          {/* <div>
-            <Image className="w-12 h-12 mx-4" src={GitLabIcon} alt="gitlab-icon" />
-          </div> */}
-          <div>
-            <Image className="w-12 h-12 mx-4" src={GitIcon} alt="git-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={HTMLIcon} alt="html-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={LinuxIcon} alt="linux-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={MySqlIcon} alt="mysql-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={NextJsIcon} alt="nextjs-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={JiraIcon} alt="jira-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4 w-" src={SqlServerIcon} alt="sqlserver-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={NestJsIcon} alt="nestjs-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={NodeJsIcon} alt="nodejs-icon" />
-          </div>
-          <div>
-            <Image className="w-12 h-12 mx-4" src={PostgreSqlIcon} alt="postgresql-icon" />
-          </div>
-        </Marquee>
       </div>
     </section>
   );

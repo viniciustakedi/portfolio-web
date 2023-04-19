@@ -87,7 +87,7 @@ export default function Contact() {
         />
         {errors.message && <span className="mt-1 text-red font-semibold">{errors.message.message}</span>}
 
-        <button type="submit" disabled={disabledButton} className="flex justify-center items-center p-2 rounded-lg h-16 outline-none mt-6 text-lg text-white bg-blue hover:bg-dark-blue hover:scale-95 transition-all">
+        <button type="submit" disabled={disabledButton} name="submit-contact-form" className="flex justify-center items-center p-2 rounded-lg h-16 outline-none mt-6 text-lg text-white bg-blue hover:bg-dark-blue hover:scale-95 transition-all">
           <IoSendSharp size={22} className="mr-2" />
           Enviar
         </button>
