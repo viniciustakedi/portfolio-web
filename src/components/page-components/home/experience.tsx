@@ -1,4 +1,19 @@
-import { AWSIcon, BitBucketIcon, GitHubIcon, GitIcon, JiraIcon, MySqlIcon, NodeJsIcon, PhpIcon, PostgreSqlIcon, PythonIcon, ReactIcon, RedisIcon, TrelloIcon, TypescriptIcon } from "@/assets/images";
+import {
+  AWSIcon,
+  BitBucketIcon,
+  GitHubIcon,
+  GitIcon,
+  JiraIcon,
+  MySqlIcon,
+  NodeJsIcon,
+  PhpIcon,
+  PostgreSqlIcon,
+  PythonIcon,
+  ReactIcon,
+  RedisIcon,
+  TrelloIcon,
+  TypescriptIcon
+} from "@/assets/images";
 import Tag from "@/components/elements/tag";
 import Image from "next/image";
 import { MdOutlineWork } from "react-icons/md";
@@ -18,10 +33,10 @@ export default function Experience() {
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             PontuaX
           </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Junho de 2022, até Março de 2023
           </time>
-          <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
             <li>
               - Trabalhei como engenheiro de software full-stack.
             </li>
@@ -38,10 +53,10 @@ export default function Experience() {
               back-end, mobile, banco de dados relacional, e devops.
             </li>
           </ul>
-          <p className="block mt-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Tecnologias utilizadas:
           </p>
-          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-4">
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
             <Image src={ReactIcon} alt="react" className="w-5 h-5" />
             <Image src={TypescriptIcon} alt="typescript" className="w-5 h-5" />
             <Image src={NodeJsIcon} alt="nodejs" className="w-5 h-5" />
@@ -62,10 +77,10 @@ export default function Experience() {
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             ECWSA
           </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Janeiro de 2022, até Junho de 2022
           </time>
-          <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
             <li>
               - Trabalhei como desenvolvedor front-end.
             </li>
@@ -82,10 +97,10 @@ export default function Experience() {
               problemas que a empresa necessitava resolver.
             </li>
           </ul>
-          <p className="block mt-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Tecnologias utilizadas:
           </p>
-          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-4">
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
             <Image src={ReactIcon} alt="React" className="w-5 h-5" />
             <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />
             <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
@@ -102,10 +117,10 @@ export default function Experience() {
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             D+S Assessoria e Corretora de Seguros
           </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Junho de 2021, até Dezembro de 2021
           </time>
-          <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
 
             <li>
               - Trabalhei com automação de dados, utilizando python e excel
@@ -119,10 +134,10 @@ export default function Experience() {
               problemas que a empresa necessitava resolver com automação.
             </li>
           </ul>
-          <p className="block mt-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Tecnologias utilizadas:
           </p>
-          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-4">
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
             <Image src={PythonIcon} alt="React" className="w-5 h-5" />
           </div>
         </li>
@@ -135,10 +150,10 @@ export default function Experience() {
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             DW Blindagens
           </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Abril de 2021, até Junho de 2021
           </time>
-          <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
             <li>
               - Trabalhei como desenvolvedor full-stack (freelancer)
             </li>
@@ -154,10 +169,10 @@ export default function Experience() {
               implementação
             </li>
           </ul>
-          <p className="block mt-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Tecnologias utilizadas:
           </p>
-          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-4">
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
             <Image src={ReactIcon} alt="React" className="w-5 h-5" />
             <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
             <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />
@@ -174,10 +189,10 @@ export default function Experience() {
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             M2S Cars
           </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Janeiro de 2021, até Abril de 2021
           </time>
-          <ul className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
             <li>
               - Trabalhei como desenvolvedor full-stack (freelancer)
             </li>
@@ -193,10 +208,10 @@ export default function Experience() {
               implementação
             </li>
           </ul>
-          <p className="block mt-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
             Tecnologias utilizadas:
           </p>
-          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-4">
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
             <Image src={ReactIcon} alt="React" className="w-5 h-5" />
             <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
             <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />

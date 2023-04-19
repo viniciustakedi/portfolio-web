@@ -1,6 +1,6 @@
+import { AboutMe, Experience, Habilities, Introduction } from '@/components/page-components/home'
 import Head from 'next/head'
 import Menu from '@/components/menu'
-import { Experience, Habilities, Introduction } from '@/components/page-components/home'
 
 export default function Home() {
   return (
@@ -13,6 +13,7 @@ export default function Home() {
         <Introduction />
         <Habilities />
         <Experience />
+        <AboutMe />
       </main>
     </>
   )

@@ -23,3 +23,12 @@ export { default as NodeJsIcon } from './tech-icons/nodejs-original.webp';
 export { default as PostgreSqlIcon } from './tech-icons/postgresql-original.webp';
 export { default as PhpIcon } from './tech-icons/php-original.webp';
 export { default as PythonIcon } from './tech-icons/python-original.webp';
+
+// About me image
+export { default as Myself } from './about-me/img-4372.webp';
+
+// Playlist Images
+export { default as SalEPimenta } from './about-me/playlist-images/salepimenta.webp';
+export { default as SeteK } from './about-me/playlist-images/7k.webp';
+export { default as MyWay } from './about-me/playlist-images/myway.webp';
+export { default as MalinovSvet } from './about-me/playlist-images/malinovsvet.webp';
