@@ -32,3 +32,7 @@ export { default as SalEPimenta } from './about-me/playlist-images/salepimenta.w
 export { default as SeteK } from './about-me/playlist-images/7k.webp';
 export { default as MyWay } from './about-me/playlist-images/myway.webp';
 export { default as MalinovSvet } from './about-me/playlist-images/malinovsvet.webp';
+export { default as Maturidade } from './about-me/playlist-images/maturidade.webp';
+export { default as Overseas } from './about-me/playlist-images/overseas.webp';
+export { default as PrettyGirl } from './about-me/playlist-images/prettygirl.webp';
+export { default as PickMeUpLetMeFall } from './about-me/playlist-images/pickupletmefal.webp';

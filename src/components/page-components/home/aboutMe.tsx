@@ -1,4 +1,4 @@
-import { MalinovSvet, MyWay, Myself, SalEPimenta, SeteK } from "@/assets/images";
+import { MalinovSvet, Maturidade, MyWay, Myself, Overseas, PickMeUpLetMeFall, PrettyGirl, SalEPimenta, SeteK } from "@/assets/images";
 import Tag from "@/components/elements/tag";
 import PlaylistModal from "@/components/modal/playlistModal";
 import Image from "next/image";
@@ -27,7 +27,7 @@ export default function AboutMe() {
           <h1 className="text-4xl mt-4 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue">
             Sobre Mim
           </h1>
-          <div className="flex gap-4 lg:flex-row md:flex-rol lg:mb-0 md:mb-0 mb-2 flex-col">
+          <div className="flex lg:gap-3 md:gap-2 gap-1 lg:flex-row md:flex-rol lg:mb-0 md:mb-0 mb-2 flex-col">
             <div className="flex gap-1">
               <IoPersonSharp size={22} color="#748CAB" />
               <p className="text-lg text-gray-400 leading-6 mb-2 font-semibold">Vinicius Takedi</p>
@@ -49,7 +49,7 @@ export default function AboutMe() {
             de entender como tudo aquilo realmente funcionava.
           </p>
 
-          <p className="text-lg text-gray-400 leading-6 mt-2 mb-4">
+          <p className="text-lg text-gray-400 leading-6 mt-2 mb-6">
             Após entrar na ETEC, eu ganhei uma bolsa para um curso de programação
             em blocos, patrocinado pelo Facebook. E a partir daquele momento eu tive certeza que eu queria ser
             um desenvolvedor de software, e desde então eu venho estudando e me aperfeiçoando cada vez mais.
@@ -61,7 +61,15 @@ export default function AboutMe() {
             Saber Mais
           </Link>
 
-          <div className="mt-16">
+          <p className="text-lg text-gray-400 leading-6 mt-6">
+            Durante esse curto de programação em blocos eu decidi que eu seria um programador. Então busquei os melhores
+            cursos de programação que eu poderia fazer, e acabei encontrando o curso de Análise e Desenvolvimento de Sistemas
+            fornecido pela Escola SENAI de informática, era e ainda é gratuito mas é necessário fazer e passar em um processo
+            seletivo com muitos candidatos. E eu passei, e desde então eu venho estudando e me aperfeiçoando cada vez mais.
+            Estou fazendo meu bacharelado em Ciência da Computação e é esperado que eu me forme no final de 2024.
+          </p>
+
+          <div className="mt-12">
             <Tag width="w-44" >Músicas Favoritas</Tag>
             <div className="flex items-center">
               <IoMusicalNoteSharp size={38} color="#3E5C76" />
@@ -102,20 +110,40 @@ export default function AboutMe() {
                   onClick={() => handleOpenPlaylistModal(MalinovSvet, 'Леша Свик', 'https://www.youtube.com/watch?v=ct15n6_ppmY')}
                 />
               </div>
-              <div className="w-auto h-48 overflow-hidden rounded-lg bg-slate-500 cursor-pointer">
-
+              <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
+                <Image
+                  className="scale-110 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
+                  src={Overseas}
+                  alt="malinov-svet-thumb"
+                  onClick={() => handleOpenPlaylistModal(Overseas, 'Central Cee', 'https://www.youtube.com/watch?v=I4Ra4z2Arqg')}
+                />
               </div>
-              <div className="w-auto h-48 overflow-hidden rounded-lg bg-slate-500 cursor-pointer">
-
+              <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
+                <Image
+                  className="scale-125 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
+                  src={PrettyGirl}
+                  alt="malinov-svet-thumb"
+                  onClick={() => handleOpenPlaylistModal(PrettyGirl, 'Clairo', 'https://www.youtube.com/watch?v=mngtcfcaVrI')}
+                />
               </div>
-              <div className="w-auto h-48 overflow-hidden rounded-lg bg-slate-500 cursor-pointer">
-
+              <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
+                <Image
+                  className="scale-105 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
+                  src={Maturidade}
+                  alt="malinov-svet-thumb"
+                  onClick={() => handleOpenPlaylistModal(Maturidade, 'Kayblack', 'https://www.youtube.com/watch?v=K9d5Tfdevt8')}
+                />
               </div>
-              <div className="w-auto h-48 overflow-hidden rounded-lg bg-slate-500 cursor-pointer">
-
+              <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
+                <Image
+                  className=" hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
+                  src={PickMeUpLetMeFall}
+                  alt="malinov-svet-thumb"
+                  onClick={() => handleOpenPlaylistModal(PickMeUpLetMeFall, 'Lil Rae', 'https://www.youtube.com/watch?v=XFtNeMi-lKI')}
+                />
               </div>
+              <PlaylistModal isOpen={isPlaylistModalOpen} onClose={setIsPlaylistModalOpen} musicContent={musicContent} />
             </div>
-            <PlaylistModal isOpen={isPlaylistModalOpen} onClose={setIsPlaylistModalOpen} musicContent={musicContent} />
           </div>
         </div>
       </div>

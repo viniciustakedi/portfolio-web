@@ -25,8 +25,8 @@ const PlaylistModal: React.FC<PlaylistModalProps> = ({ isOpen, onClose, musicCon
 
   return (
     <div className={`${isOpen ? 'visible' : ' invisible opacity-0'} flex justify-center items-center fixed top-0 left-0 w-full h-full bg-black-alpha z-50 transition-all`}>
-      <div ref={ref} className="relative lg:w-96 lg:h-96 md:w-96 md:h-96 opacity-100 w-3/4 h-1/4">
-        <Image className="w-full h-full object-cover rounded-lg" src={musicContent.image} alt="music-image" />
+      <div ref={ref} className="relative overflow-hidden lg:w-96 lg:h-96 md:w-96 md:h-96 opacity-100 w-4/5 h-2/5">
+        <Image className="w-full h-full scale-110 object-cover rounded-lg" src={musicContent.image} alt="music-image" />
         <p className="absolute top-4 left-4 flex justify-center p-2 w-40 rounded-lg gap-1 text-white font-bold transition-all bg-dark-blue">
           {musicContent.artist}
         </p>
