@@ -1,28 +1,29 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import sgMail from '@sendgrid/mail'
+import { contactHtml } from '@/utils/template-mails';
 
 export default function sendMail(req: NextApiRequest, res: NextApiResponse) {
-  const { text } = req.body;
+  const { name, email, message } = req.body;
 
-  // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  sgMail.setApiKey('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');
 
-  // const msg = {
-  //   to: 'test@example.com', // Change to your recipient
-  //   from: 'test@example.com', // Change to your verified sender
-  //   subject: 'Sending with SendGrid is Fun',
-  //   text: 'and easy to do anywhere, even with Node.js',
-  //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  // }
+  const msg = {
+    to: 'viniciustakedi7@gmail.com', // Change to your recipient
+    from: {
+      email: 'contato@takedi.dev',
+      name: 'Contato do Portfólio',
+    },
+    subject: `Contato do ${name} - Portfólio`,
+    text: `Abra o e-mail para verificar todo conteúdo.`,
+    html: contactHtml(name, email, message),
+  }
 
-  // sgMail
-  //   .send(msg)
-  //   .then(() => {
-  //     console.log('')
-  //     res.status(200).json({ message: 'Email sent' });
-  //   })
-  //   .catch((error) => {
-  //     console.error(error)
-  //     res.status(400).json({ message: error });
-  //   });
-  res.status(200).json({ message: "Olá!" });
+  sgMail
+    .send(msg)
+    .then(() => {
+      res.status(200).json({ message: 'Email sent', statusCode: 200 });
+    })
+    .catch((error) => {
+      res.status(400).json({ message: error, statusCode: 400 });
+    });
 }

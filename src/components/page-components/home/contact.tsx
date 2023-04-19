@@ -1,4 +1,5 @@
-import { SendMailValues } from "@/services/post";
+import ResponseModal from "@/components/modal/responseModal";
+import { SendMailValues, sendMail } from "@/services/post";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IoMailSharp, IoPersonSharp, IoSendSharp } from "react-icons/io5";
@@ -9,15 +10,26 @@ export default function Contact() {
   const [attempts, setAttempts] = useState<number>(0);
   const [disabledButton, setDisabledButton] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<SendMailValues> = (data) => {
+  const [isResponseModalOpen, setIsResponseModalOpen] = useState(false)
+  const [responseContent, setResponseContent] = useState<{ status: 'error' | 'success', message: string }>({ status: 'error', message: 'Erro na mensagem.' })
+
+  const onSubmit: SubmitHandler<SendMailValues> = async (data) => {
+    setAttempts(state => state + 1);
+
     if (attempts + 1 > 3) {
       setDisabledButton(true);
       return;
     }
 
-    console.log(data);
+    const response = await sendMail(data);
+    setIsResponseModalOpen(true);
+    
+    if (response.statusCode === 200) {
+      setResponseContent({ status: 'success', message: 'Mensagem enviada com sucesso!' });
+      return;
+    }
 
-    setAttempts(state => state + 1);
+    setResponseContent({ status: 'error', message: 'Erro ou enviar mensagem!' });
   };
 
   return (
@@ -80,6 +92,11 @@ export default function Contact() {
           Enviar
         </button>
       </form>
+      <ResponseModal
+        isOpen={isResponseModalOpen}
+        onClose={setIsResponseModalOpen}
+        responseContent={responseContent}
+      />
     </section>
   );
 }
