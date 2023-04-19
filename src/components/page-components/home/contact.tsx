@@ -26,6 +26,7 @@ export default function Contact() {
     
     if (response.statusCode === 200) {
       setResponseContent({ status: 'success', message: 'Mensagem enviada com sucesso!' });
+      setDisabledButton(true);
       return;
     }
 
