@@ -53,7 +53,7 @@ export default function AboutMe() {
             Após entrar na ETEC, eu ganhei uma bolsa para um curso de programação
             em blocos, patrocinado pelo Facebook. E a partir daquele momento eu tive certeza que eu queria ser
             um desenvolvedor de software, e desde então eu venho estudando e me aperfeiçoando cada vez mais.
-            Caso não conheça programação em bloco, clique no botão abaixo para saber mais.
+            Caso não conheça programação em bloco, clique no botão abaixo para ver um exemplo.
           </p>
 
           <Link href="https://appinventor.mit.edu/explore/ai2/android-wheres-my-car" target='_blank' className='flex justify-center p-2 w-36 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
@@ -62,11 +62,12 @@ export default function AboutMe() {
           </Link>
 
           <p className="text-lg text-gray-400 leading-6 mt-6">
-            Durante esse curto de programação em blocos eu decidi que eu seria um programador. Então busquei os melhores
+            Durante esse curso de programação em blocos eu decidi que eu seria um programador. Então busquei os melhores
             cursos de programação que eu poderia fazer, e acabei encontrando o curso de Análise e Desenvolvimento de Sistemas
             fornecido pela Escola SENAI de informática, era e ainda é gratuito mas é necessário fazer e passar em um processo
             seletivo com muitos candidatos. E eu passei, e desde então eu venho estudando e me aperfeiçoando cada vez mais.
-            Estou fazendo meu bacharelado em Ciência da Computação e é esperado que eu me forme no final de 2024.
+            Estou fazendo meu bacharelado em Ciência da Computação e é esperado que eu me torne um Cientista da Computação
+            no final de 2024.
           </p>
 
           <div className="mt-12">
