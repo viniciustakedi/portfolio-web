@@ -24,6 +24,7 @@ export { default as PostgreSqlIcon } from './tech-icons/postgresql-original.webp
 export { default as PhpIcon } from './tech-icons/php-original.webp';
 export { default as PythonIcon } from './tech-icons/python-original.webp';
 export { default as DockerIcon } from './tech-icons/docker-original.webp';
+export { default as MongoDbIcon } from './tech-icons/mongodb-original.webp';
 
 // About me image
 export { default as Myself } from './about-me/img-4372.webp';

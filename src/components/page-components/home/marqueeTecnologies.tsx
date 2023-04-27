@@ -22,7 +22,8 @@ import {
   SqlServerIcon,
   TrelloIcon,
   TypescriptIcon,
-  YarnIcon
+  YarnIcon,
+  MongoDbIcon,
 } from "@/assets/images";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
@@ -70,9 +71,9 @@ export default function MarqueeTecnologies() {
         <div>
           <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={GitHubIcon} alt="github-icon" />
         </div>
-        {/* <div>
-        <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={GitLabIcon} alt="gitlab-icon" />
-      </div> */}
+        <div>
+          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={MongoDbIcon} alt="mongodb-icon" />
+        </div>
         <div>
           <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={GitIcon} alt="git-icon" />
         </div>

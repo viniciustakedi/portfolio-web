@@ -1,6 +1,7 @@
 import {
   AWSIcon,
   BitBucketIcon,
+  ExpressIcon,
   GitHubIcon,
   GitIcon,
   JiraIcon,
@@ -12,10 +13,13 @@ import {
   ReactIcon,
   RedisIcon,
   TrelloIcon,
-  TypescriptIcon
+  TypescriptIcon,
+  MongoDbIcon
 } from "@/assets/images";
 import Tag from "@/components/elements/tag";
+import Tooltip from "@/components/elements/tooltip";
 import Image from "next/image";
+import Link from "next/link";
 import { MdOutlineWork } from "react-icons/md";
 
 export default function Experience() {
@@ -26,10 +30,70 @@ export default function Experience() {
 
       <ol className="relative border-l ml-5 border-gray-200 dark:border-gray-700">
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
-          <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+          <Link
+            href="https://digigrow.com.br/"
+            target="_blank"
+            className="absolute flex items-center bg-white cursor-pointer text-blue justify-center w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900"
+          >
+            <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-50" />
+            <MdOutlineWork size={22} />
+          </Link>
+          <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
+            Digigrow
+          </h3>
+          <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
+            Abril de 2023 - Presente
+          </time>
+          <ul className="text-lg font-normal text-gray-500 dark:text-gray-400">
+            <li>
+              - Estou atuando como engenheiro de software full-stack.
+            </li>
+            <li>
+              - Desenvolvo novos recursos, corrijo bugs, entre outras funções.
+            </li>
+            <li>
+              - Estou utilizando as ferramentas necessárias e úteis para desenvolver
+              as tasks de acordo com a regra de negócio da empresa.
+            </li>
+            <li>
+              - Faço tarefas em diversos setores, full-stack no geral. Front-end,
+              back-end e banco de dados (NoSQL).
+            </li>
+          </ul>
+          <p className="block mt-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
+            Tecnologias utilizadas:
+          </p>
+          <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
+            <Tooltip text="ReactJs">
+              <Image src={ReactIcon} alt="react" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="NodeJs">
+              <Image src={NodeJsIcon} alt="nodejs" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="MongoDb">
+              <Image src={MongoDbIcon} alt="mongoDb" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="ExpressJs">
+              <Image src={ExpressIcon} alt="express" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Git">
+              <Image src={GitIcon} alt="git" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="GitHub">
+              <Image src={GitHubIcon} alt="github" className="w-5 h-5" />
+            </Tooltip>
+          </div>
+        </li>
+
+        <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
+          <Link
+            href="https://pontuax.com.br/"
+            target="_blank"
+            className="absolute flex cursor-pointer items-center bg-white text-blue justify-center  w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900"
+          >
             <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-100" />
             <MdOutlineWork size={22} />
-          </span>
+          </Link>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             PontuaX
           </h3>
@@ -57,23 +121,45 @@ export default function Experience() {
             Tecnologias utilizadas:
           </p>
           <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
-            <Image src={ReactIcon} alt="react" className="w-5 h-5" />
-            <Image src={TypescriptIcon} alt="typescript" className="w-5 h-5" />
-            <Image src={NodeJsIcon} alt="nodejs" className="w-5 h-5" />
-            <Image src={PostgreSqlIcon} alt="postgree" className="w-5 h-5" />
-            <Image src={RedisIcon} alt="redis" className="w-5 h-5" />
-            <Image src={AWSIcon} alt="aws" className="w-5 h-5" />
-            <Image src={GitIcon} alt="git" className="w-5 h-5" />
-            <Image src={BitBucketIcon} alt="bitbucket" className="w-5 h-5" />
-            <Image src={TrelloIcon} alt="trello" className="w-5 h-5" />
+            <Tooltip text="ReactJs">
+              <Image src={ReactIcon} alt="react" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Typescript">
+              <Image src={TypescriptIcon} alt="typescript" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="NodeJs">
+              <Image src={NodeJsIcon} alt="nodejs" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="PostgreSql">
+              <Image src={PostgreSqlIcon} alt="postgree" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Redis">
+              <Image src={RedisIcon} alt="redis" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="AWS">
+              <Image src={AWSIcon} alt="aws" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Git">
+              <Image src={GitIcon} alt="git" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Bitbucket">
+              <Image src={BitBucketIcon} alt="bitbucket" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Trello">
+              <Image src={TrelloIcon} alt="trello" className="w-5 h-5" />
+            </Tooltip>
           </div>
         </li>
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
-          <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+          <Link
+            href="https://ecwsa.com.br/"
+            target="_blank"
+            className="absolute flex items-center bg-white text-blue justify-center w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900"
+          >
             <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[300ms]" />
             <MdOutlineWork size={22} />
-          </span>
+          </Link>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             ECWSA
           </h3>
@@ -101,16 +187,26 @@ export default function Experience() {
             Tecnologias utilizadas:
           </p>
           <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
-            <Image src={ReactIcon} alt="React" className="w-5 h-5" />
-            <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />
-            <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
-            <Image src={GitIcon} alt="React" className="w-5 h-5" />
-            <Image src={JiraIcon} alt="React" className="w-5 h-5" />
+            <Tooltip text="ReactJs">
+              <Image src={ReactIcon} alt="React" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Typescript">
+              <Image src={TypescriptIcon} alt="Typescript" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="NodeJs">
+              <Image src={NodeJsIcon} alt="NodeJs" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Git">
+              <Image src={GitIcon} alt="git" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Jira">
+              <Image src={JiraIcon} alt="jira" className="w-5 h-5" />
+            </Tooltip>
           </div>
         </li>
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
-          <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+          <span className="absolute flex items-center bg-white text-blue justify-center w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900">
             <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[500ms]" />
             <MdOutlineWork size={22} />
           </span>
@@ -138,15 +234,21 @@ export default function Experience() {
             Tecnologias utilizadas:
           </p>
           <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
-            <Image src={PythonIcon} alt="React" className="w-5 h-5" />
+            <Tooltip text="Python">
+              <Image src={PythonIcon} alt="Python" className="w-5 h-5" />
+            </Tooltip>
           </div>
         </li>
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
-          <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+          <Link
+            href="https://www.dwblindagens.com.br/"
+            target="_blank"
+            className="absolute flex items-center bg-white cursor-pointer text-blue justify-center w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900"
+          >
             <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation animation-delay-[700ms]" />
             <MdOutlineWork size={22} />
-          </span>
+          </Link>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             DW Blindagens
           </h3>
@@ -173,19 +275,33 @@ export default function Experience() {
             Tecnologias utilizadas:
           </p>
           <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
-            <Image src={ReactIcon} alt="React" className="w-5 h-5" />
-            <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
-            <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />
-            <Image src={GitIcon} alt="React" className="w-5 h-5" />
-            <Image src={GitHubIcon} alt="React" className="w-5 h-5" />
+            <Tooltip text="ReactJs">
+              <Image src={ReactIcon} alt="React" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="NodeJs">
+              <Image src={NodeJsIcon} alt="NodeJs" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Typescript">
+              <Image src={TypescriptIcon} alt="Typescript" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Git">
+              <Image src={GitIcon} alt="Git" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="GitHub">
+              <Image src={GitHubIcon} alt="Github" className="w-5 h-5" />
+            </Tooltip>
           </div>
         </li>
 
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
-          <span className="absolute flex items-center bg-white text-blue justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-white dark:ring-dark-blue dark:bg-blue-900">
+          <Link
+            href="https://www.m2scars.com.br/"
+            target="_blank"
+            className="absolute flex items-center bg-white cursor-pointer text-blue justify-center w-8 h-8 rounded-full -left-4 ring-4 ring-white dark:ring-dark-blue dark:bg-blue-900"
+          >
             <div className="absolute w-10 h-10 rounded-full animate-pulseAnimation delay-[800ms]" />
             <MdOutlineWork size={22} />
-          </span>
+          </Link>
           <h3 className="flex items-center mb-1 text-lg font-semibold text-blue dark:text-white">
             M2S Cars
           </h3>
@@ -212,13 +328,27 @@ export default function Experience() {
             Tecnologias utilizadas:
           </p>
           <div className="grid grid-cols-5 w-44 md:grid-cols-8 md:w-56 lg:grid-cols-10 lg:w-80 gap-2 mt-2">
-            <Image src={ReactIcon} alt="React" className="w-5 h-5" />
-            <Image src={NodeJsIcon} alt="React" className="w-5 h-5" />
-            <Image src={TypescriptIcon} alt="React" className="w-5 h-5" />
-            <Image src={PhpIcon} alt="React" className="w-5 h-5" />
-            <Image src={MySqlIcon} alt="React" className="w-5 h-5" />
-            <Image src={GitIcon} alt="React" className="w-5 h-5" />
-            <Image src={GitHubIcon} alt="React" className="w-5 h-5" />
+            <Tooltip text="ReactJs">
+              <Image src={ReactIcon} alt="React" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="NodeJs">
+              <Image src={NodeJsIcon} alt="NodeJs" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Typescript">
+              <Image src={TypescriptIcon} alt="Typescript" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Php">
+              <Image src={PhpIcon} alt="Php" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="MySql">
+              <Image src={MySqlIcon} alt="MySql" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Git">
+              <Image src={GitIcon} alt="Git" className="w-5 h-5" />
+            </Tooltip>
+            <Tooltip text="Github">
+              <Image src={GitHubIcon} alt="Github" className="w-5 h-5" />
+            </Tooltip>
           </div>
         </li>
       </ol>
