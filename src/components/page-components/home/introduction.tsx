@@ -4,6 +4,7 @@ import ScrollIndicator from '@/components/scroll-indicator';
 import Link from 'next/link';
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import Tooltip from '@/components/elements/tooltip';
 
 export default function Introduction() {
   return (
@@ -35,7 +36,9 @@ export default function Introduction() {
         </Link>
       </div>
       <div className='absolute bottom-8'>
-        <ScrollIndicator />
+        <Tooltip text='Role para baixo' width='w-28' position='left' top='10px' left='-120px'>
+          <ScrollIndicator />
+        </Tooltip>
       </div>
     </section>
   );
