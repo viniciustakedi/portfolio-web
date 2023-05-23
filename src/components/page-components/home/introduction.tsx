@@ -43,7 +43,7 @@ export default function Introduction() {
         </motion.div>
       </div>
       <div className='absolute bottom-8'>
-        <Tooltip text='Role para baixo' width='w-28' position='left' top='10px' left='-120px'>
+        <Tooltip text='Role para baixo' position='left' top='10px' left='-120px'>
           <ScrollIndicator />
         </Tooltip>
       </div>

@@ -3,7 +3,6 @@ import {
   BitBucketIcon,
   CSSIcon,
   CsharpIcon,
-  DockerIcon,
   ExpressIcon,
   GitHubIcon,
   GitIcon,
@@ -27,10 +26,20 @@ import {
 } from "@/assets/images";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function MarqueeTecnologies() {
+  const [ref, inView] = useInView();
+
   return (
-    <div className="mt-5 mb-5 flex justify-center items-center w-full h-40 px-2 bg-dark-blue ">
+    <motion.div
+      className="mt-5 mb-5 flex justify-center items-center w-full h-40 px-2 bg-dark-blue"
+      ref={ref}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      transition={{ duration: 0.5 }}
+    >
       <Marquee gradient={true} gradientColor={[29, 45, 68]}>
         <div>
           <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={YarnIcon} alt="yarn-icon" />
@@ -105,6 +114,6 @@ export default function MarqueeTecnologies() {
           <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={PostgreSqlIcon} alt="postgresql-icon" />
         </div>
       </Marquee>
-    </div>
+    </motion.div>
   );
 }

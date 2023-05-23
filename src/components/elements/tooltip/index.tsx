@@ -3,13 +3,12 @@ import { useState } from "react";
 interface ITooltip {
 	children: React.ReactNode;
 	text: string,
-	width?: 'w-44' | 'w-56' | 'w-32' | 'w-28' | 'w-20';
 	position?: 'top' | 'bottom' | 'left' | 'right';
 	top?: string;
 	left?: string;
 }
 
-const Tooltip: React.FC<ITooltip> = ({ width, children, text, position, top, left }) => {
+const Tooltip: React.FC<ITooltip> = ({ children, text, position, top, left }) => {
 	const [visible, setVisible] = useState<boolean>(false);
 
 	let positionData: { top: string, left: string } = { top: '-40px', left: '0' };
@@ -21,10 +20,10 @@ const Tooltip: React.FC<ITooltip> = ({ width, children, text, position, top, lef
 	return (
 		<div className="relative">
 			<div
-				className={`bg-white ${width || ' w-20'} ${visible ? 'visible opacity-100' : 'invisible opacity-0'} transition-all delay-75 text-center rounded-lg p-1 absolute z-10`}
+				className={`bg-white w-max ${visible ? 'visible opacity-100' : 'invisible opacity-0'} transition-all delay-75 text-center rounded-lg p-1 absolute z-10 lg:flex md:flex hidden`}
 				style={positionData}
 			>
-				<p className="font-medium text-dark-blue text-sm">
+				<p className="font-medium text-dark-blue text-sm px-1">
 					{text}
 				</p>
 			</div>

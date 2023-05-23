@@ -21,12 +21,31 @@ import Tooltip from "@/components/elements/tooltip";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineWork } from "react-icons/md";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function Experience() {
+  const [ref, inView] = useInView();
+
   return (
     <section id="experience" className="flex flex-col lg:px-24 md:px-10 px-5 py-8">
-      <Tag>Trabalho</Tag>
-      <h1 className="text-4xl mt-4 mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue">Experiência</h1>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+        transition={{ duration: 0.5, delay: 0.75 }}
+      >
+        <Tag>Trabalho</Tag>
+      </motion.div>
+      <motion.h1
+        className="text-4xl mt-4 mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue"
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+        transition={{ duration: 0.75 }}
+      >
+        Experiência
+      </motion.h1>
 
       <ol className="relative border-l ml-5 border-gray-200 dark:border-gray-700">
         <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
