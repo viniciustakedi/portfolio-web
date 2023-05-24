@@ -7,8 +7,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { IoCalendarClearSharp, IoMusicalNoteSharp, IoPersonSharp, IoPinSharp } from "react-icons/io5";
 import { SiDatabricks } from "react-icons/si";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutMe() {
+  const [ref, inView] = useInView();
+
   const [isPlaylistModalOpen, setIsPlaylistModalOpen] = useState(false)
   const [musicContent, setMusicContent] = useState<{ image: any, artist: string, link: string }>({ image: '', artist: '', link: '' })
 
@@ -80,7 +83,7 @@ export default function AboutMe() {
               </h1>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:w-full md:w-full gap-2 mt-2">
-              <Tooltip text="Sal e Pimenta" width="w-28">
+              <Tooltip text="Sal e Pimenta">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -91,7 +94,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="My Way" width="w-20">
+              <Tooltip text="My Way">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -102,7 +105,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="7K" width="w-20">
+              <Tooltip text="7K">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -113,7 +116,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="Malinov Svet" width="w-28">
+              <Tooltip text="Malinov Svet">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className=" scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -124,7 +127,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="Overseas" width="w-20">
+              <Tooltip text="Overseas">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-110 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -135,7 +138,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="Pretty Girl" width="w-28">
+              <Tooltip text="Pretty Girl">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-125 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -146,7 +149,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="Maturidade" width="w-28">
+              <Tooltip text="Maturidade">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className="scale-105 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
@@ -157,7 +160,7 @@ export default function AboutMe() {
                 </div>
               </Tooltip>
 
-              <Tooltip text="Pick Me Up Let Me Fall" width="w-44">
+              <Tooltip text="Pick Me Up Let Me Fall">
                 <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
                   <Image
                     className=" hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"

@@ -1,12 +1,29 @@
 import Tag from "@/components/elements/tag";
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 import { BsFillPlusCircleFill } from "react-icons/bs";
 
 export default function Habilities() {
+  const [ref, inView] = useInView();
+
   return (
     <section id="habilities" className="flex flex-col justify-center items-center lg:px-24 md:px-10 px-5 py-8">
-      <div className="flex gap-5 lg:flex-row flex-col">
+      <motion.div
+        className="flex gap-5 lg:flex-row flex-col"
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 100 }}
+        transition={{ duration: 0.75 }}
+      >
         <div className="lg:w-2/4 lg:mb-0 md:mb-10 mb-6">
-          <Tag>Soft Skills</Tag>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
+          >
+            <Tag>Soft Skills</Tag>
+          </motion.div>
           <h1 className="text-4xl mt-4 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue">Habilidades Interpessoais</h1>
 
           <p className="text-lg text-gray-400 leading-6 mb-2">
@@ -29,7 +46,14 @@ export default function Habilities() {
           </button>
         </div>
         <div className="lg:w-2/4">
-          <Tag>Hard Skills</Tag>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
+            >
+            <Tag>Hard Skills</Tag>
+          </motion.div>
           <h1 className="text-4xl mt-4 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue to-dark-blue">
             Habilidades Técnicas
           </h1>
@@ -48,7 +72,7 @@ export default function Habilities() {
             ideias e experiências.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

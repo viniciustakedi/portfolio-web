@@ -39,7 +39,7 @@ export default function Contact() {
         Contato
       </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-4 lg:w-2/4 md:w-4/5 w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-0 lg:p-4 md:p-4 lg:w-2/4 md:w-4/5 w-full">
         <div className="flex">
           <label htmlFor="person-name">
             <IoPersonSharp size={32} className=" w-12 text-dark-blue bg-white p-3 rounded-l-lg h-12" />
