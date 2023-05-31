@@ -59,6 +59,11 @@ export const experienceData: ExperienceDataType[] = [
         altIcon: 'express'
       },
       {
+        name: 'MongoDb',
+        icon: MongoDbIcon,
+        altIcon: 'mongodb'
+      },
+      {
         name: 'Git',
         icon: GitIcon,
         altIcon: 'git'
