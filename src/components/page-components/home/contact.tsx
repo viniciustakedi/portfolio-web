@@ -1,5 +1,6 @@
 import ResponseModal from "@/components/modal/responseModal";
 import { SendMailValues, sendMail } from "@/services/post";
+import { enqueueSnackbar } from "notistack";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IoMailSharp, IoPersonSharp, IoSendSharp } from "react-icons/io5";
@@ -8,10 +9,8 @@ export default function Contact() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<SendMailValues>();
 
   const [attempts, setAttempts] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [disabledButton, setDisabledButton] = useState<boolean>(false);
-
-  const [isResponseModalOpen, setIsResponseModalOpen] = useState(false)
-  const [responseContent, setResponseContent] = useState<{ status: 'error' | 'success', message: string }>({ status: 'error', message: 'Erro na mensagem.' })
 
   const onSubmit: SubmitHandler<SendMailValues> = async (data) => {
     setAttempts(state => state + 1);
@@ -21,16 +20,19 @@ export default function Contact() {
       return;
     }
 
+    setIsLoading(true);
+
     const response = await sendMail(data);
-    setIsResponseModalOpen(true);
-    
+
     if (response.statusCode === 200) {
-      setResponseContent({ status: 'success', message: 'Mensagem enviada com sucesso!' });
+      enqueueSnackbar('Mensagem enviada com sucesso!', { variant: 'success' });
       setDisabledButton(true);
+      setIsLoading(false);
       return;
     }
 
-    setResponseContent({ status: 'error', message: 'Erro ou enviar mensagem!' });
+    enqueueSnackbar('Erro ou enviar mensagem!', { variant: 'error' });
+    setIsLoading(false);
   };
 
   return (
@@ -88,16 +90,19 @@ export default function Contact() {
         />
         {errors.message && <span className="mt-1 text-red font-semibold">{errors.message.message}</span>}
 
-        <button type="submit" disabled={disabledButton} name="submit-contact-form" className="flex justify-center items-center p-2 rounded-lg h-16 outline-none mt-6 text-lg text-white bg-blue hover:bg-dark-blue hover:scale-95 transition-all">
-          <IoSendSharp size={22} className="mr-2" />
-          Enviar
+        <button type="submit" disabled={disabledButton} name="submit-contact-form" className="flex justify-center items-center p-2 rounded-lg h-16 outline-none mt-6 text-lg text-white bg-blue hover:bg-dark-blue hover:scale-105 transition-all">
+          {(
+            isLoading
+              ? <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin dark:blue"></div>
+              : (
+                <>
+                  <IoSendSharp size={22} className="mr-2" />
+                  Enviar
+                </>
+              )
+          )}
         </button>
       </form>
-      <ResponseModal
-        isOpen={isResponseModalOpen}
-        onClose={setIsResponseModalOpen}
-        responseContent={responseContent}
-      />
     </section>
   );
 }
