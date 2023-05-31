@@ -1,7 +1,8 @@
-import { MalinovSvet, Maturidade, MyWay, Myself, Overseas, PickMeUpLetMeFall, PrettyGirl, SalEPimenta, SeteK } from "@/assets/images";
+import { Myself } from "@/assets/images";
 import Tag from "@/components/elements/tag";
 import Tooltip from "@/components/elements/tooltip";
 import PlaylistModal from "@/components/modal/playlistModal";
+import { PlaylistDataType, playlistData } from "@/services/mock/playlist";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -83,94 +84,20 @@ export default function AboutMe() {
               </h1>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:w-full md:w-full gap-2 mt-2">
-              <Tooltip text="Sal e Pimenta">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={SalEPimenta}
-                    alt="sal-e-pimenta-thumb"
-                    onClick={() => handleOpenPlaylistModal(SalEPimenta, 'Kayblack', 'https://www.youtube.com/watch?v=f2JlAkmeB0M')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="My Way">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={MyWay}
-                    alt="my-way-thumb"
-                    onClick={() => handleOpenPlaylistModal(MyWay, 'Frank Sinatra', 'https://www.youtube.com/watch?v=qQzdAsjWGPg')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="7K">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={SeteK}
-                    alt="7-k-thumb"
-                    onClick={() => handleOpenPlaylistModal(SeteK, 'Young Buda', 'https://www.youtube.com/watch?v=-fKvcGd2zvQ')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="Malinov Svet">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className=" scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={MalinovSvet}
-                    alt="malinov-svet-thumb"
-                    onClick={() => handleOpenPlaylistModal(MalinovSvet, 'Леша Свик', 'https://www.youtube.com/watch?v=ct15n6_ppmY')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="Overseas">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-110 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={Overseas}
-                    alt="malinov-svet-thumb"
-                    onClick={() => handleOpenPlaylistModal(Overseas, 'Central Cee', 'https://www.youtube.com/watch?v=I4Ra4z2Arqg')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="Pretty Girl">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-125 hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={PrettyGirl}
-                    alt="malinov-svet-thumb"
-                    onClick={() => handleOpenPlaylistModal(PrettyGirl, 'Clairo', 'https://www.youtube.com/watch?v=mngtcfcaVrI')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="Maturidade">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className="scale-105 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={Maturidade}
-                    alt="malinov-svet-thumb"
-                    onClick={() => handleOpenPlaylistModal(Maturidade, 'Kayblack', 'https://www.youtube.com/watch?v=K9d5Tfdevt8')}
-                  />
-                </div>
-              </Tooltip>
-
-              <Tooltip text="Pick Me Up Let Me Fall">
-                <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
-                  <Image
-                    className=" hover:scale-150 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
-                    src={PickMeUpLetMeFall}
-                    alt="malinov-svet-thumb"
-                    onClick={() => handleOpenPlaylistModal(PickMeUpLetMeFall, 'Lil Rae', 'https://www.youtube.com/watch?v=XFtNeMi-lKI')}
-                  />
-                </div>
-              </Tooltip>
-
+              {(
+                playlistData.map((item: PlaylistDataType) => (
+                  <Tooltip key={item.id} text={item.title}>
+                    <div className="w-auto h-48 overflow-hidden rounded-lg bg-black cursor-pointer">
+                      <Image
+                        className="scale-110 hover:scale-125 w-full h-full object-cover hover:opacity-40 transition-all rounded-lg"
+                        src={item.thumbnail}
+                        alt={item.altThumbnail}
+                        onClick={() => handleOpenPlaylistModal(item.thumbnail, item.artist, item.ytLink)}
+                      />
+                    </div>
+                  </Tooltip>
+                ))
+              )}
               <PlaylistModal
                 isOpen={isPlaylistModalOpen}
                 onClose={setIsPlaylistModalOpen}
