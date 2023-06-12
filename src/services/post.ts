@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:8000';
+
 export type SendMailValues = {
   name: string,
   email: string,

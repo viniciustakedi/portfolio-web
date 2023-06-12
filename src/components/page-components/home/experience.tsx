@@ -52,7 +52,7 @@ export default function Experience() {
         {(
           experienceData.map((experience: ExperienceDataType) => {
             return (
-              <li className="mb-10 lg:ml-10 md:ml-10 ml-8">
+              <li key={experience.company} className="mb-10 lg:ml-10 md:ml-10 ml-8">
                 <Link
                   href={experience.companyWebsite}
                   target="_blank"
@@ -71,7 +71,7 @@ export default function Experience() {
                   {(
                     experience.tasks.map((description: string) => {
                       return (
-                        <li>
+                        <li key={description}>
                           - {description}
                         </li>
                       )
@@ -85,7 +85,7 @@ export default function Experience() {
                   {(
                     experience.technologies.map((technology) => {
                       return (
-                        <Tooltip text={technology.name}>
+                        <Tooltip key={technology.name} text={technology.name}>
                           <Image src={technology.icon} alt={technology.altIcon} className="w-5 h-5" />
                         </Tooltip>
                       )
