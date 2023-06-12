@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:8000';
+// const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://api.takedi.dev';
 
 export const updateVisitsOnWebsite = async () => {
   let response: { message: string, statusCode: number } = { message: 'Erro ao atualizar visitas', statusCode: 404 };
