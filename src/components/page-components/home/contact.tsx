@@ -24,7 +24,7 @@ export default function Contact() {
 
     const response = await sendMail(data);
 
-    if (response.statusCode === 200) {
+    if (response.status === 200) {
       enqueueSnackbar('Mensagem enviada com sucesso!', { variant: 'success' });
       setDisabledButton(true);
       setIsLoading(false);

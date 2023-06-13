@@ -2,7 +2,7 @@
 const BASE_URL = 'https://api.takedi.dev';
 
 export const updateVisitsOnWebsite = async () => {
-  let response: { message: string, statusCode: number } = { message: 'Erro ao atualizar visitas', statusCode: 404 };
+  let response: { message: string, status: number } = { message: 'Erro ao atualizar visitas', status: 404 };
 
   await fetch(BASE_URL + '/visits-on-website', {
     method: 'PATCH',
