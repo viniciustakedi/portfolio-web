@@ -1,14 +1,14 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import QuizLottieFile from '@/assets/lottie-files/quiz.json'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { enqueueSnackbar } from "notistack";
 import { startQuiz } from "@/services/post";
 import { findQuizById } from "@/services/get";
+import { useAtom } from "jotai";
+import { isQuizStartedAtom } from "@/contexts/quizzes";
 
 export default function StartQuiz() {
-  const [isQuizStarted, setIsQuizStarted] = useState<boolean>(false)
-  const [questionsIds, setQuestionsIds] = useState<string[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
 
   useEffect(() => {
     Promise.resolve().then(async () => {
@@ -17,7 +17,6 @@ export default function StartQuiz() {
       if (quizId) {
         const quiz = await findQuizById(quizId);
         if (quiz.status === 200) {
-          setQuestionsIds(quiz.data.questionsIds);
           setIsQuizStarted(true);
         } else {
           localStorage.removeItem('quizId');
@@ -27,11 +26,8 @@ export default function StartQuiz() {
   }, [])
 
   const handleStartQuiz = async () => {
-    setIsLoading(true);
-    
     const quiz = await startQuiz();
     if (quiz.status === 201) {
-      setQuestionsIds(quiz.data.questionsIds);
       setIsQuizStarted(true);
     } else {
       let errorMessage = 'Erro ao começar quiz!';
@@ -43,8 +39,6 @@ export default function StartQuiz() {
       enqueueSnackbar(errorMessage, { variant: 'error' });
       setIsQuizStarted(false);
     }
-
-    setIsLoading(false);
   }
 
   return (

@@ -1,13 +1,15 @@
 import Head from "next/head";
-import { useState } from "react";
-import { StartQuiz } from "@/components/page-components/quiz";
+import { useAtom } from "jotai";
 import Loading from "@/components/loading";
+import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom } from "@/contexts/quizzes";
+import { QuizCongratulations, QuizQuestions, StartQuiz } from "@/components/page-components/quiz";
 
 export default function Quiz() {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [isQuizStarted, setIsQuizStarted] = useState<boolean>(false)
-  
-  if (isLoading) { return <Loading /> }
+  const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
+  const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
+  const [quizContent, setQuizContent] = useAtom(quizContentAtom)
+
+  if (isQuizLoading) { return <Loading /> }
 
   return (
     <>
@@ -20,16 +22,9 @@ export default function Quiz() {
         />
       </Head>
       <main className="w-full min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
-        {(
-          !isQuizStarted && (<StartQuiz/>)
-        )}
-        {(
-          isQuizStarted && (
-            <h1>
-              Teste
-            </h1>
-          )
-        )}
+        {(!isQuizStarted && (<StartQuiz />))}
+        {(!quizContent.isFinished && isQuizStarted && (<QuizQuestions />))}
+        {(quizContent.isFinished && isQuizStarted && (<QuizCongratulations />))}
       </main>
     </>
   )
