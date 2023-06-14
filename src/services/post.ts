@@ -1,3 +1,5 @@
+import { enviroment } from "@/configs/constants";
+
 export type SendMailValues = {
   name: string,
   email: string,
@@ -8,9 +10,6 @@ export type LoginValues = {
   code: string,
   password: string,
 };
-
-// const BASE_URL = 'https://api.takedi.dev';
-const BASE_URL = 'http://localhost:8000';
 
 export const sendMail = async (data: SendMailValues) => {
   let response: { message: string, status: number } = { message: 'Erro ao enviar mensagem', status: 404 };
@@ -36,8 +35,7 @@ export const sendMail = async (data: SendMailValues) => {
 export const login = async (data: LoginValues) => {
   let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao fazer login', status: 404 };
 
-
-  await fetch(BASE_URL + '/auth/login', {
+  await fetch(enviroment.API_URL + '/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -47,6 +45,27 @@ export const login = async (data: LoginValues) => {
     .then((res) => res.json())
     .then((data) => {
       response = data;
+    })
+    .catch((error) => {
+      response = error;
+    });
+
+  return response;
+}
+
+export const startQuiz = async () => {
+  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao iniciar quiz', status: 404 };
+
+  await fetch(enviroment.API_URL + '/quizzes/start', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      response = data;
+      localStorage.setItem('quizId', data.data._id);
     })
     .catch((error) => {
       response = error;

@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <SnackbarProvider>
+    <SnackbarProvider autoHideDuration={5000}>
       <QueryClientProvider client={queryClient.current}>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
