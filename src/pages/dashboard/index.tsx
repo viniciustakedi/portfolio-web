@@ -19,9 +19,7 @@ export default function Dashboard() {
     });
   }, [])
 
-  if (!isUserAuthorized) {
-    return <Loading />
-  }
+  if (!isUserAuthorized) { return <Loading /> }
 
   return (
     <>
@@ -34,7 +32,7 @@ export default function Dashboard() {
         />
       </Head>
       <main className="min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
-      
+
       </main>
     </>
   )

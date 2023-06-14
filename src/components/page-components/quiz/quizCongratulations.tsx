@@ -2,9 +2,11 @@ import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom } from "@/context
 import { upPositionVariants } from "@/utils/animations";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function QuizCongratulations() {
+  const route = useRouter();
+
   const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
   const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
   const [quizContent, setQuizContent] = useAtom(quizContentAtom)
@@ -14,16 +16,20 @@ export default function QuizCongratulations() {
   const answersWrong = quizContent.questionsAnswers.filter(e => !e.isAnswerCorrect).length;
 
   const handleClearQuiz = () => {
-    localStorage.removeItem('quizId');
+    setIsQuizLoading(true);
+    //remover o loading depois de carregar a página
+    //fazer loading quando iniciar o quiz e quando carregar cada pergunta
     setIsQuizStarted(false);
-    setIsQuizLoading(false);
+
+    route.push('/')
+    localStorage.removeItem('quizId');
   }
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       <h1 className="mb-4 text-9xl">🎉</h1>
-      <h1 className='text-6xl font-extrabold text-white mt-2 text-center'>
-        {answersCorrect === total && 'Paraabéns! Você finalizou o quiz!'}
+      <h1 className='lg:text-6xl md:text-5x1 text-4x1 font-extrabold text-white mt-2 text-center'>
+        {answersCorrect === total && 'Parabéns! Você finalizou o quiz!'}
         {answersCorrect !== total && answersWrong !== total && 'Uhuul, você finalizou o quiz!'}
         {answersWrong === total && 'Ebaa, você finalizou o quiz!'}
         <br />
@@ -44,9 +50,9 @@ export default function QuizCongratulations() {
           )
         )}
         <motion.div initial="hidden" animate="visible" variants={upPositionVariants({ delay: 1.2 })}>
-          <Link href="/" onClick={handleClearQuiz} className='flex justify-center p-2 w-40 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
+          <button onClick={handleClearQuiz} className='flex justify-center p-2 w-40 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
             Voltar para home
-          </Link>
+          </button>
         </motion.div>
       </div>
     </div>
