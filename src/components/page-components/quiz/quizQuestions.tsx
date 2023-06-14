@@ -7,8 +7,6 @@ import { useAtom } from "jotai"
 import Image from "next/image";
 
 export default function QuizQuestions() {
-  const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
-
   const [currentQuestion, setCurrentQuestion] = useAtom(currentQuestionContentAtom)
   const [quizContent, setQuizContent] = useAtom(quizContentAtom)
 
@@ -20,8 +18,6 @@ export default function QuizQuestions() {
 
   const getQuiz = async () => {
     const quizId = localStorage.getItem('quizId');
-    setIsQuizLoading(true);
-
     if (quizId) {
       const quiz = await findQuizById(quizId);
       if (quiz.status === 200) {
@@ -35,7 +31,6 @@ export default function QuizQuestions() {
       }
     }
 
-    setIsQuizLoading(false);
   }
 
   const getQuestion = async (questionId: string) => {

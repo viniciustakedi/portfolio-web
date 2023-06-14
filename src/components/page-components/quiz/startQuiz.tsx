@@ -5,14 +5,16 @@ import { enqueueSnackbar } from "notistack";
 import { startQuiz } from "@/services/post";
 import { findQuizById } from "@/services/get";
 import { useAtom } from "jotai";
-import { isQuizStartedAtom } from "@/contexts/quizzes";
+import { isQuizLoadingAtom, isQuizStartedAtom } from "@/contexts/quizzes";
 
 export default function StartQuiz() {
   const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
+  const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
 
   useEffect(() => {
     Promise.resolve().then(async () => {
       const quizId = localStorage.getItem('quizId');
+      setIsQuizLoading(true)
 
       if (quizId) {
         const quiz = await findQuizById(quizId);
@@ -22,6 +24,8 @@ export default function StartQuiz() {
           localStorage.removeItem('quizId');
         }
       }
+
+      setIsQuizLoading(false)
     });
   }, [])
 
