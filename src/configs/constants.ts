@@ -1,6 +1,6 @@
 export const enviroment = {
-  // API_URL: 'https://api.takedi.dev',
-  API_URL: 'http://localhost:8000',
+  API_URL: 'https://api.takedi.dev',
+  // API_URL: 'http://localhost:8000',
 
   ALG_JWT: 'RS256',
   ISSUER_JWT: 'api-takedi',
