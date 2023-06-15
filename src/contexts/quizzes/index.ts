@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-type CurrentQuestionContent = {
+export type CurrentQuestionContent = {
   _id: string;
   thumbnail: string;
   question: string;
@@ -11,7 +11,7 @@ type CurrentQuestionContent = {
   categories: string[];
 };
 
-const currentQuestionContentInitialValues = {
+export const currentQuestionContentInitialValues = {
   _id: '',
   thumbnail: '',
   question: '',

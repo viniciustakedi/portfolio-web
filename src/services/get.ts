@@ -31,7 +31,6 @@ export const getQuestionById = async (id: string) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log("🚀 ~ file: get.ts:34 ~ .then ~ data:", data)
       response = data;
     })
     .catch((error) => {
