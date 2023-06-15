@@ -25,6 +25,7 @@ export default function QuizCongratulations() {
   }
 
   const handleGoToReview = () => {
+    setIsQuizLoading(true);
     route.push('/quiz/review')
   }
 

@@ -18,6 +18,7 @@ export default function ButtonsChangeQuestion() {
 
   const getQuizCallback = useCallback(async () => {
     await getQuiz();
+    setIsQuizLoading(false);
   }, []);
 
   useEffect(() => {
