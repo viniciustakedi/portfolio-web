@@ -3,11 +3,16 @@ import { useAtom } from "jotai";
 import Loading from "@/components/loading";
 import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom } from "@/contexts/quizzes";
 import { QuizCongratulations, QuizQuestions, StartQuiz } from "@/components/page-components/quiz";
+import { useEffect } from "react";
 
 export default function Quiz() {
   const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
   const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
   const [quizContent, setQuizContent] = useAtom(quizContentAtom)
+
+  useEffect(() => {
+    setIsQuizLoading(false);
+  }, [])
 
   if (isQuizLoading) { return <Loading /> }
 

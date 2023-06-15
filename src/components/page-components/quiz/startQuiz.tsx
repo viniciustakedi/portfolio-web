@@ -30,6 +30,7 @@ export default function StartQuiz() {
   }, [])
 
   const handleStartQuiz = async () => {
+    setIsQuizLoading(true);
     const quiz = await startQuiz();
     if (quiz.status === 201) {
       setIsQuizStarted(true);
@@ -43,6 +44,8 @@ export default function StartQuiz() {
       enqueueSnackbar(errorMessage, { variant: 'error' });
       setIsQuizStarted(false);
     }
+
+    setIsQuizLoading(false);
   }
 
   return (

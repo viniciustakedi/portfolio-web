@@ -6,8 +6,9 @@ import { useEffect } from "react";
 import { useAtom } from "jotai"
 import Image from "next/image";
 
-export default function QuizQuestions() {
+export default function QuizQuestions() {  
   const [currentQuestion, setCurrentQuestion] = useAtom(currentQuestionContentAtom)
+  const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
   const [quizContent, setQuizContent] = useAtom(quizContentAtom)
 
   useEffect(() => {
@@ -24,13 +25,12 @@ export default function QuizQuestions() {
         setQuizContent(quiz.data);
 
         if (!quiz.data.isFinished) {
-          getQuestion(quiz.data.currentQuestion);
+          await getQuestion(quiz.data.currentQuestion);
         }
       } else {
         localStorage.removeItem('quizId');
       }
     }
-
   }
 
   const getQuestion = async (questionId: string) => {
@@ -44,6 +44,7 @@ export default function QuizQuestions() {
   }
 
   const replyQuestion = async (optionId: string) => {
+    setIsQuizLoading(true);
     const sendReply = await replyQuizQuestion(quizContent._id, currentQuestion._id, optionId);
 
     if (sendReply.status === 200) {
@@ -53,6 +54,7 @@ export default function QuizQuestions() {
     }
 
     await getQuiz();
+    setIsQuizLoading(false);
   }
 
   return (

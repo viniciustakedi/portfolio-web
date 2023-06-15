@@ -16,13 +16,15 @@ export default function QuizCongratulations() {
   const answersWrong = quizContent.questionsAnswers.filter(e => !e.isAnswerCorrect).length;
 
   const handleClearQuiz = () => {
+    route.push('/')
     setIsQuizLoading(true);
-    //remover o loading depois de carregar a página
-    //fazer loading quando iniciar o quiz e quando carregar cada pergunta
     setIsQuizStarted(false);
 
-    route.push('/')
     localStorage.removeItem('quizId');
+  }
+
+  const handleGoToReview = () => {
+    route.push('/quiz/review')
   }
 
   return (
@@ -43,7 +45,7 @@ export default function QuizCongratulations() {
         {(
           answersWrong > 0 && (
             <motion.div initial="hidden" animate="visible" variants={upPositionVariants({ delay: 1 })}>
-              <button className='flex justify-center p-2 w-28 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
+              <button onClick={handleGoToReview} className='flex justify-center p-2 w-28 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
                 Ver resumo
               </button>
             </motion.div>
