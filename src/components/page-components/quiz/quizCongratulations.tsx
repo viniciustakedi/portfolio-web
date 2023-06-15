@@ -1,4 +1,4 @@
-import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom } from "@/contexts/quizzes";
+import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom, quizContentInitialValues } from "@/contexts/quizzes";
 import { upPositionVariants } from "@/utils/animations";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
@@ -19,6 +19,7 @@ export default function QuizCongratulations() {
     route.push('/')
     setIsQuizLoading(true);
     setIsQuizStarted(false);
+    setQuizContent(quizContentInitialValues)
 
     localStorage.removeItem('quizId');
   }
@@ -30,7 +31,7 @@ export default function QuizCongratulations() {
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       <h1 className="mb-4 text-9xl">🎉</h1>
-      <h1 className='lg:text-6xl md:text-5x1 text-4x1 font-extrabold text-white mt-2 text-center'>
+      <h1 className='lg:text-6xl md:text-5x1 text-4xl font-extrabold text-white mt-2 text-center'>
         {answersCorrect === total && 'Parabéns! Você finalizou o quiz!'}
         {answersCorrect !== total && answersWrong !== total && 'Uhuul, você finalizou o quiz!'}
         {answersWrong === total && 'Ebaa, você finalizou o quiz!'}

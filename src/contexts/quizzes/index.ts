@@ -32,7 +32,7 @@ type QuizContent = {
   createdAt: Date
 };
 
-const quizContentInitialValues = {
+export const quizContentInitialValues = {
   _id: '',
   questionsIds: [],
   questionsAnswers: [],
