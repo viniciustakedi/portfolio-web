@@ -5,6 +5,7 @@ import { enqueueSnackbar } from "notistack";
 import { useEffect } from "react";
 import { useAtom } from "jotai"
 import Image from "next/image";
+import { shuffleQuizQuestions } from "@/utils";
 
 export default function QuizQuestions() {  
   const [currentQuestion, setCurrentQuestion] = useAtom(currentQuestionContentAtom)
@@ -72,7 +73,7 @@ export default function QuizQuestions() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-4 w-full">
           {(
-            currentQuestion.options.map((option) => (
+            shuffleQuizQuestions(currentQuestion.options).map((option) => (
               <button
                 key={option._id}
                 className="bg-blue rounded-md px-4 py-6 text-white w-full font-medium hover:bg-dark-blue transition-all"

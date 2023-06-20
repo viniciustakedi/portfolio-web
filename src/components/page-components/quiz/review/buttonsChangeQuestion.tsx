@@ -1,4 +1,4 @@
-import { currentQuestionContentAtom, isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom, quizContentInitialValues } from "@/contexts/quizzes";
+import { currentQuestionContentAtom, currentQuestionContentInitialValues, isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom, quizContentInitialValues } from "@/contexts/quizzes";
 import { findQuizById, getQuestionById } from "@/services/get";
 import { upPositionVariants } from "@/utils/animations";
 import { motion } from "framer-motion";
@@ -18,7 +18,6 @@ export default function ButtonsChangeQuestion() {
 
   const getQuizCallback = useCallback(async () => {
     await getQuiz();
-    setIsQuizLoading(false);
   }, []);
 
   useEffect(() => {
@@ -69,11 +68,12 @@ export default function ButtonsChangeQuestion() {
   }
 
   const handleClearQuiz = () => {
-    route.push('/')
     setIsQuizLoading(true);
     setIsQuizStarted(false);
     setQuizContent(quizContentInitialValues)
+    setCurrentQuestion(currentQuestionContentInitialValues)
 
+    route.push('/')
     localStorage.removeItem('quizId');
   }
 

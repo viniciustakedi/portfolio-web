@@ -1,4 +1,11 @@
-import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom, quizContentInitialValues } from "@/contexts/quizzes";
+import {
+  currentQuestionContentAtom,
+  currentQuestionContentInitialValues,
+  isQuizLoadingAtom,
+  isQuizStartedAtom,
+  quizContentAtom,
+  quizContentInitialValues
+} from "@/contexts/quizzes";
 import { upPositionVariants } from "@/utils/animations";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
@@ -7,6 +14,7 @@ import { useRouter } from "next/router";
 export default function QuizCongratulations() {
   const route = useRouter();
 
+  const [currentQuestion, setCurrentQuestion] = useAtom(currentQuestionContentAtom)
   const [isQuizLoading, setIsQuizLoading] = useAtom(isQuizLoadingAtom)
   const [isQuizStarted, setIsQuizStarted] = useAtom(isQuizStartedAtom)
   const [quizContent, setQuizContent] = useAtom(quizContentAtom)
@@ -20,6 +28,7 @@ export default function QuizCongratulations() {
     setIsQuizLoading(true);
     setIsQuizStarted(false);
     setQuizContent(quizContentInitialValues)
+    setCurrentQuestion(currentQuestionContentInitialValues)
 
     localStorage.removeItem('quizId');
   }
@@ -31,8 +40,20 @@ export default function QuizCongratulations() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
-      <h1 className="mb-4 text-9xl">🎉</h1>
-      <h1 className='lg:text-6xl md:text-5x1 text-4xl font-extrabold text-white mt-2 text-center'>
+      <motion.h1
+        initial="hidden"
+        animate="visible"
+        variants={upPositionVariants({ delay: 0.5 })}
+        className="mb-4 text-9xl"
+      >
+        🎉
+      </motion.h1>
+      <motion.h1
+        className='lg:text-6xl md:text-5x1 text-4xl font-extrabold text-white mt-2 text-center'
+        initial="hidden"
+        animate="visible"
+        variants={upPositionVariants({ delay: .75 })}
+      >
         {answersCorrect === total && 'Parabéns! Você finalizou o quiz!'}
         {answersCorrect !== total && answersWrong !== total && 'Uhuul, você finalizou o quiz!'}
         {answersWrong === total && 'Ebaa, você finalizou o quiz!'}
@@ -42,7 +63,7 @@ export default function QuizCongratulations() {
           {answersCorrect !== total && answersWrong !== total && `Você acertou ${answersCorrect} de ${total}`}
           {answersWrong === total && 'Que pena! Você errou todas!'}
         </span>
-      </h1>
+      </motion.h1>
       <div className='flex justify-center items-center gap-2 mt-8'>
         {(
           answersWrong > 0 && (

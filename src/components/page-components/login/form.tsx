@@ -4,8 +4,6 @@ import { enqueueSnackbar } from 'notistack';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { MdNumbers, MdPassword } from 'react-icons/md';
-import Image from 'next/image';
-import LoginImage from '@/assets/images/login/login.png';
 import { isJwtValid } from '@/configs';
 
 export default function Form() {

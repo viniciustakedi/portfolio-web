@@ -3,9 +3,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loading from "@/components/loading";
 import Head from "next/head";
+import { useAtom } from "jotai";
+import { IsUserAuthorized } from "@/contexts/users";
 
 export default function Dashboard() {
-  const [isUserAuthorized, setIsUserAuthorized] = useState<boolean>(false)
+  const [isUserAuthorized, setIsUserAuthorized] = useAtom(IsUserAuthorized)
   const router = useRouter()
 
   useEffect(() => {

@@ -11,15 +11,15 @@ export const typicalStepsHome = [
   'SCSS',
   'NodeJs',
   'NPM',
-  'Yarn',  
-  'PostgreSQL',  
-  'MySQL',  
-  'SQL Server',  
-  'Redis',  
-  'AWS',  
-  'Docker',  
-  'Git',  
-  'GitLab',  
+  'Yarn',
+  'PostgreSQL',
+  'MySQL',
+  'SQL Server',
+  'Redis',
+  'AWS',
+  'Docker',
+  'Git',
+  'GitLab',
   'GitHub',
   'BitBucket',
   'Trello',
@@ -32,3 +32,16 @@ export const typicalStepsHome = [
   'React Router',
   'React Context',
 ]
+
+interface QuestionQuizObject {
+  _id: string;
+  value: string;
+}
+
+export const shuffleQuizQuestions = (array: QuestionQuizObject[]): QuestionQuizObject[] => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
