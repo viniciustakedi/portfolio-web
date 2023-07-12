@@ -33,8 +33,11 @@ export default function Dashboard() {
           key="desc"
         />
       </Head>
-      <main className="min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
-
+      <main className="main-default ">
+        {/* 
+          Fazer dashboard para cadastro de posts no blog e mais perguntas para o quiz
+          Além de mudar o quiz para que as respostas venham embaralhadas direto do back-end
+        */}
       </main>
     </>
   )

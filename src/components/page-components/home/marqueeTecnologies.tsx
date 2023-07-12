@@ -42,76 +42,76 @@ export default function MarqueeTecnologies() {
     >
       <Marquee gradient={true} gradientColor={[29, 45, 68]}>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={YarnIcon} alt="yarn-icon" />
+          <Image className="marquee-tech-images" src={YarnIcon} alt="yarn-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={TypescriptIcon} alt="typescript-icon" />
+          <Image className="marquee-tech-images" src={TypescriptIcon} alt="typescript-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={TrelloIcon} alt="trello-icon" />
+          <Image className="marquee-tech-images" src={TrelloIcon} alt="trello-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={SassIcon} alt="sass-icon" />
+          <Image className="marquee-tech-images" src={SassIcon} alt="sass-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={RedisIcon} alt="redis-icon" />
+          <Image className="marquee-tech-images" src={RedisIcon} alt="redis-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={ReactIcon} alt="react-icon" />
+          <Image className="marquee-tech-images" src={ReactIcon} alt="react-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={NpmIcon} alt="npm-icon" />
+          <Image className="marquee-tech-images" src={NpmIcon} alt="npm-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={BitBucketIcon} alt="bitbucket-icon" />
+          <Image className="marquee-tech-images" src={BitBucketIcon} alt="bitbucket-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={AWSIcon} alt="aws-icon" />
+          <Image className="marquee-tech-images" src={AWSIcon} alt="aws-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={CsharpIcon} alt="csharp-icon" />
+          <Image className="marquee-tech-images" src={CsharpIcon} alt="csharp-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={CSSIcon} alt="css-icon" />
+          <Image className="marquee-tech-images" src={CSSIcon} alt="css-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={ExpressIcon} alt="express-icon" />
+          <Image className="marquee-tech-images" src={ExpressIcon} alt="express-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={GitHubIcon} alt="github-icon" />
+          <Image className="marquee-tech-images" src={GitHubIcon} alt="github-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={MongoDbIcon} alt="mongodb-icon" />
+          <Image className="marquee-tech-images" src={MongoDbIcon} alt="mongodb-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={GitIcon} alt="git-icon" />
+          <Image className="marquee-tech-images" src={GitIcon} alt="git-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={HTMLIcon} alt="html-icon" />
+          <Image className="marquee-tech-images" src={HTMLIcon} alt="html-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={LinuxIcon} alt="linux-icon" />
+          <Image className="marquee-tech-images" src={LinuxIcon} alt="linux-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={MySqlIcon} alt="mysql-icon" />
+          <Image className="marquee-tech-images" src={MySqlIcon} alt="mysql-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={NextJsIcon} alt="nextjs-icon" />
+          <Image className="marquee-tech-images" src={NextJsIcon} alt="nextjs-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={JiraIcon} alt="jira-icon" />
+          <Image className="marquee-tech-images" src={JiraIcon} alt="jira-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4 w-" src={SqlServerIcon} alt="sqlserver-icon" />
+          <Image className="marquee-tech-images w-" src={SqlServerIcon} alt="sqlserver-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={NestJsIcon} alt="nestjs-icon" />
+          <Image className="marquee-tech-images" src={NestJsIcon} alt="nestjs-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={NodeJsIcon} alt="nodejs-icon" />
+          <Image className="marquee-tech-images" src={NodeJsIcon} alt="nodejs-icon" />
         </div>
         <div>
-          <Image className="lg:w-16 lg:h-16 lg:mx-8 md:w-16 md:h-16 md:mx-8 w-12 :h-12 mx-4" src={PostgreSqlIcon} alt="postgresql-icon" />
+          <Image className="marquee-tech-images" src={PostgreSqlIcon} alt="postgresql-icon" />
         </div>
       </Marquee>
     </motion.div>

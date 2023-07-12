@@ -13,7 +13,7 @@ export default function Loading() {
           key="desc"
         />
       </Head>
-      <main className="min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
+      <main className="main-default ">
         <div className="flex flex-col items-center justify-center h-screen">
           <div className="flex w-full justify-center items-center">
             <Player

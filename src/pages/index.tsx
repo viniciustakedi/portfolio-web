@@ -22,7 +22,7 @@ export default function Home() {
           key="desc"
         />
       </Head>
-      <main className="min-h-screen bg-gradient-to-r from-dark-black to-dark-blue">
+      <main className="main-default">
         <Menu />
         <Introduction />
         <Habilities />

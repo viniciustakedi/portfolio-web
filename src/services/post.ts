@@ -73,3 +73,23 @@ export const startQuiz = async () => {
 
   return response;
 }
+
+export const likePost = async (postId: string) => {
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao curtir post', statusCode: 404 };
+
+  await fetch(enviroment.API_URL + `/blogs/post/${postId}/like`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      response = data;
+    })
+    .catch((error) => {
+      response = error;
+    });
+
+  return response;
+}

@@ -39,3 +39,6 @@ body {
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+.main-default {
+  @apply min-h-screen bg-gradient-to-r from-dark-black to-dark-blue
+}
