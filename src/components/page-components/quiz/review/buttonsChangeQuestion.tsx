@@ -27,7 +27,7 @@ export default function ButtonsChangeQuestion() {
   const getQuestion = async (questionId: string) => {
     const question = await getQuestionById(questionId);
 
-    if (question.status === 200) {
+    if (question.statusCode === 200) {
       setCurrentQuestion(question.data);
     } else {
       enqueueSnackbar('Erro ao carregar pergunta!', { variant: 'error' });
@@ -40,7 +40,7 @@ export default function ButtonsChangeQuestion() {
     const quizId = localStorage.getItem('quizId');
     if (quizId) {
       const quiz = await findQuizById(quizId);
-      if (quiz.status === 200) {
+      if (quiz.statusCode === 200) {
         setQuizContent(quiz.data);
 
         if (quiz.data.isFinished) {

@@ -21,9 +21,9 @@ export default function sendMail(req: NextApiRequest, res: NextApiResponse) {
   sgMail
     .send(msg)
     .then(() => {
-      res.status(200).json({ message: 'Email sent', status: 200 });
+      res.status(200).json({ message: 'Email sent', statusCode: 200 });
     })
     .catch((error) => {
-      res.status(400).json({ message: error, status: 400 });
+      res.status(400).json({ message: error, statusCode: 400 });
     });
 }

@@ -21,7 +21,7 @@ export const updateVisitsOnWebsite = async () => {
 }
 
 export const replyQuizQuestion = async (quizId: string, questionId: string, questionAnswer: string) => {
-  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao responder questão', status: 404 };
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao responder questão', statusCode: 404 };
 
   const body = {
     questionId,

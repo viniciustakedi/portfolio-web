@@ -2,7 +2,7 @@ import { enviroment } from "@/configs/constants";
 import { Post } from "@/contexts/blog/posts";
 
 export const findQuizById = async (id: string) => {
-  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao buscar quiz', status: 404 };
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao buscar quiz', statusCode: 404 };
 
   await fetch(enviroment.API_URL + '/quizzes/' + id, {
     method: 'GET',
@@ -22,7 +22,7 @@ export const findQuizById = async (id: string) => {
 }
 
 export const getQuestionById = async (id: string) => {
-  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao buscar questão', status: 404 };
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao buscar questão', statusCode: 404 };
 
   await fetch(enviroment.API_URL + '/questions/' + id, {
     method: 'GET',

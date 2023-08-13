@@ -1,3 +1,4 @@
+import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import QuizLottieFile from '@/assets/lottie-files/quiz.json'
 import { useEffect } from "react";
@@ -18,7 +19,7 @@ export default function StartQuiz() {
 
       if (quizId) {
         const quiz = await findQuizById(quizId);
-        if (quiz.status === 200) {
+        if (quiz.statusCode === 200) {
           setIsQuizStarted(true);
         } else {
           localStorage.removeItem('quizId');
@@ -32,7 +33,7 @@ export default function StartQuiz() {
   const handleStartQuiz = async () => {
     setIsQuizLoading(true);
     const quiz = await startQuiz();
-    if (quiz.status === 201) {
+    if (quiz.statusCode === 201) {
       setIsQuizStarted(true);
     } else {
       let errorMessage = 'Erro ao começar quiz!';

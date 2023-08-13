@@ -12,7 +12,7 @@ export type LoginValues = {
 };
 
 export const sendMail = async (data: SendMailValues) => {
-  let response: { message: string, status: number } = { message: 'Erro ao enviar mensagem', status: 404 };
+  let response: { message: string, statusCode: number } = { message: 'Erro ao enviar mensagem', statusCode: 404 };
 
   await fetch('/api/send-mail', {
     method: 'POST',
@@ -33,7 +33,7 @@ export const sendMail = async (data: SendMailValues) => {
 }
 
 export const login = async (data: LoginValues) => {
-  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao fazer login', status: 404 };
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao fazer login', statusCode: 404 };
 
   await fetch(enviroment.API_URL + '/auth/login', {
     method: 'POST',
@@ -54,7 +54,7 @@ export const login = async (data: LoginValues) => {
 }
 
 export const startQuiz = async () => {
-  let response: { data: any, message: string, status: number } = { data: null, message: 'Erro ao iniciar quiz', status: 404 };
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao iniciar quiz', statusCode: 404 };
 
   await fetch(enviroment.API_URL + '/quizzes/start', {
     method: 'POST',

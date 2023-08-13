@@ -26,7 +26,7 @@ export default function Form() {
 
     const response = await login(data);
 
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       enqueueSnackbar('Login Realizado com sucesso!', { variant: 'success' });
       setDisabledButton(true);
       setIsLoading(false);

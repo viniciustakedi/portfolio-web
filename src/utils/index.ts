@@ -33,19 +33,6 @@ export const typicalStepsHome = [
   'React Context',
 ]
 
-interface QuestionQuizObject {
-  _id: string;
-  value: string;
-}
-
-export const shuffleQuizQuestions = (array: QuestionQuizObject[]): QuestionQuizObject[] => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 export const formatDate = (date: Date): string => {
   const dateObject = new Date(date);
   const months = ["Jan.", "Fev.", "Mar.", "Abr.", "Mai", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
