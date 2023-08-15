@@ -1,6 +1,6 @@
-import { getTokenJwt, isJwtValid } from "@/configs";
+import { getToken, isJwtValid } from "@/configs";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Loading from "@/components/loading";
 import Head from "next/head";
 import { useAtom } from "jotai";
@@ -12,7 +12,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     Promise.resolve().then(async () => {
-      if (!await isJwtValid(getTokenJwt())) {
+      if (!await isJwtValid(getToken())) {
         router.push('/login');
         return;
       }
@@ -29,15 +29,12 @@ export default function Dashboard() {
         <title>Dashboard • Takedi</title>
         <meta
           name="description"
-          content="Dashboard para controlar conteúdo do meu portfólio."
+          content="Dashboard para controlar conteúdos do meu portfólio."
           key="desc"
         />
       </Head>
       <main className="main-default ">
-        {/* 
-          Fazer dashboard para cadastro de posts no blog e mais perguntas para o quiz
-          Além de mudar o quiz para que as respostas venham embaralhadas direto do back-end
-        */}
+        <h1 className=" font-semibold text-lg">Dashboard</h1>
       </main>
     </>
   )

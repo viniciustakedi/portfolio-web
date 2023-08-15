@@ -5,9 +5,16 @@ import Head from "next/head";
 import { getPosts } from "@/services/get";
 import { useQuery } from "react-query";
 import { PostCards, PostCardsError } from "@/components/page-components/blog";
+import { Post, postsAtom } from "@/contexts/blog/posts";
+import { useAtom } from "jotai";
 
 export default function Blog() {
-  const { data, status, isLoading } = useQuery('posts', getPosts);
+  const { data, status, isLoading } = useQuery('posts', () => getPosts());
+  const [posts, setPosts] = useAtom(postsAtom);
+
+  if (status === 'success' && data.length > 0) {
+    setPosts(data);
+  }
 
   if (isLoading) { return <Loading /> }
 
@@ -24,16 +31,16 @@ export default function Blog() {
       </Head>
       <main className="main-default ">
         <Menu />
-          {(
-            status === 'success' && (
-              <PostCards posts={data.data} />
-            )
-          )}
-          {(
-            status === 'error' && (
-              <PostCardsError/>
-            )
-          )}
+        {(
+          status === 'success' && (
+            <PostCards posts={data as Post[]} />
+          )
+        )}
+        {(
+          status === 'error' && (
+            <PostCardsError />
+          )
+        )}
         <Footer />
       </main>
     </>

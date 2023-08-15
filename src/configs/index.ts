@@ -6,7 +6,7 @@ export const decodeJwt = (token: string | null) => {
 	return jose.decodeJwt(token) as any;
 }
 
-export const getTokenJwt = () => {
+export const getToken = () => {
 	return localStorage.getItem('token');
 }
 

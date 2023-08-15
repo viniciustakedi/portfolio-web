@@ -6,7 +6,7 @@ import { updateVisitsOnWebsite } from '@/services/patch';
 import { Provider } from 'jotai';
 import { styled } from '@mui/system';
 
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 import '@/styles/blog/post.scss';
 import '@/styles/home/home.scss';
 

@@ -41,7 +41,11 @@ export const getQuestionById = async (id: string) => {
   return response;
 }
 
-export const getPosts = async () => {
+export const getPosts = async (posts?: Post[] | []) => {
+  if (posts && posts.length > 0) {
+    return posts;
+  }
+
   try {
     let response: { data: Post[] | [], total: number, message: string, statusCode: number } = { data: [], total: 0, message: 'Erro ao buscar questão', statusCode: 404 };
 
@@ -63,7 +67,7 @@ export const getPosts = async () => {
       throw response;
     }
 
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }

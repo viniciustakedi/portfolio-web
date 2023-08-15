@@ -34,7 +34,6 @@ export default function Form() {
       if (await isJwtValid(response.data, true)) {
         router.push('/dashboard');
       }
-
       return;
     }
 

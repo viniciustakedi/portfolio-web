@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useAtom } from "jotai";
 
 export default function ReviewContent() {
-  const [currentQuestion, setCurrentQuestion] = useAtom(currentQuestionContentAtom);
-  const [quizContent, setQuizContent] = useAtom(quizContentAtom);
+  const [currentQuestion] = useAtom(currentQuestionContentAtom);
+  const [quizContent] = useAtom(quizContentAtom);
 
   return (
     <div className="lg:w-4/6 md=:w-5/6 w-full">
