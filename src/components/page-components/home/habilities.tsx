@@ -2,6 +2,8 @@ import Tag from "@/components/elements/tag";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import { IoDocumentText } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Habilities() {
   const [ref, inView] = useInView();
@@ -40,10 +42,10 @@ export default function Habilities() {
             engajado e disposto a aprender coisas novas.
           </p>
 
-          <button className='flex justify-center items-center mt-4 p-2 w-36 rounded-lg gap-2 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
-            <BsFillPlusCircleFill size={18} />
-            Ver Mais
-          </button>
+          <Link href='/blog' className='flex justify-center items-center mt-4 p-2 w-32 rounded-lg gap-2 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
+            <IoDocumentText size={18} />
+            Meu Blog
+          </Link>
         </div>
         <div className="lg:w-2/4">
           <motion.div

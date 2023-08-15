@@ -1,21 +1,3 @@
-import {
-  AWSIcon,
-  BitBucketIcon,
-  ExpressIcon,
-  GitHubIcon,
-  GitIcon,
-  JiraIcon,
-  MySqlIcon,
-  NodeJsIcon,
-  PhpIcon,
-  PostgreSqlIcon,
-  PythonIcon,
-  ReactIcon,
-  RedisIcon,
-  TrelloIcon,
-  TypescriptIcon,
-  MongoDbIcon
-} from "@/assets/images";
 import Tag from "@/components/elements/tag";
 import Tooltip from "@/components/elements/tooltip";
 import Image from "next/image";

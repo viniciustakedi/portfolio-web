@@ -1,5 +1,5 @@
-import ResponseModal from "@/components/modal/responseModal";
-import { SendMailValues, sendMail } from "@/services/post";
+import { SendMailValues } from "@/models/send-mail";
+import { sendMail } from "@/services/post";
 import { enqueueSnackbar } from "notistack";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";

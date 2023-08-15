@@ -5,12 +5,27 @@ import {
   Experience,
   Introduction,
   MarqueeTecnologies,
-} from '@/components/page-components/home'
-import Head from 'next/head'
-import Menu from '@/components/menu'
-import Footer from '@/components/footer'
+} from "@/components/page-components/home";
+import Head from "next/head";
+import Menu from "@/components/menu";
+import Footer from "@/components/footer";
+import { useEffect } from "react";
+import { getToken, isJwtValid } from "@/configs";
+import { useAtom } from "jotai";
+import { IsUserAuthorized } from "@/contexts/users";
 
 export default function Home() {
+  const [_, setIsUserAuthorized] = useAtom(IsUserAuthorized);
+
+  useEffect(() => {
+    Promise.resolve().then(async () => {
+      if (await isJwtValid(getToken())) {
+        setIsUserAuthorized(true);
+        return;
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -23,7 +38,7 @@ export default function Home() {
         />
       </Head>
       <main className="main-default">
-        <Menu />
+        <Menu showLocation />
         <Introduction />
         <Habilities />
         <MarqueeTecnologies />
@@ -33,5 +48,5 @@ export default function Home() {
         <Footer />
       </main>
     </>
-  )
+  );
 }

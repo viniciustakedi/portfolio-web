@@ -1,10 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { LoginValues, login } from '@/services/post';
+import { login } from '@/services/post';
 import { enqueueSnackbar } from 'notistack';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { MdNumbers, MdPassword } from 'react-icons/md';
 import { isJwtValid } from '@/configs';
+import { LoginValues } from '@/models/login';
+import { useAtom } from 'jotai';
+import { IsUserAuthorized } from '@/contexts/users';
 
 export default function Form() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<LoginValues>();
@@ -13,7 +16,8 @@ export default function Form() {
   const [attempts, setAttempts] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [disabledButton, setDisabledButton] = useState<boolean>(false);
-
+  const [_, setIsUserAuthorized] = useAtom(IsUserAuthorized);
+  
   const onSubmit: SubmitHandler<LoginValues> = async (data) => {
     setAttempts(state => state + 1);
 
@@ -32,6 +36,7 @@ export default function Form() {
       setIsLoading(false);
 
       if (await isJwtValid(response.data, true)) {
+        setIsUserAuthorized(true);
         router.push('/dashboard');
       }
       return;

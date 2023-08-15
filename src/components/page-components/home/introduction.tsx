@@ -1,11 +1,11 @@
 import Typewriter from 'typewriter-effect';
-import { typicalStepsHome } from '@/utils';
 import ScrollIndicator from '@/components/scroll-indicator';
 import Link from 'next/link';
 
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import Tooltip from '@/components/elements/tooltip';
 import { motion, titleVariants, upPositionVariants } from '@/utils/animations';
+import { typicalStepsHome } from '@/services/mock/experience';
 
 export default function Introduction() {
   return (

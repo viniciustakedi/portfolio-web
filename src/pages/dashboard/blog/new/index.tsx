@@ -18,10 +18,10 @@ import {
   IoSendSharp,
   IoTimer,
 } from "react-icons/io5";
-import { NewPostValues, publishPost } from "@/services/post";
+import { publishPost } from "@/services/post";
 import Select from "react-select";
 import { customStyles } from "@/styles";
-import { blogTags } from "@/models/blogs";
+import { NewPostValues, blogTags } from "@/models/blogs";
 
 export default function NewPost() {
   const {

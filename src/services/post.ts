@@ -1,16 +1,8 @@
 import { getToken } from "@/configs";
 import { enviroment } from "@/configs/constants";
-
-export type SendMailValues = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-export type LoginValues = {
-  code: string;
-  password: string;
-};
+import { NewPostValues } from "@/models/blogs";
+import { LoginValues } from "@/models/login";
+import { SendMailValues } from "@/models/send-mail";
 
 export const sendMail = async (data: SendMailValues) => {
   let response: { message: string; statusCode: number } = {
@@ -109,16 +101,6 @@ export const likePost = async (postId: string) => {
 
   return response;
 };
-
-export interface NewPostValues {
-  friendlyId: string;
-  thumbnail: string;
-  title: string;
-  description: string;
-  timeToRead: number;
-  content: string;
-  tags: string[];
-}
 
 export const publishPost = async (data: NewPostValues) => {
   let response: { data: any; message: string; statusCode: number } = {

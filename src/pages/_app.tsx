@@ -9,6 +9,7 @@ import { styled } from '@mui/system';
 import '@/styles/globals.scss'
 import '@/styles/blog/post.scss';
 import '@/styles/home/home.scss';
+import '@/styles/components/menu/menu.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = useRef(new QueryClient());

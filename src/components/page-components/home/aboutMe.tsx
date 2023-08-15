@@ -61,7 +61,7 @@ export default function AboutMe() {
             Caso não conheça programação em bloco, clique no botão abaixo para ver um exemplo.
           </p>
 
-          <Link href="https://appinventor.mit.edu/explore/ai2/android-wheres-my-car" target='_blank' className='flex justify-center p-2 w-36 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
+          <Link href="https://appinventor.mit.edu/about-us" target='_blank' className='flex justify-center p-2 w-36 rounded-lg gap-1 text-soft-blue font-bold hover:text-blue transition-all bg-white'>
             <SiDatabricks size={22} />
             Saber Mais
           </Link>
