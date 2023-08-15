@@ -1,7 +1,7 @@
 import { IsUserAuthorized } from "@/contexts/users";
 import { useAtom } from "jotai";
 import { useState } from "react";
-import { IoPin } from "react-icons/io5";
+import { IoMap } from "react-icons/io5";
 
 interface CurrentLocationProps {
   isVisible: boolean;
@@ -31,7 +31,7 @@ export default function CurrentLocation({ isVisible }: CurrentLocationProps) {
     >
       <div className="flex flex-wrap items-center gap-2">
         <div className="p-1 rounded-lg bg-dark-blue">
-          <IoPin color="#748CAB" size={18} />
+          <IoMap color="#748CAB" size={18} />
         </div>
         <p className="text-soft-blue">São Paulo, Brasil</p>
         <span className="relative flex h-3 w-3">
