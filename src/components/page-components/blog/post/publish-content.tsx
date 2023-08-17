@@ -65,7 +65,7 @@ const Publish:React.FC<PublishProps> = ({id, data}) => {
           <hr className="publish-line" />
         </div>
         <Image src={data.thumbnail} alt={data.title} className="publish-image" width={1000} height={1000} />
-        <div className="text-black text-lg mt-4">
+        <div className="ql-tags-container text-black text-lg mt-4 w-full">
           {parse(data.content)}
         </div>
         <div className="w-full">

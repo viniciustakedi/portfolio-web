@@ -15,7 +15,6 @@ export default function CurrentLocation({ isVisible }: CurrentLocationProps) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         console.log(position.coords);
-
         setLocation(position.coords);
       },
       (error) => {
