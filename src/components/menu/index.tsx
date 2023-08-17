@@ -61,7 +61,7 @@ const Menu: React.FC<MenuProps> = ({ showLocation }) => {
         >
           <Link href="" scroll={false} className="flex items-center">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Takedi
+              {`{ Takedi }`}
             </span>
           </Link>
           <div className="flex md:order-2">

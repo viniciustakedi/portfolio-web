@@ -107,6 +107,8 @@ body {
 }
 
 .ql-tags-container {
+  @apply w-full;
+
   ul {
     @apply pl-4;
 
