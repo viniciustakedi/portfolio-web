@@ -3,7 +3,7 @@ import { enviroment } from './../configs/constants';
 export const updateVisitsOnWebsite = async () => {
   let response: { message: string, status: number } = { message: 'Erro ao atualizar visitas', status: 404 };
 
-  await fetch(`${enviroment.API_URL}/global/visits-on-website`, {
+  await fetch(`${enviroment.API_URL}/globals/visits-on-website`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
