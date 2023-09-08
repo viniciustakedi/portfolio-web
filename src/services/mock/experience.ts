@@ -54,6 +54,11 @@ export const experienceData: ExperienceDataType[] = [
         altIcon: 'nodejs'
       },
       {
+        name: 'Typescript',
+        icon: TypescriptIcon,
+        altIcon: 'typescript'
+      },
+      {
         name: 'ExpressJs',
         icon: ExpressIcon,
         altIcon: 'express'

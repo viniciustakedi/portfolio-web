@@ -1,9 +1,11 @@
 export const enviroment = {
-  API_URL: 'https://api.takedi.dev',
-  // API_URL: 'http://localhost:8000',
+  API_URL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:8000"
+      : "https://api.takedi.dev",
 
-  ALG_JWT: 'RS256',
-  ISSUER_JWT: 'api-takedi',
+  ALG_JWT: "RS256",
+  ISSUER_JWT: "api-takedi",
   PUBLIC_KEY_JWT: `-----BEGIN PUBLIC KEY-----
   MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA4k+ruAfdJ6TkKssWCZGz
   dwAzTK0/9Qp156BZGkeWRuvE1/QC4eV6oJm+nw30O5ZTBO6UR7+KtRH93ozu5OOR
@@ -18,4 +20,4 @@ export const enviroment = {
   c/rF+F1n0uP1kelqnd5U9fvkR8AKYjaZCNZXx089xbJJs/Kr+8lL6jKDRtF9V9sJ
   7d6aXYA3sxMvohmOk+5vxq0CAwEAAQ==
   -----END PUBLIC KEY-----`,
-}
+};
