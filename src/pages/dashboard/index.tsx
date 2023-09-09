@@ -1,7 +1,7 @@
 import { getToken, isJwtValid } from "@/configs";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import Loading from "@/components/loading";
+import Loading from "@/components/loadings";
 import Head from "next/head";
 import { useAtom } from "jotai";
 import { IsUserAuthorized } from "@/contexts/users";

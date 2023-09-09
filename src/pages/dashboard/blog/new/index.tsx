@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Loading from "@/components/loading";
+import Loading from "@/components/loadings";
 import RichInput from "@/components/elements/rich-input/richInput";
 import "react-quill/dist/quill.snow.css";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";

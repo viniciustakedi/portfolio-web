@@ -1,4 +1,3 @@
-import Loading from "@/components/loading";
 import Footer from "@/components/footer";
 import Menu from "@/components/menu";
 import Head from "next/head";
@@ -7,16 +6,15 @@ import { useQuery } from "react-query";
 import { PostCards, PostCardsError } from "@/components/page-components/blog";
 import { Post, postsAtom } from "@/contexts/blog/posts";
 import { useAtom } from "jotai";
+import BlogPostSkeleton from "@/components/loadings/skeletons/blog-post";
 
 export default function Blog() {
-  const { data, status, isLoading } = useQuery('posts', () => getPosts());
-  const [posts, setPosts] = useAtom(postsAtom);
+  const { data, status, isLoading } = useQuery("posts", () => getPosts());
+  const [_, setPosts] = useAtom(postsAtom);
 
-  if (status === 'success' && data.length > 0) {
+  if (status === "success" && data.length > 0) {
     setPosts(data);
   }
-
-  if (isLoading) { return <Loading /> }
 
   return (
     <>
@@ -29,20 +27,22 @@ export default function Blog() {
           key="desc"
         />
       </Head>
-      <main className="main-default ">
+      <main className="main-default">
         <Menu />
-        {(
-          status === 'success' && (
-            <PostCards posts={data as Post[]} />
-          )
-        )}
-        {(
-          status === 'error' && (
-            <PostCardsError />
-          )
+        {isLoading ? (
+          <div className="post-container">
+            <div className="post-content">
+              <BlogPostSkeleton />
+            </div>
+          </div>
+        ) : (
+          <>
+            {status === "success" && <PostCards posts={data as Post[]} />}
+            {status === "error" && <PostCardsError />}
+          </>
         )}
         <Footer />
       </main>
     </>
-  )
+  );
 }

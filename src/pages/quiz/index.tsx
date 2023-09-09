@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useAtom } from "jotai";
-import Loading from "@/components/loading";
+import Loading from "@/components/loadings";
 import { isQuizLoadingAtom, isQuizStartedAtom, quizContentAtom } from "@/contexts/quizzes";
 import { QuizCongratulations, QuizQuestions, StartQuiz } from "@/components/page-components/quiz";
 import { useEffect } from "react";

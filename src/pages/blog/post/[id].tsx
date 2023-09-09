@@ -1,4 +1,4 @@
-import Loading from "@/components/loading";
+import Loading from "@/components/loadings";
 import Footer from "@/components/footer";
 import Menu from "@/components/menu";
 import Head from "next/head";

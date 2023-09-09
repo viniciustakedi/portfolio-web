@@ -1,4 +1,4 @@
-import Loading from "@/components/loading";
+import Loading from "@/components/loadings";
 import { getToken, isJwtValid } from "@/configs";
 import { postsAtom } from "@/contexts/blog/posts";
 import { isLoadingAtom } from "@/contexts/global";
