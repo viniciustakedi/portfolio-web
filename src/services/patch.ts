@@ -1,3 +1,4 @@
+import { getToken } from '@/configs';
 import { enviroment } from './../configs/constants';
 
 export const updateVisitsOnWebsite = async () => {
@@ -45,4 +46,31 @@ export const replyQuizQuestion = async (quizId: string, questionId: string, ques
 
   return response;
 
+}
+
+export const updateLocation = async (coords: GeolocationCoordinates) => {
+  let response: { data: any, message: string, statusCode: number } = { data: null, message: 'Erro ao atualizar localização', statusCode: 404 };
+
+  const body = {
+    latitude: coords.latitude,
+    longitude: coords.longitude
+  }
+
+  await fetch(`${enviroment.API_URL}/globals/location`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      "Authorization": `Bearer ${getToken()}`
+    },
+    body: JSON.stringify(body)
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      response = data;
+    })
+    .catch((error) => {
+      response = error;
+    });
+
+  return response;
 }
