@@ -41,7 +41,7 @@ export const playlistData: PlaylistDataType[] = [
   {
     id: 4,
     artist: 'Леша Свик',
-    title: 'My Way',
+    title: 'Malinov Svet',
     thumbnail: MalinovSvet,
     altThumbnail: 'malinov-svet-thumb',
     ytLink: 'https://www.youtube.com/watch?v=ct15n6_ppmY',
