@@ -148,7 +148,7 @@ export const experienceData: ExperienceDataType[] = [
     id: 3,
     company: 'ECWSA',
     companyWebsite: 'https://ecwsa.com.br/',
-    time: 'Janeiro de 2022, até Junho de 2022',
+    time: 'Janeiro de 2022, até Maio de 2022',
     tasks: [
       'Trabalhei como desenvolvedor front-end.',
       'Desenvolvi todos os projetos front-end na época em que trabalhei.',
@@ -205,7 +205,7 @@ export const experienceData: ExperienceDataType[] = [
     id: 5,
     company: 'DW Blindagens',
     companyWebsite: 'https://www.dwblindagens.com.br/',
-    time: 'Abril de 2021, até Junho de 2021',
+    time: 'Abril de 2021, até Maio de 2021',
     tasks: [
       'Trabalhei como desenvolvedor full-stack (freelancer)',
       'Desenvolvi todo o escopo e documentos do projeto',
@@ -244,7 +244,7 @@ export const experienceData: ExperienceDataType[] = [
     id: 6,
     company: 'M2S Cars',
     companyWebsite: 'https://www.m2scars.com.br/',
-    time: 'Janeiro de 2021, até Abril de 2021',
+    time: 'Janeiro de 2021, até Março de 2021',
     tasks: [
       'Trabalhei como desenvolvedor full-stack (freelancer)',
       'Desenvolvi todo o escopo e documentos do projeto',
