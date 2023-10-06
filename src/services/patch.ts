@@ -1,5 +1,6 @@
 import { getToken } from '@/configs';
 import { enviroment } from './../configs/constants';
+import { NewPostValues } from '@/models/blogs';
 
 export const updateVisitsOnWebsite = async () => {
   let response: { message: string, status: number } = { message: 'Erro ao atualizar visitas', status: 404 };
@@ -63,6 +64,35 @@ export const updateLocation = async (coords: GeolocationCoordinates) => {
       "Authorization": `Bearer ${getToken()}`
     },
     body: JSON.stringify(body)
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      response = data;
+    })
+    .catch((error) => {
+      response = error;
+    });
+
+  return response;
+}
+
+
+export const publishPatch = async (data: NewPostValues) => {
+  let response: { data: any; message: string; statusCode: number } = {
+    data: null,
+    message: "Erro ao editar post",
+    statusCode: 404,
+  };
+
+  data.timeToRead = Number(data.timeToRead);
+
+  await fetch(`${enviroment.API_URL}/blogs/post/${data.friendlyId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${getToken()}`
+    },
+    body: JSON.stringify(data),
   })
     .then((res) => res.json())
     .then((data) => {

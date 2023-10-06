@@ -123,7 +123,7 @@ export const getPostById = async (id: string) => {
       throw response;
     }
 
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }

@@ -110,7 +110,6 @@ export const publishPost = async (data: NewPostValues) => {
   };
 
   data.timeToRead = Number(data.timeToRead);
-  data.tags = ['devops', 'language']
 
   await fetch(`${enviroment.API_URL}/blogs/post`, {
     method: "POST",

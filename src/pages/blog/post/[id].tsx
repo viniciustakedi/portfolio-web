@@ -18,7 +18,7 @@ export default function Post() {
   return (
     <>
       <Head>
-        <title>{data?.data ? data.data.title : "Post não existente"} • Takedi</title>
+        <title>{data ? data.title : "Post não existente"} • Takedi</title>
         <meta
           name="description"
           content="Olá! Esse é o meu blog pessoal, para fazer postagens sobre programação, 
@@ -30,7 +30,7 @@ export default function Post() {
         <Menu />
         {(
           status === 'success' && (
-            <Publish id={id as string} data={data.data} />
+            <Publish id={id as string} data={data} />
           )
         )}
         {(

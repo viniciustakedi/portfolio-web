@@ -16,12 +16,17 @@ export enum BlogTags {
   iot = "iot",
   bigData = "big-data",
   dataScience = "data-science",
+  udunc = "udunc",
 }
 
 export const blogTags = [
   {
     value: BlogTags.generalKnowledge,
     label: "Conhecimento Geral",
+  },
+  {
+    value: BlogTags.udunc,
+    label: "UDUNC",
   },
   {
     value: BlogTags.devops,

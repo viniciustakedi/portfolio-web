@@ -84,7 +84,7 @@ export default function ListPosts() {
                       {formatDate(post.createdAt)}
                     </td>
                     <td className="table-body-th">
-                      <Link href="/dashboard/blog/edit" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <Link href={`/dashboard/blog/edit/${post.friendlyId}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         Editar
                       </Link>
                     </td>
