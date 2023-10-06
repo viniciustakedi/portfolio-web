@@ -62,7 +62,11 @@ export default function NewPost() {
   }
 
   const onSubmit: SubmitHandler<NewPostValues> = async (formData) => {
-    if (formData.tags.length < 1 && data && data.tags.length > 0) {
+    if (
+      (!formData.tags || formData.tags.length < 1) &&
+      data &&
+      data.tags.length > 0
+    ) {
       formData.tags = data.tags;
     }
 
