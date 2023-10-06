@@ -228,7 +228,7 @@ export default function NewPost() {
                   isMulti
                   styles={customStyles}
                   options={blogTags}
-                  onChange={(e) => onChange(e)}
+                  onChange={(e) => onChange(e.map((item) => item.value))}
                 />
               )}
             />
