@@ -66,11 +66,11 @@ const Menu: React.FC<MenuProps> = ({ showLocation }) => {
           </Link>
           <div className="flex md:order-2">
             <Link
-              href="/quiz"
+              href="/blog"
               scroll={false}
               className="text-white bg-dark-blue hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 hidden sm:block font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Quiz
+              Blog
             </Link>
             <button
               data-collapse-toggle="navbar-cta"
@@ -143,11 +143,11 @@ const Menu: React.FC<MenuProps> = ({ showLocation }) => {
               </li>
               <li>
                 <Link
-                  href="/quiz"
+                  href="/blog"
                   scroll={false}
                   className="block sm:hidden  py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-soft-blue md:hover:text-dark-blue hover:text-white transition-all md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Quiz
+                  Blog
                 </Link>
               </li>
             </ul>
