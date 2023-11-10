@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home • Takedi</title>
+        <title>Takedi • Portfólio</title>
         <meta
           name="description"
           content="Olá! Esse é meu portfólio, aqui você pode ver um pouco sobre mim e minhas experiências. 

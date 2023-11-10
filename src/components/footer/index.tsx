@@ -17,7 +17,7 @@ export default function Footer() {
 		<div className="flex items-center justify-center flex-col bg-dark-blue lg:py-10 lg:px-10 md:py-10 md:px-10 px-2 py-8 w-full">
 			<div className="flex items-center justify-center w-full mb-4 lg:justify-between md:justify-between">
 				<div className="flex items-center lg:flex-row md:flex-row flex-col md:gap-4 lg:gap-4 gap-0">
-					<h1 className="font-bold text-2xl">Takedi</h1>
+					<h1 className="font-bold text-2xl text-white">Takedi</h1>
 					<h1 className="text-soft-blue font-bold lg:flex md:flex hidden">|</h1>
 					<h1 className="text-blue font-medium text-lg">Engenheiro de Software Full-Stack</h1>
 				</div>
