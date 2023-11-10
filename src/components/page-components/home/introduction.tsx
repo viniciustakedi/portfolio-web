@@ -73,7 +73,7 @@ export default function Introduction() {
           </Link>
         </motion.div>
       </div>
-      <div className="flex justify-center items-center gap-2 absolute bottom-44">
+      <div className="flex justify-center items-center gap-2 absolute xl:bottom-44 sm:bottom-40 xs:bottom-32 2xs:bottom-24">
         <motion.div
           initial="hidden"
           animate="visible"
