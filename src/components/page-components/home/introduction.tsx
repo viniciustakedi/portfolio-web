@@ -73,27 +73,6 @@ export default function Introduction() {
           </Link>
         </motion.div>
       </div>
-      <div className="flex justify-center items-center gap-2 absolute xl:bottom-44 sm:bottom-40 xs:bottom-32 2xs:bottom-24">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={upPositionVariants({ delay: 1.4 })}
-        >
-          <div className="flex flex-col items-center gap-4">
-            <Tooltip text="Estudando no momento">
-              <Tag width="w-56">O que estou estudando?</Tag>
-            </Tooltip>
-            <div className="flex items-center gap-4">
-              <Tooltip text="Rust">
-                <FaRust
-                  className="text-blue hover:text-white transition-all"
-                  size={34}
-                />
-              </Tooltip>
-            </div>
-          </div>
-        </motion.div>
-      </div>
       <div className="absolute bottom-8">
         <Tooltip
           text="Role para baixo"
