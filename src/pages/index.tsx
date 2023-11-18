@@ -5,6 +5,7 @@ import {
   Experience,
   Introduction,
   MarqueeTecnologies,
+  WhatIAmStuding,
 } from "@/components/page-components/home";
 import Head from "next/head";
 import Menu from "@/components/menu";
@@ -45,6 +46,7 @@ export default function Home() {
         <Experience />
         <AboutMe />
         <Contact />
+        <WhatIAmStuding/>
         <Footer />
       </main>
     </>
