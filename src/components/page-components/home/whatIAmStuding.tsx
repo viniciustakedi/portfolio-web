@@ -12,7 +12,7 @@ export default function WhatIAmStuding() {
 	}, 1000 * 60 * 10); // 10 minutes
 
   return (
-    <div className={`${!show ? "hidden" : "visible"} fixed bottom-0 md:left-10 sm:left-5 2xs:left-2`}>
+    <div className={`${!show ? "hidden" : "visible"} fixed bottom-0 md:left-10 sm:left-5 2xs:left-2 z-20`}>
       <motion.div
         className="relative bg-white w-3/5 p-3 border border-blue rounded-lg mb-3"
         initial="hidden"
