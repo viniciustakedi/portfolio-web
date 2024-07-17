@@ -29,7 +29,7 @@ export default function WhatIAmStuding() {
             <span className="text-gray-500">
               Olá! Atualmente estou estudando
             </span>{" "}
-            Rust <span className="text-gray-500">e</span> Docker
+            Golang <span className="text-gray-500">e</span> Cloud
           </p>
         </div>
         <div className="absolute left-[39px] bottom-0 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-white border-r border-b border-blue"></div>

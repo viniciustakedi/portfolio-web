@@ -14,7 +14,7 @@ import {
   RedisIcon,
   TrelloIcon,
   TypescriptIcon,
-  MongoDbIcon
+  MongoDbIcon,
 } from "@/assets/images";
 
 export type ExperienceDataType = {
@@ -28,303 +28,362 @@ export type ExperienceDataType = {
     icon: any;
     altIcon: string;
   }[];
-}
+};
 
 export const experienceData: ExperienceDataType[] = [
   {
     id: 1,
-    company: 'Digigrow',
-    companyWebsite: 'https://digigrow.com.br/',
-    time: 'Abril de 2023 - Presente',
+    company: "Idea Maker Solutions",
+    companyWebsite: "https://digigrow.com.br/",
+    time: "Maio de 2024 - Presente",
     tasks: [
-      'Estou atuando como engenheiro de software full-stack.',
-      'Desenvolvo novos recursos, corrijo bugs, entre outras funções.',
-      'Estou utilizando as ferramentas necessárias e úteis para desenvolver as tasks de acordo com a regra de negócio da empresa.',
-      'Faço tarefas em diversos setores, full-stack no geral. Front-end, back-end e banco de dados (NoSQL).'
+      "Estou atuando como desenvolvedor de software full-stack.",
+      "Desenvolvo novos recursos, corrijo bugs, entre outras funções.",
+      "Estou utilizando as ferramentas necessárias e úteis para desenvolver as tasks de acordo com a regra de negócio da empresa.",
+      "Faço tarefas em diversos setores, full-stack no geral. Front-end, back-end e banco de dados.",
     ],
     technologies: [
       {
-        name: 'ReactJs',
+        name: "ReactJs",
         icon: ReactIcon,
-        altIcon: 'react'
+        altIcon: "react",
       },
       {
-        name: 'NodeJs',
+        name: "NodeJs",
         icon: NodeJsIcon,
-        altIcon: 'nodejs'
+        altIcon: "nodejs",
       },
       {
-        name: 'Typescript',
+        name: "Typescript",
         icon: TypescriptIcon,
-        altIcon: 'typescript'
+        altIcon: "typescript",
       },
       {
-        name: 'ExpressJs',
+        name: "ExpressJs",
         icon: ExpressIcon,
-        altIcon: 'express'
+        altIcon: "express",
       },
       {
-        name: 'MongoDb',
-        icon: MongoDbIcon,
-        altIcon: 'mongodb'
+        name: "Php",
+        icon: PhpIcon,
+        altIcon: "Php",
       },
       {
-        name: 'Git',
+        name: "MySql",
+        icon: MySqlIcon,
+        altIcon: "MySql",
+      },
+      {
+        name: "Redis",
+        icon: RedisIcon,
+        altIcon: "redis",
+      },
+      {
+        name: "Git",
         icon: GitIcon,
-        altIcon: 'git'
+        altIcon: "git",
       },
       {
-        name: 'GitHub',
+        name: "GitHub",
         icon: GitHubIcon,
-        altIcon: 'github'
-      }
-    ]
+        altIcon: "github",
+      },
+    ],
   },
   {
     id: 2,
-    company: 'PontuaX',
-    companyWebsite: 'https://pontuax.com.br/',
-    time: 'Junho de 2022, até Março de 2023',
+    company: "Digigrow",
+    companyWebsite: "https://digigrow.com.br/",
+    time: "Abril de 2023 até Abril de 2024",
     tasks: [
-      'Trabalhei como engenheiro de software full-stack.',
-      'Desenvolvi novos recursos, corrigi bugs, verifiquei/analisei códigos entre outras funções.',
-      'Utilizava as melhores ferramentas e padrões de código para manter o padrão da empresa.',
-      'Fiz tarefas em diversos setores, full-stack no geral. Front-end, back-end, mobile, banco de dados relacional, e devops.'
+      "Atuei como engenheiro de software full-stack.",
+      "Desenvolvi novos recursos, além de corrigir bugs, entre outras funções.",
+      "Utilizava as ferramentas necessárias e úteis para desenvolver as tasks de acordo com a regra de negócio da empresa.",
+      "Fiz tarefas em diversos setores, full-stack no geral. Front-end, back-end e banco de dados (NoSQL).",
     ],
     technologies: [
       {
-        name: 'ReactJs',
+        name: "ReactJs",
         icon: ReactIcon,
-        altIcon: 'react'
+        altIcon: "react",
       },
       {
-        name: 'Typescript',
-        icon: TypescriptIcon,
-        altIcon: 'typescript'
-      },
-      {
-        name: 'NodeJs',
+        name: "NodeJs",
         icon: NodeJsIcon,
-        altIcon: 'nodejs'
+        altIcon: "nodejs",
       },
       {
-        name: 'PostgreSql',
-        icon: PostgreSqlIcon,
-        altIcon: 'postgree'
+        name: "Typescript",
+        icon: TypescriptIcon,
+        altIcon: "typescript",
       },
       {
-        name: 'GitHub',
-        icon: GitHubIcon,
-        altIcon: 'github'
+        name: "ExpressJs",
+        icon: ExpressIcon,
+        altIcon: "express",
       },
       {
-        name: 'Redis',
-        icon: RedisIcon,
-        altIcon: 'redis'
+        name: "MongoDb",
+        icon: MongoDbIcon,
+        altIcon: "mongodb",
       },
       {
-        name: 'AWS',
-        icon: AWSIcon,
-        altIcon: 'aws'
-      },
-      {
-        name: 'Git',
+        name: "Git",
         icon: GitIcon,
-        altIcon: 'git'
+        altIcon: "git",
       },
       {
-        name: 'Bitbucket',
-        icon: BitBucketIcon,
-        altIcon: 'bitbucket'
+        name: "GitHub",
+        icon: GitHubIcon,
+        altIcon: "github",
       },
-      {
-        name: 'Trello',
-        icon: TrelloIcon,
-        altIcon: 'trello'
-      }
-    ]
+    ],
   },
   {
     id: 3,
-    company: 'ECWSA',
-    companyWebsite: 'https://ecwsa.com.br/',
-    time: 'Janeiro de 2022, até Maio de 2022',
+    company: "PontuaX",
+    companyWebsite: "https://pontuax.com.br/",
+    time: "Junho de 2022, até Março de 2023",
     tasks: [
-      'Trabalhei como desenvolvedor front-end.',
-      'Desenvolvi todos os projetos front-end na época em que trabalhei.',
-      'Auxíliei no desenvolvimento de escopos de projetos e ideias para sua estrutura.',
-      'Desenvolvi e aprendi os melhores métodos para resolver problemas que a empresa necessitava resolver.'
+      "Trabalhei como engenheiro de software full-stack.",
+      "Desenvolvi novos recursos, corrigi bugs, verifiquei/analisei códigos entre outras funções.",
+      "Utilizava as melhores ferramentas e padrões de código para manter o padrão da empresa.",
+      "Fiz tarefas em diversos setores, full-stack no geral. Front-end, back-end, mobile, banco de dados relacional, e devops.",
     ],
     technologies: [
       {
-        name: 'ReactJs',
+        name: "ReactJs",
         icon: ReactIcon,
-        altIcon: 'react'
+        altIcon: "react",
       },
       {
-        name: 'Typescript',
+        name: "Typescript",
         icon: TypescriptIcon,
-        altIcon: 'Typescript'
+        altIcon: "typescript",
       },
       {
-        name: 'NodeJs',
+        name: "NodeJs",
         icon: NodeJsIcon,
-        altIcon: 'NodeJs'
+        altIcon: "nodejs",
       },
       {
-        name: 'Git',
+        name: "PostgreSql",
+        icon: PostgreSqlIcon,
+        altIcon: "postgree",
+      },
+      {
+        name: "GitHub",
+        icon: GitHubIcon,
+        altIcon: "github",
+      },
+      {
+        name: "Redis",
+        icon: RedisIcon,
+        altIcon: "redis",
+      },
+      {
+        name: "AWS",
+        icon: AWSIcon,
+        altIcon: "aws",
+      },
+      {
+        name: "Git",
         icon: GitIcon,
-        altIcon: 'git'
+        altIcon: "git",
       },
       {
-        name: 'Jira',
-        icon: JiraIcon,
-        altIcon: 'jira'
-      }
-    ]
+        name: "Bitbucket",
+        icon: BitBucketIcon,
+        altIcon: "bitbucket",
+      },
+      {
+        name: "Trello",
+        icon: TrelloIcon,
+        altIcon: "trello",
+      },
+    ],
   },
   {
     id: 4,
-    company: 'D+S Assessoria e Corretora de Seguros',
-    companyWebsite: '',
-    time: 'Junho de 2021, até Dezembro de 2021',
+    company: "ECWSA",
+    companyWebsite: "https://ecwsa.com.br/",
+    time: "Janeiro de 2022, até Maio de 2022",
     tasks: [
-      'Trabalhei com automação de dados, utilizando python e excel.',
-      'Desenvolvi habilidades interpessoais e de comunicação. Além de desenvolver robos para automação de dados.',
-      'Desenvolvi projetos e aprendi os melhores métodos para resolver problemas que a empresa necessitava resolver com automação.'
+      "Trabalhei como desenvolvedor front-end.",
+      "Desenvolvi todos os projetos front-end na época em que trabalhei.",
+      "Auxíliei no desenvolvimento de escopos de projetos e ideias para sua estrutura.",
+      "Desenvolvi e aprendi os melhores métodos para resolver problemas que a empresa necessitava resolver.",
     ],
     technologies: [
       {
-        name: 'Python',
-        icon: PythonIcon,
-        altIcon: 'Python'
-      }
-    ]
+        name: "ReactJs",
+        icon: ReactIcon,
+        altIcon: "react",
+      },
+      {
+        name: "Typescript",
+        icon: TypescriptIcon,
+        altIcon: "Typescript",
+      },
+      {
+        name: "NodeJs",
+        icon: NodeJsIcon,
+        altIcon: "NodeJs",
+      },
+      {
+        name: "Git",
+        icon: GitIcon,
+        altIcon: "git",
+      },
+      {
+        name: "Jira",
+        icon: JiraIcon,
+        altIcon: "jira",
+      },
+    ],
   },
   {
     id: 5,
-    company: 'DW Blindagens',
-    companyWebsite: 'https://www.dwblindagens.com.br/',
-    time: 'Abril de 2021, até Maio de 2021',
+    company: "D+S Assessoria e Corretora de Seguros",
+    companyWebsite: "",
+    time: "Junho de 2021, até Dezembro de 2021",
     tasks: [
-      'Trabalhei como desenvolvedor full-stack (freelancer)',
-      'Desenvolvi todo o escopo e documentos do projeto',
-      'Apoio ao cliente e aceitação de novas ideias e sua implementação.',
-      'Realizei todas as etapas sozinho, desde o escopo do projeto, banco de dados, back-end, front-end e upload para o servidor.',
+      "Trabalhei com automação de dados, utilizando python e excel.",
+      "Desenvolvi habilidades interpessoais e de comunicação. Além de desenvolver robos para automação de dados.",
+      "Desenvolvi projetos e aprendi os melhores métodos para resolver problemas que a empresa necessitava resolver com automação.",
     ],
     technologies: [
       {
-        name: 'ReactJs',
-        icon: ReactIcon,
-        altIcon: 'react'
+        name: "Python",
+        icon: PythonIcon,
+        altIcon: "Python",
       },
-      {
-        name: 'Typescript',
-        icon: TypescriptIcon,
-        altIcon: 'Typescript'
-      },
-      {
-        name: 'NodeJs',
-        icon: NodeJsIcon,
-        altIcon: 'NodeJs'
-      },
-      {
-        name: 'Git',
-        icon: GitIcon,
-        altIcon: 'git'
-      },
-      {
-        name: 'GitHub',
-        icon: GitHubIcon,
-        altIcon: 'Github'
-      }
-    ]
+    ],
   },
   {
     id: 6,
-    company: 'M2S Cars',
-    companyWebsite: 'https://www.m2scars.com.br/',
-    time: 'Janeiro de 2021, até Março de 2021',
+    company: "DW Blindagens",
+    companyWebsite: "https://www.dwblindagens.com.br/",
+    time: "Abril de 2021, até Maio de 2021",
     tasks: [
-      'Trabalhei como desenvolvedor full-stack (freelancer)',
-      'Desenvolvi todo o escopo e documentos do projeto',
-      'Realizei todas as etapas sozinho, desde o escopo do projeto, banco de dados, back-end, front-end e upload para o servidor.',
-      'Apoio ao cliente e aceitação de novas ideias e sua implementação.',
+      "Trabalhei como desenvolvedor full-stack (freelancer)",
+      "Desenvolvi todo o escopo e documentos do projeto",
+      "Apoio ao cliente e aceitação de novas ideias e sua implementação.",
+      "Realizei todas as etapas sozinho, desde o escopo do projeto, banco de dados, back-end, front-end e upload para o servidor.",
     ],
     technologies: [
       {
-        name: 'ReactJs',
+        name: "ReactJs",
         icon: ReactIcon,
-        altIcon: 'react'
+        altIcon: "react",
       },
       {
-        name: 'Typescript',
+        name: "Typescript",
         icon: TypescriptIcon,
-        altIcon: 'Typescript'
+        altIcon: "Typescript",
       },
       {
-        name: 'NodeJs',
+        name: "NodeJs",
         icon: NodeJsIcon,
-        altIcon: 'NodeJs'
+        altIcon: "NodeJs",
       },
       {
-        name: 'Php',
-        icon: PhpIcon,
-        altIcon: 'Php'
-      },
-      {
-        name: 'MySql',
-        icon: MySqlIcon,
-        altIcon: 'MySql'
-      },
-      {
-        name: 'Git',
+        name: "Git",
         icon: GitIcon,
-        altIcon: 'git'
+        altIcon: "git",
       },
       {
-        name: 'GitHub',
+        name: "GitHub",
         icon: GitHubIcon,
-        altIcon: 'Github'
-      }
-    ]
+        altIcon: "Github",
+      },
+    ],
+  },
+  {
+    id: 7,
+    company: "M2S Cars",
+    companyWebsite: "https://www.m2scars.com.br/",
+    time: "Janeiro de 2021, até Março de 2021",
+    tasks: [
+      "Trabalhei como desenvolvedor full-stack (freelancer)",
+      "Desenvolvi todo o escopo e documentos do projeto",
+      "Realizei todas as etapas sozinho, desde o escopo do projeto, banco de dados, back-end, front-end e upload para o servidor.",
+      "Apoio ao cliente e aceitação de novas ideias e sua implementação.",
+    ],
+    technologies: [
+      {
+        name: "ReactJs",
+        icon: ReactIcon,
+        altIcon: "react",
+      },
+      {
+        name: "Typescript",
+        icon: TypescriptIcon,
+        altIcon: "Typescript",
+      },
+      {
+        name: "NodeJs",
+        icon: NodeJsIcon,
+        altIcon: "NodeJs",
+      },
+      {
+        name: "Php",
+        icon: PhpIcon,
+        altIcon: "Php",
+      },
+      {
+        name: "MySql",
+        icon: MySqlIcon,
+        altIcon: "MySql",
+      },
+      {
+        name: "Git",
+        icon: GitIcon,
+        altIcon: "git",
+      },
+      {
+        name: "GitHub",
+        icon: GitHubIcon,
+        altIcon: "Github",
+      },
+    ],
   },
 ];
 
 export const typicalStepsHome = [
-  'Typescript',
-  'NestJS',
-  'ReactJs',
-  'React Native',
-  'NextJs',
-  'Jotai',
-  'CSharp',
-  'NodeJs',
-  'NPM',
-  'Yarn',
-  'PostgreSQL',
-  'MySQL',
-  'SQL Server',
-  'Redis',
-  'AWS',
-  'Docker',
-  'Git',
-  'GitLab',
-  'GitHub',
-  'BitBucket',
-  'Trello',
-  'Jira',
-  'Linux',
-  'TailwindCSS',
-  'Styled Components',
-  'React Query',
-  'React Hook Form',
-  'React Router',
-  'React Context',
-  'NoSql',
-  'MongoDB',
-  'HTML',
-  'CSS',
-  'SASS',
-  'SCSS',
-]
+  "Typescript",
+  "NestJS",
+  "ReactJs",
+  "React Native",
+  "NextJs",
+  "Jotai",
+  "CSharp",
+  "NodeJs",
+  "NPM",
+  "Yarn",
+  "PostgreSQL",
+  "MySQL",
+  "SQL Server",
+  "Redis",
+  "AWS",
+  "Docker",
+  "Git",
+  "GitLab",
+  "GitHub",
+  "BitBucket",
+  "Trello",
+  "Jira",
+  "Linux",
+  "TailwindCSS",
+  "Styled Components",
+  "React Query",
+  "React Hook Form",
+  "React Router",
+  "React Context",
+  "NoSql",
+  "MongoDB",
+  "HTML",
+  "CSS",
+  "SASS",
+  "SCSS",
+];
