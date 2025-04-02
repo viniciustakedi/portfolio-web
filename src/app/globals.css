@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #fff;
     --foreground: #ededed;
   }
 }
@@ -26,9 +26,9 @@ body {
 }
 
 .padding__global {
-  @apply px-10 py-5;
-  @apply md:px-20 md:py-10;
-  @apply lg:px-40 lg:py-20;
-  @apply xl:px-60 xl:py-30;
-  @apply 2xl:px-80 2xl:py-40;
+  @apply px-8 pt-15;
+  @apply md:px-10 md:pt-25;
+  @apply lg:px-20 lg:pt-30;
+  @apply xl:px-20 xl:pt-30;
+  @apply 2xl:px-35 2xl:pt-40;
 }

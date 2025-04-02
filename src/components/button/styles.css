@@ -1,0 +1,9 @@
+@import "tailwindcss";
+.button {
+  @apply flex items-center justify-center cursor-pointer outline-2 rounded-full outline-[#3B82F6];
+  @apply uppercase lg:h-12 h-8;
+}
+
+.outline {
+  @apply font-light lg:text-[1.250rem] text-[1rem] leading-0 text-[#323232];
+}

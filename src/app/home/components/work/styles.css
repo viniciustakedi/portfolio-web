@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+.work__section {
+  @apply flex flex-col items-center justify-center w-full h-full bg-white;
+  @apply bg-cover bg-center bg-no-repeat;
+  background-size: auto 80vh;
+  background-image: url("../../../../assets/images/grade-bg.png");
+}
+
+.first__content {
+  @apply flex lg:flex-row items-center justify-between w-full h-full gap-4;
+  @apply flex-col-reverse;
+}
+
+.first__content > .main__content {
+  @apply flex flex-col justify-start lg:w-3/6 md:w-full h-full;
+}
+
+/* .first__content > .photo {
+  @apply flex flex-col lg:items-start lg:justify-center lg:w-3/6 h-full;
+  @apply items-center justify-center w-full mb-2;
+} */
+
+.first__content > .photo {
+  @apply flex flex-col items-start justify-center lg:w-2/6 md:w-full h-full;
+  @apply lg:items-start items-center lg:mb-0 mb-5
+}
+
+.photo__circle {
+  @apply lg:w-full md:w-2/6 w-3/6 object-cover;
+  @apply aspect-square h-auto flex items-center justify-center rounded-full bg-white shadow-xs border-1 border-[#e1e1e1];
+}
+
+.contact__options {
+  @apply flex lg:flex-row items-center justify-baseline w-full h-full gap-4;
+  @apply flex-col-reverse;
+}
+
+.social__medias__icons {
+  @apply flex flex-row items-center lg:justify-baseline justify-center h-full gap-4;
+  @apply lg:w-auto w-full;
+}
+
+.button__contact {
+  @apply lg:w-56 w-2/6 mr-1 lg:pt-0 lg:mt-0 mt-4;
+}
+
+.short__summary {
+  @apply py-10;
+}
+
+.social__circle {
+  @apply cursor-pointer w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-xs  border-1 border-[#e1e1e1];
+}
+
+.icon {
+  @apply w-6 h-6 flex items-center text-[#323232] justify-center;
+}

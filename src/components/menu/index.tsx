@@ -3,6 +3,7 @@ import React from "react";
 import "./styles.css";
 import { useTranslation } from "react-i18next";
 import { FaBars, FaGithubAlt, FaLinkedin, FaTimes } from "react-icons/fa";
+import Link from "next/link";
 
 interface MenuItem {
   label: string;
@@ -24,7 +25,7 @@ const Menu: React.FC = () => {
   return (
     <nav className="menu">
       <div className="logo">
-        <h1 className="md:text-4xl text-2xl font-black font-[#323232]">
+        <h1 className="md:text-4xl text-2xl font-black text-[#323232]">
           TAKEDI
         </h1>
         <div className="menu__icon">
@@ -53,45 +54,45 @@ const Menu: React.FC = () => {
               currentLink === item.link ? "font-semibold" : " font-normal "
             }`}
           >
-            <a
+            <Link
               href={item.link}
               className="menu__link"
               onClick={() => setCurrentLink(item.link)}
             >
               {item.label}
               {currentLink === item.link && <span className="underline"></span>}
-            </a>
+            </Link>
           </li>
         ))}
         <div className="flex md:hidden icons">
           <div className="social__circle">
-            <a href="https://github.com/viniciustakedi" target="_blank">
+            <Link href="https://github.com/viniciustakedi" target="_blank">
               <FaGithubAlt className="icon" />
-            </a>
+            </Link>
           </div>
           <div className="social__circle">
-            <a
+            <Link
               href="https://www.linkedin.com/in/vinicius-takedi/"
               target="_blank"
             >
               <FaLinkedin className="icon" />
-            </a>
+            </Link>
           </div>
         </div>
       </ul>
       <div className="md:flex hidden icons">
         <div className="social__circle">
-          <a href="https://github.com/viniciustakedi" target="_blank">
+          <Link href="https://github.com/viniciustakedi" target="_blank">
             <FaGithubAlt className="icon" />
-          </a>
+          </Link>
         </div>
         <div className="social__circle">
-          <a
+          <Link
             href="https://www.linkedin.com/in/vinicius-takedi/"
             target="_blank"
           >
             <FaLinkedin className="icon" />
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
