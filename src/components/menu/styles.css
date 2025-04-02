@@ -1,22 +1,46 @@
 @import "tailwindcss";
 
 .menu {
-  @apply flex flex-row items-center justify-between h-20 bg-white shadow-xs
-  border-b border-softGrey px-6;
+  @apply flex md:flex-row md:items-center justify-between md:h-16 bg-white shadow-xs
+  border-b border-[#e1e1e1] md:px-6;
+  @apply flex-col items-start h-auto px-4 z-10;
 }
 
 .logo {
-  @apply w-1/4 flex items-center bg-amber-300;
+  @apply md:w-1/4 w-full flex items-center justify-between md:justify-start z-10;
 }
 
 .menu__list {
-  @apply w-4/6 flex flex-row items-center justify-center gap-10 uppercase bg-amber-200;
+  @apply md:w-2/4 md:flex-row items-center justify-center md:gap-16 md:mb-0 uppercase;
+  @apply w-full flex-col gap-4 bg-white md:bg-transparent h-screen md:h-auto;
+  @apply md:relative fixed
+}
+
+.icon__menu__handle {
+  @apply flex md:hidden items-center justify-center text-[#323232] text-[1.125em] cursor-pointer;
 }
 
 .menu__item {
-  @apply text-2xl text-black font-semibold cursor-pointer;
+  @apply text-2xl text-[#323232] cursor-pointer;
+}
+
+.menu__link {
+  @apply relative;
+}
+
+.underline {
+  @apply border-b-3 border-[#323232] rounded-full w-4 absolute top-6 left-1/2 transform -translate-x-1/2;
 }
 
 .icons {
-  @apply w-1/4 flex items-center justify-end bg-amber-700;
+  @apply md:w-1/4 items-center md:justify-end gap-3 md:py-0 py-4;
+  @apply w-full justify-center gap-4
+}
+
+.social__circle {
+  @apply cursor-pointer w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-xs  border-1 border-[#e1e1e1];
+}
+
+.icon {
+  @apply w-6 h-6 flex items-center text-[#323232] justify-center;
 }
