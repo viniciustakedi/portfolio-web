@@ -1,36 +1,16 @@
 "use client";
-import { Title, Strong, Text } from "@/components/text";
-import React from "react";
-import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
-import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import "./styles.css";
-import Button from "@/components/button";
-import Link from "next/link";
 import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-interface WorkItem {
-  title: string;
-  description: string;
-  link?: string;
-}
+import { Title, Strong, Text } from "@/components/text";
+import Button from "@/components/button";
 
-const workItems: WorkItem[] = [
-  {
-    title: "Project 1",
-    description: "Description of project 1.",
-    link: "https://example.com/project1",
-  },
-  {
-    title: "Project 2",
-    description: "Description of project 2.",
-    link: "https://example.com/project2",
-  },
-  {
-    title: "Project 3",
-    description: "Description of project 3.",
-  },
-];
+import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
+
+import "./styles.css";
 
 const Work: React.FC = () => {
   const { t } = useTranslation("work");
