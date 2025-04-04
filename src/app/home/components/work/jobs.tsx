@@ -5,7 +5,7 @@ import { Strong, Text, Title } from "@/components/text";
 import DOMPurify from "isomorphic-dompurify";
 
 import Job0 from "../../../../assets/images/work/job0.jpg";
-import { StacksPng } from "./stacks";
+import { StacksPng, StackKey } from "./stacks";
 
 interface IJobContent {
   title: string;
@@ -109,7 +109,7 @@ const Jobs: React.FC = () => {
               return (
                 <Image
                   key={e}
-                  src={StacksPng[e]}
+                  src={StacksPng[e as StackKey]}
                   alt={`image__about__tech__${e}`}
                   className="job__stack__logo"
                 />
@@ -123,7 +123,6 @@ const Jobs: React.FC = () => {
           return (
             <div
               key={i}
-              className="dot"
               className={currentJob === i ? "dot__active" : "dot"}
               onClick={() => setCurrentJob(i)}
             />
