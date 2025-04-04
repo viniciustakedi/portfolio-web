@@ -7,6 +7,7 @@ import React from "react";
 
 import { Title, Strong, Text } from "@/components/text";
 import Button from "@/components/button";
+import BlurBg from "@/components/blur-bg";
 
 import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
 
@@ -16,8 +17,8 @@ const FirstInformations: React.FC = () => {
   const { t } = useTranslation("work");
 
   return (
-    <div className="first__content">
-      <div className="main__content">
+    <div className="first__content relative">
+      <div className="main__content z-10">
         <div className="lg:block lg:title hidden">
           <Title className="font-extralight">{t("title.part1")}</Title>
           <Title className="font-extralight">
@@ -74,13 +75,16 @@ const FirstInformations: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="photo">
+      <div className="photo z-10 left">
         <Image
           src={ProfilePhoto}
           alt="Vinicius Takedi"
           className="photo__circle"
         />
       </div>
+      <BlurBg bottom="bottom-full" left="left-full" />
+      <BlurBg top="top-2/6" right="right-full" />
+      <BlurBg top="top-4/6" left="left-4/6" />
     </div>
   );
 };

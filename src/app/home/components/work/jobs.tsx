@@ -5,6 +5,7 @@ import { Strong, Text, Title } from "@/components/text";
 import DOMPurify from "isomorphic-dompurify";
 
 import Job0 from "../../../../assets/images/work/job0.jpg";
+import { StacksPng } from "./stacks";
 
 interface IJobContent {
   title: string;
@@ -27,16 +28,18 @@ const jobsContent: IJobContent[] = [
     `,
     startDate: "2024-05-07",
     location: "On-site",
-    stacks: ["React", "Node.js", "TypeScript"],
+    stacks: ["golang", "typescript"],
   },
   {
     title: "Web Developer",
     companyName: "Digigrow",
-    content: "Building responsive websites.",
+    content: `
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining <strong>essentially</strong> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    `,
     startDate: "2020-01-01",
     exitDate: "2021-01-01",
     location: "On-site",
-    stacks: ["HTML", "CSS", "JavaScript"],
+    stacks: ["react", "nodejs"],
   },
 ];
 
@@ -51,7 +54,8 @@ function formatDateToMonthYear(dateString: string): string {
 }
 
 const Jobs: React.FC = () => {
-  const jobContent = jobsContent[0];
+  const [currentJob, setCurrentJob] = React.useState<number>(0);
+  const jobContent = jobsContent[currentJob];
 
   return (
     <div className="jobs__content">
@@ -100,8 +104,31 @@ const Jobs: React.FC = () => {
               }}
             />
           </Text>
-          <div className="stacks"></div>
+          <div className="stacks">
+            {jobContent.stacks.map((e) => {
+              return (
+                <Image
+                  key={e}
+                  src={StacksPng[e]}
+                  alt={`image__about__tech__${e}`}
+                  className="job__stack__logo"
+                />
+              );
+            })}
+          </div>
         </div>
+      </div>
+      <div className="job__amount__reference">
+        {jobsContent.map((e, i) => {
+          return (
+            <div
+              key={i}
+              className="dot"
+              className={currentJob === i ? "dot__active" : "dot"}
+              onClick={() => setCurrentJob(i)}
+            />
+          );
+        })}
       </div>
     </div>
   );
