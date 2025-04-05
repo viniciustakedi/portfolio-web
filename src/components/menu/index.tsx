@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import "./styles.css";
 import { useTranslation } from "react-i18next";
 import { FaBars, FaGithubAlt, FaLinkedin, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import "./styles.css";
 
 interface MenuItem {
   label: string;
