@@ -6,5 +6,5 @@ interface StrongProps {
 }
 
 export const Strong: React.FC<StrongProps> = ({ children }) => {
-  return <strong className="font-bold">{children}</strong>;
+  return <strong className="font-bold z-10">{children}</strong>;
 };

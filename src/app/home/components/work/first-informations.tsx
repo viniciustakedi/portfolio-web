@@ -7,7 +7,6 @@ import React from "react";
 
 import { Title, Strong, Text } from "@/components/text";
 import Button from "@/components/button";
-import BlurBg from "@/components/blur-bg";
 
 import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
 
@@ -82,9 +81,9 @@ const FirstInformations: React.FC = () => {
           className="photo__circle"
         />
       </div>
-      <BlurBg bottom="bottom-full" left="left-full" />
+      {/* <BlurBg bottom="bottom-full" left="left-full" />
       <BlurBg top="top-2/6" right="right-full" />
-      <BlurBg top="top-4/6" left="left-4/6" />
+      <BlurBg top="top-4/6" left="left-4/6" /> */}
     </div>
   );
 };
