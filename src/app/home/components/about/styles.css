@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.about__section {
+  @apply flex items-center justify-center flex-col w-full h-full;
+}
+
+.title__who__is {
+  @apply relative w-auto h-auto;
+}
+
+.memoji__title__about {
+  @apply absolute md:w-20 aspect-auto h-auto z-0;
+  @apply md:bottom-8 -rotate-12;
+  @apply w-14 bottom-5;
+}

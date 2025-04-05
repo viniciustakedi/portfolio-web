@@ -3,7 +3,7 @@
 .menu {
   @apply flex md:flex-row md:items-center justify-between md:h-16 bg-white shadow-xs
   border-b border-[#e1e1e1] md:px-6;
-  @apply flex-col items-start h-auto px-4 w-full fixed z-10 ;
+  @apply flex-col items-start h-auto px-4 w-full fixed z-50 ;
 }
 
 .logo {
@@ -13,7 +13,7 @@
 .menu__list {
   @apply md:w-2/4 md:flex-row items-center justify-center md:gap-16 md:mb-0 uppercase;
   @apply w-full flex-col gap-4 bg-white md:bg-transparent h-screen md:h-auto;
-  @apply md:relative fixed
+  @apply md:relative fixed top-0 left-0;
 }
 
 .icon__menu__handle {

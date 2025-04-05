@@ -22,6 +22,11 @@ const Menu: React.FC = () => {
     { label: t("nav_option_three"), link: "#contact" },
   ];
 
+  const handleMenuAction = (link: string) => {
+    setIsMenuOpen(state => !state)
+    setCurrentLink(link)
+  }
+
   return (
     <nav className="menu">
       <div className="logo">
@@ -57,7 +62,7 @@ const Menu: React.FC = () => {
             <Link
               href={item.link}
               className="menu__link"
-              onClick={() => setCurrentLink(item.link)}
+              onClick={() => handleMenuAction(item.link)}
             >
               {item.label}
               {currentLink === item.link && <span className="underline"></span>}
