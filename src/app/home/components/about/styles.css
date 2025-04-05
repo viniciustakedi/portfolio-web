@@ -5,11 +5,91 @@
 }
 
 .title__who__is {
-  @apply relative w-auto h-auto;
+  @apply relative w-auto h-auto mb-10;
 }
 
 .memoji__title__about {
   @apply absolute md:w-20 aspect-auto h-auto z-0;
   @apply md:bottom-8 -rotate-12;
   @apply w-14 bottom-5;
+}
+
+.about__images {
+  @apply flex items-center justify-center flex-col w-full h-full;
+}
+
+.image__1 {
+  @apply flex md:flex-row flex-col justify-between items-center w-full h-auto;
+}
+
+.text__about_1 {
+  @apply flex flex-col md:justify-between justify-center w-full;
+}
+
+.about__image__1 {
+  @apply md:w-2/6 w-full aspect-auto h-auto;
+}
+
+.image__2 {
+  @apply flex md:flex-row-reverse flex-col justify-between items-center w-full h-auto;
+  @apply gap-5 bg-white;
+  @apply bg-cover bg-no-repeat;
+  background-position: top;
+  background-size: auto 100vh;
+  background-image: url("../../../../assets/images/grade-bg.png");
+}
+
+.about__image__2 {
+  @apply md:w-3/6 w-full aspect-auto h-auto;
+}
+
+.text__about_2 {
+  @apply flex flex-col md:justify-between justify-center w-full;
+}
+
+.image__3 {
+  @apply flex flex-col justify-between items-center w-full h-auto;
+  @apply gap-5 mt-10;
+}
+
+.about__image__3 {
+  @apply md:w-2/6 w-full aspect-auto h-auto;
+}
+
+.text__about_3 {
+  @apply flex flex-col md:justify-between justify-center w-full;
+}
+
+.image__4 {
+  @apply flex md:flex-row flex-col justify-between items-center w-full h-auto;
+  @apply gap-5 bg-white;
+  @apply bg-cover bg-no-repeat;
+  background-position: top;
+  background-size: auto 100vh;
+  background-image: url("../../../../assets/images/grade-bg.png");
+}
+
+.about__image__4 {
+  @apply md:w-4/6 w-full aspect-auto h-auto;
+}
+
+.text__about_4 {
+  @apply flex flex-col md:justify-between justify-center w-full;
+}
+
+.image__5 {
+  @apply flex flex-col justify-between items-center w-full h-auto;
+  @apply gap-5 mt-10;
+}
+
+.about__image__5 {
+  @apply md:w-2/6 w-full aspect-auto h-auto;
+}
+
+.text__about__5 {
+  @apply flex flex-col md:justify-between justify-center w-full;
+}
+
+.text__about__tag {
+  @apply md:text-3xl text-[1.25rem];
 }
