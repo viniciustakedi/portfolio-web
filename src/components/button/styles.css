@@ -7,3 +7,8 @@
 .outline {
   @apply font-light lg:text-[1.250rem] text-[1rem] leading-0 text-[#323232];
 }
+
+.filled {
+  @apply font-medium lg:text-[1.250rem] text-[1rem] leading-0 text-[#fff];
+  @apply bg-[#3B82F6];
+}
