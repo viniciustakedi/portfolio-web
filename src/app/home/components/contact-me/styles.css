@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.contact__me__section {
+  @apply flex items-center justify-center flex-col w-full h-full bg-white;
+  @apply bg-cover bg-no-repeat;
+  background-position: top;
+  background-size: auto 100vh;
+  background-image: url("../../../../assets/images/grade-bg.png");
+}
+
+.title__contact__me {
+  @apply relative w-auto h-auto mb-10;
+}
+
+.memoji__title__contact__me {
+  @apply absolute md:w-20 aspect-auto h-auto z-0;
+  @apply md:bottom-8 left-1/2 rotate-12;
+  @apply w-14 bottom-5;
+}
+
+.form__contact__me {
+  @apply flex flex-col items-center justify-center w-full h-full;
+  @apply md:gap-8 gap-4;
+}
+

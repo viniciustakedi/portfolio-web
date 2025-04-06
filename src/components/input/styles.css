@@ -1,0 +1,15 @@
+@import "tailwindcss";
+.input {
+  @apply flex items-center justify-center cursor-pointer outline-2 rounded-full outline-[#3B82F6];
+  @apply lg:h-12 h-8 px-4;
+}
+
+.input__text__area {
+  @apply flex items-center justify-center cursor-pointer outline-2 md:rounded-4xl rounded-xl outline-[#3B82F6];
+  @apply lg:h-64 h-60 px-4 pt-8 resize-none;
+}
+
+.outline {
+  @apply font-light lg:text-[1.250rem] text-[1rem] leading-0 text-[#323232];
+  @apply bg-white
+}
