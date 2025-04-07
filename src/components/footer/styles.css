@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.footer {
+  @apply flex md:flex-row flex-col items-center md:justify-between justify-center w-full md:h-28 h-full;
+  @apply bg-white shadow-xs border-t border-[#e1e1e1];
+  @apply md:px-6 md:py-0 py-8 md:gap-0 gap-5;
+}
+
+.social__circles {
+  @apply flex md:w-2/6 w-full items-center md:justify-end justify-center gap-4;
+}
+
+.logo__footer {
+  @apply md:w-2/6 w-full flex items-center md:justify-start justify-center;
+}
