@@ -97,13 +97,12 @@ const Jobs: React.FC = () => {
           />
         </div>
         <div className="job__information__content">
-          <Text>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(jobContent.content),
-              }}
-            />
-          </Text>
+          <div
+            className="text"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(jobContent.content),
+            }}
+          />
           <div className="stacks">
             {jobContent.stacks.map((e) => {
               return (
