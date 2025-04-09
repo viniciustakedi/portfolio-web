@@ -14,7 +14,7 @@ import "./styles.css";
 
 const About: React.FC = () => {
   return (
-    <section id="#about" className="about__section padding__global">
+    <section id="about" className="about__section padding__global">
       <div className="title__who__is">
         <Title className="font-extralight text-center z-10">
           <Strong>Who</Strong> is Vinicius Takedi<Strong>?</Strong>

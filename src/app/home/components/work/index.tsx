@@ -5,7 +5,7 @@ import Jobs from "./jobs";
 
 const Work: React.FC = () => {
   return (
-    <section id="#" className="work__section padding__global">
+    <section id="work" className="work__section padding__global">
       <FirstInformations />
       <Jobs />
     </section>

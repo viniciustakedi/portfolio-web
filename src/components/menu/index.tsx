@@ -17,7 +17,7 @@ const Menu: React.FC = () => {
   const { t } = useTranslation("menu");
 
   const menuItems: MenuItem[] = [
-    { label: t("nav_option_one"), link: "#" },
+    { label: t("nav_option_one"), link: "#work" },
     { label: t("nav_option_two"), link: "#about" },
     { label: t("nav_option_three"), link: "#contact" },
   ];

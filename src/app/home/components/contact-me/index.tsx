@@ -13,7 +13,7 @@ const ContactMe: React.FC = () => {
   // Add blue burs on landpage
 
   return (
-    <section id="#about" className="contact__me__section padding__global pb-20">
+    <section id="contact" className="contact__me__section padding__global pb-20">
       <div className="title__contact__me">
         <Title className="font-extralight text-center z-10">
           <Strong>Contact</Strong> me!
