@@ -45,7 +45,7 @@ const jobsContent: IJobContent[] = [
 
 function formatDateToMonthYear(dateString: string): string {
   const date = new Date(dateString);
-  if (isNaN(date.getTime())) return ""; // Handle invalid date
+  if (isNaN(date.getTime())) return "";
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",

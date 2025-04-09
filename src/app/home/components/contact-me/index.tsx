@@ -10,7 +10,7 @@ import Button from "@/components/button";
 
 const ContactMe: React.FC = () => {
   // TO-DO: Add form validator
-  // Add blue burs on landpage
+  // Fix text area input
 
   return (
     <section id="contact" className="contact__me__section padding__global pb-20">

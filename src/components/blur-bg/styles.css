@@ -6,4 +6,5 @@
   border-radius: 50%;
   filter: blur(60px);
   position: absolute;
+  overflow: hidden;
 }
