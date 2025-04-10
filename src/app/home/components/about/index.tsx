@@ -11,10 +11,11 @@ import ImageFour from "@/assets/images/about/about-me-four.png";
 import ImageFive from "@/assets/images/about/about-me-five.png";
 
 import "./styles.css";
+import BlurBg from "@/components/blur-bg";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="about__section padding__global">
+    <section id="about" className="about__section padding__global relative">
       <div className="title__who__is">
         <Title className="font-extralight text-center z-10">
           <Strong>Who</Strong> is Vinicius Takedi<Strong>?</Strong>
@@ -91,6 +92,11 @@ const About: React.FC = () => {
           <Image src={ImageFive} alt="image__5" className="about__image__5" />
         </div>
       </div>
+      <BlurBg bottom="bottom-0" left="left-9/12" />
+      <BlurBg bottom="bottom-2/12" left="left-7/12" />
+      <BlurBg top="top-5/12" left="left-1/12" />
+      <BlurBg top="top-3/12" left="left-4/6" />
+      <BlurBg top="top-20" left="left-1/6" />
     </section>
   );
 };

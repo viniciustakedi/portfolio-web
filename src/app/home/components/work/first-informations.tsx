@@ -9,8 +9,8 @@ import { Title, Strong, Text } from "@/components/text";
 import Button from "@/components/button";
 
 import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
-
 import "./styles.css";
+import BlurBg from "@/components/blur-bg";
 
 const FirstInformations: React.FC = () => {
   const { t } = useTranslation("work");
@@ -48,9 +48,11 @@ const FirstInformations: React.FC = () => {
         </div>
         <div className="contact__options">
           <div className="button__contact">
-            <Button variant="outline" width="w-full">
-              Contact Me
-            </Button>
+            <Link href="#contact">
+              <Button variant="outline" width="w-full">
+                Contact Me
+              </Button>
+            </Link>
           </div>
           <div className="social__medias__icons">
             <div className="social__circle">
@@ -81,9 +83,9 @@ const FirstInformations: React.FC = () => {
           className="photo__circle"
         />
       </div>
-      {/* <BlurBg bottom="bottom-full" left="left-full" />
+      <BlurBg bottom="bottom-4/6" left="left-11/12" />
       <BlurBg top="top-2/6" right="right-full" />
-      <BlurBg top="top-4/6" left="left-4/6" /> */}
+      <BlurBg top="top-5/6" left="left-4/6" />
     </div>
   );
 };
