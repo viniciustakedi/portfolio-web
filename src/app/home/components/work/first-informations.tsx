@@ -6,11 +6,11 @@ import Link from "next/link";
 import React from "react";
 
 import { Title, Strong, Text } from "@/components/text";
-import BlurBg from "@/components/blur-bg";
 import Button from "@/components/button";
 
 import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
 import "./styles.css";
+import BlurBg from "@/components/blur-bg";
 
 const FirstInformations: React.FC = () => {
   const { t } = useTranslation("work");

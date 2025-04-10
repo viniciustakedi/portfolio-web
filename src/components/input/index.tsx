@@ -22,6 +22,8 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         className={`input__text__area ${variant} ${width}`}
         onChange={onChange}
+        cols={33}
+        rows={5}
       />
     );
   }

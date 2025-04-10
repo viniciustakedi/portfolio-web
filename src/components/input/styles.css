@@ -10,6 +10,6 @@
 }
 
 .outline {
-  @apply font-light lg:text-[1.250rem] text-[1rem] leading-0 text-[#323232];
-  @apply bg-white
+  @apply font-light lg:text-[1.250rem] text-[1rem] leading-relaxed text-[#323232];
+  @apply bg-white;
 }

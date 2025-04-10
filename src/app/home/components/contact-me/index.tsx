@@ -7,13 +7,17 @@ import MemojiTitle from "@/assets/images/contact-me/memoji.png";
 import "./styles.css";
 import Input from "@/components/input";
 import Button from "@/components/button";
+import BlurBg from "@/components/blur-bg";
 
 const ContactMe: React.FC = () => {
   // TO-DO: Add form validator
   // Fix text area input
 
   return (
-    <section id="contact" className="contact__me__section padding__global pb-20">
+    <section
+      id="contact"
+      className="contact__me__section padding__global pb-20 relative"
+    >
       <div className="title__contact__me">
         <Title className="font-extralight text-center z-10">
           <Strong>Contact</Strong> me!
@@ -47,6 +51,8 @@ const ContactMe: React.FC = () => {
           Send!
         </Button>
       </form>
+      <BlurBg bottom="bottom-0" left="left-0" />
+      <BlurBg bottom="bottom-1/12" left="left-11/12" />
     </section>
   );
 };

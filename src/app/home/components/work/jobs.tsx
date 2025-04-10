@@ -6,6 +6,7 @@ import DOMPurify from "isomorphic-dompurify";
 
 import Job0 from "../../../../assets/images/work/job0.jpg";
 import { StacksPng, StackKey } from "./stacks";
+import BlurBg from "@/components/blur-bg";
 
 interface IJobContent {
   title: string;
@@ -58,7 +59,7 @@ const Jobs: React.FC = () => {
   const jobContent = jobsContent[currentJob];
 
   return (
-    <div className="jobs__content">
+    <div className="jobs__content relative">
       <div className="title__period__job">
         <div className="title__job">
           <Title>
@@ -128,6 +129,7 @@ const Jobs: React.FC = () => {
           );
         })}
       </div>
+      <BlurBg bottom="bottom-0" left="left-1/2" />
     </div>
   );
 };
