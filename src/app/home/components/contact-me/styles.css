@@ -23,3 +23,8 @@
   @apply md:gap-8 gap-4;
 }
 
+
+.error__message {
+  @apply flex items-start justify-start text-red-400;
+}
+

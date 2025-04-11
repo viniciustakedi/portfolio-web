@@ -1,21 +1,20 @@
 import React from "react";
 import "./styles.css";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "outline" | "filled";
   width?: string;
   children: React.ReactNode;
-  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant,
   children,
-  onClick,
   width,
+  ...rest
 }) => {
   return (
-    <button className={`button ${variant} ${width}`} onClick={onClick}>
+    <button className={`button ${variant} ${width}`} {...rest}>
       {children}
     </button>
   );
