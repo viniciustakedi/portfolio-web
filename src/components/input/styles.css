@@ -6,10 +6,15 @@
 
 .input__text__area {
   @apply flex items-center justify-center cursor-pointer outline-2 md:rounded-4xl rounded-xl outline-[#3B82F6];
-  @apply lg:h-64 h-60 px-4 pt-8 resize-none;
+  @apply lg:h-64 h-60 p-4 resize-none;
 }
 
 .outline {
   @apply font-light lg:text-[1.250rem] text-[1rem] leading-relaxed text-[#323232];
+  @apply bg-white;
+}
+
+.text__area__outline {
+  @apply font-light lg:text-[1.250rem] text-[1rem]  text-[#323232];
   @apply bg-white;
 }

@@ -11,7 +11,6 @@ import BlurBg from "@/components/blur-bg";
 
 const ContactMe: React.FC = () => {
   // TO-DO: Add form validator
-  // Fix text area input
 
   return (
     <section
