@@ -17,7 +17,7 @@ type ContactMeFormValues = {
 };
 
 const resolver: Resolver<ContactMeFormValues> = async (values) => {
-  const errors: Record<string, any> = {};
+  const errors: Record<string, { type: string; message: string }> = {};
 
   if (!values.email) {
     errors.email = {
