@@ -20,7 +20,7 @@ const Input: React.FC<InputProps> = ({
     return (
       <textarea
         placeholder={placeholder}
-        className={`input__text__area ${variant} ${width}`}
+        className={`input__text__area text__area__${variant} ${width}`}
         onChange={onChange}
         cols={33}
         rows={5}
