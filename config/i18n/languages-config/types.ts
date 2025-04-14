@@ -18,3 +18,24 @@ export type ILanguageConfig = {
     shortSummary: string;
   };
 };
+
+export enum LanguagesSupported {
+  en = "en",
+  pt = "pt",
+}
+
+export enum FlagsByLanguage {
+  en = "🇬🇧",
+  pt = "🇵🇹",
+}
+
+export enum LabelByLanguage {
+  en = "🇬🇧 English",
+  pt = "🇵🇹 Português",
+}
+
+// Create a map of languages by label
+export const languagesMap = Object.entries(LabelByLanguage).map(([key, label]) => ({
+  value: key as LanguagesSupported,
+  label,
+}));

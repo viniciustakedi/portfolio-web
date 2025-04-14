@@ -1,8 +1,26 @@
 "use client";
+
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FaBars, FaGithubAlt, FaLinkedin, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import {
+  FaBars,
+  FaCheck,
+  FaGithubAlt,
+  FaLanguage,
+  FaLinkedin,
+  FaTimes,
+} from "react-icons/fa";
+
+// import { Text } from "../text";
+
+import {
+  // FlagsByLanguage,
+  LabelByLanguage,
+  languagesMap,
+  LanguagesSupported,
+} from "../../../config/i18n/languages-config";
+
 import "./styles.css";
 
 interface MenuItem {
@@ -14,7 +32,46 @@ const Menu: React.FC = () => {
   const [currentLink, setCurrentLink] = React.useState<string>("#");
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
-  const { t } = useTranslation("menu");
+  const [isSwitcherOpen, setIsSwitcherOpen] = React.useState<boolean>(false);
+  const [currentLang, setCurrentLang] = React.useState<LanguagesSupported>(
+    LanguagesSupported.en
+  );
+
+  const { i18n, t } = useTranslation("menu");
+
+  const handleLanguageChange = (lng: LanguagesSupported) => {
+    setIsSwitcherOpen(false);
+    setCurrentLang(lng);
+    i18n.changeLanguage(lng);
+  };
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const switcherElement = document.querySelector(
+        ".social__circle.relative"
+      );
+
+      const switcherOption = document.querySelector(".swicher__option");
+      console.log(switcherElement, event.target);
+
+      if (
+        switcherElement &&
+        !switcherElement.contains(event.target as Node) &&
+        switcherOption &&
+        switcherOption.contains(event.target as Node)
+      ) {
+        setIsSwitcherOpen(false);
+      }
+    };
+
+    if (isSwitcherOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSwitcherOpen]);
 
   const menuItems: MenuItem[] = [
     { label: t("nav_option_one"), link: "#work" },
@@ -23,9 +80,9 @@ const Menu: React.FC = () => {
   ];
 
   const handleMenuAction = (link: string) => {
-    setIsMenuOpen(state => !state)
-    setCurrentLink(link)
-  }
+    setIsMenuOpen((state) => !state);
+    setCurrentLink(link);
+  };
 
   return (
     <nav className="menu">
@@ -62,7 +119,10 @@ const Menu: React.FC = () => {
             <Link
               href={item.link}
               className="menu__link"
-              onClick={() => handleMenuAction(item.link)}
+              onClick={(event) => {
+                event.preventDefault();
+                handleMenuAction(item.link);
+              }}
             >
               {item.label}
               {currentLink === item.link && <span className="underline"></span>}
@@ -70,6 +130,39 @@ const Menu: React.FC = () => {
           </li>
         ))}
         <div className="flex md:hidden icons">
+          <div
+            className="social__circle relative"
+            onClick={() => setIsSwitcherOpen((state) => !state)}
+          >
+            <FaLanguage className="icon" />
+            {/* <Text className="leading-0 pt-1">{FlagsByLanguage[currentLang]}</Text> */}
+            {isSwitcherOpen && (
+              <div className="switcher">
+                {languagesMap.map(
+                  (e: {
+                    value: LanguagesSupported;
+                    label: LabelByLanguage;
+                  }) => {
+                    return (
+                      <p
+                        key={e.value}
+                        className="swicher__option"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleLanguageChange(e.value);
+                        }}
+                      >
+                        {e.label}
+                        {currentLang === e.value && (
+                          <FaCheck className="icon__lang__option" />
+                        )}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
+            )}
+          </div>
           <div className="social__circle">
             <Link href="https://github.com/viniciustakedi" target="_blank">
               <FaGithubAlt className="icon" />
@@ -86,6 +179,36 @@ const Menu: React.FC = () => {
         </div>
       </ul>
       <div className="md:flex hidden icons">
+        <div
+          className="social__circle relative"
+          onClick={() => setIsSwitcherOpen((state) => !state)}
+        >
+          <FaLanguage className="icon" />
+          {/* <Text className="leading-0 pt-1">{FlagsByLanguage[currentLang]}</Text> */}
+          {isSwitcherOpen && (
+            <div className="switcher">
+              {languagesMap.map(
+                (e: { value: LanguagesSupported; label: LabelByLanguage }) => {
+                  return (
+                    <p
+                      key={e.value}
+                      className="swicher__option"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        handleLanguageChange(e.value);
+                      }}
+                    >
+                      {e.label}
+                      {currentLang === e.value && (
+                        <FaCheck className="icon__lang__option" />
+                      )}
+                    </p>
+                  );
+                }
+              )}
+            </div>
+          )}
+        </div>
         <div className="social__circle">
           <Link href="https://github.com/viniciustakedi" target="_blank">
             <FaGithubAlt className="icon" />

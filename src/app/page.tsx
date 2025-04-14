@@ -12,7 +12,6 @@ export default function Home() {
       <About />
       <ContactMe />
       <Footer />
-      {/* <LanguageSwitcher /> */}
     </>
   );
 }
