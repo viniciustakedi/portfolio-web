@@ -37,29 +37,32 @@ const Menu: React.FC = () => {
     LanguagesSupported.en
   );
 
+  React.useEffect(() => {
+    const storedLang = localStorage.getItem(
+      "preferredLanguage"
+    ) as LanguagesSupported;
+
+    if (storedLang && languagesMap.some((lang) => lang.value === storedLang)) {
+      setCurrentLang(storedLang);
+    }
+  }, []);
+
   const { i18n, t } = useTranslation("menu");
 
   const handleLanguageChange = (lng: LanguagesSupported) => {
+    i18n.changeLanguage(lng);
+
     setIsSwitcherOpen(false);
     setCurrentLang(lng);
-    i18n.changeLanguage(lng);
+
+    localStorage.setItem("preferredLanguage", lng);
   };
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const switcherElement = document.querySelector(
-        ".social__circle.relative"
-      );
-
       const switcherOption = document.querySelector(".swicher__option");
-      console.log(switcherElement, event.target);
 
-      if (
-        switcherElement &&
-        !switcherElement.contains(event.target as Node) &&
-        switcherOption &&
-        switcherOption.contains(event.target as Node)
-      ) {
+      if (switcherOption && switcherOption.contains(event.target as Node)) {
         setIsSwitcherOpen(false);
       }
     };

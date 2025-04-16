@@ -12,13 +12,18 @@ import ImageFive from "@/assets/images/about/about-me-five.png";
 
 import "./styles.css";
 import BlurBg from "@/components/blur-bg";
+import { useTranslation } from "react-i18next";
 
 const About: React.FC = () => {
+  const { t } = useTranslation("about");
+
   return (
     <section id="about" className="about__section padding__global relative">
       <div className="title__who__is">
         <Title className="font-extralight text-center z-10">
-          <Strong>Who</Strong> is Vinicius Takedi<Strong>?</Strong>
+          <Strong>{t("title.part1")}</Strong>
+          {t("title.part2")}
+          <Strong>{t("title.part3")}</Strong>
         </Title>
         <Image
           src={MemojiTitle}
@@ -31,16 +36,17 @@ const About: React.FC = () => {
         <div className="image__1">
           <div className="text__about_1">
             <Text className="text__about__tag">
-              <Strong>I hold</Strong> a bachelor&#39;s degree in{" "}
-              <Strong>computer science...</Strong>
+              <Strong>{t("text1.part1")}</Strong>
+              {t("text1.part2")}
+              <Strong>{t("text1.part3")}</Strong>
             </Text>
             <Text className="text__about__tag mt-5 md:flex hidden justify-end items-end">
-              ...was hard, however now it was all worth it.{" "}
+              {t("text1.part4")}
             </Text>
           </div>
           <Image src={ImageOne} alt="image__1" className="about__image__1" />
           <Text className="text__about__tag flex md:hidden w-full justify-end items-end">
-            ...was hard, however now it was all worth it.{" "}
+            {t("text1.part4")}
           </Text>
         </div>
 
@@ -48,9 +54,15 @@ const About: React.FC = () => {
         <div className="image__2 md:mt-0 mt-10">
           <div className="text__about_2">
             <Text className="text__about__tag md:text-left text-center">
-              <Strong>I</Strong> really <Strong>enjoys reading</Strong> any kind
-              of random <Strong>book</Strong> and <Strong>enjoying</Strong> a
-              good/different <Strong>dish.</Strong>
+              <Strong>{t("text2.part1")}</Strong>
+              {t("text2.part2")}
+              <Strong>{t("text2.part3")}</Strong>
+              {t("text2.part4")}
+              <Strong>{t("text2.part5")}</Strong>
+              {t("text2.part6")}
+              <Strong>{t("text2.part7")}</Strong>
+              {t("text2.part8")}
+              <Strong>{t("text2.part9")}</Strong>
             </Text>
           </div>
           <Image src={ImageTwo} alt="image__2" className="about__image__2" />
@@ -60,9 +72,14 @@ const About: React.FC = () => {
         <div className="image__3">
           <div className="text__about_3">
             <Text className="text__about__tag text-center">
-              <Strong>Without</Strong> an <Strong>organized</Strong> environment
-              I can&#39;t work I think a good environment makes a{" "}
-              <Strong>difference</Strong> in <Strong>everyday</Strong> life
+              <Strong>{t("text3.part1")}</Strong>
+              {t("text3.part2")}
+              <Strong>{t("text3.part3")}</Strong>
+              {t("text3.part4")}
+              <Strong>{t("text3.part5")}</Strong>
+              {t("text3.part6")}
+              <Strong>{t("text3.part7")}</Strong>
+              {t("text3.part8")}
             </Text>
           </div>
           <Image src={ImageThree} alt="image__3" className="about__image__3" />
@@ -72,9 +89,13 @@ const About: React.FC = () => {
         <div className="image__4 md:mt-0 mt-10">
           <div className="text__about_4">
             <Text className="text__about__tag md:text-left text-center">
-              <Strong>I</Strong> really <Strong>enjoys reading</Strong> any kind
-              of random <Strong>book</Strong> and <Strong>enjoying</Strong> a
-              good/different <Strong>dish.</Strong>
+              <Strong>{t("text4.part1")}</Strong>
+              {t("text4.part2")}
+              <Strong>{t("text4.part3")}</Strong>
+              {t("text4.part4")}
+              <Strong>{t("text4.part5")}</Strong>
+              {t("text4.part6")}
+              <Strong>{t("text4.part7")}</Strong>
             </Text>
           </div>
           <Image src={ImageFour} alt="image__2" className="about__image__4" />
@@ -84,9 +105,12 @@ const About: React.FC = () => {
         <div className="image__5">
           <div className="text__about_5">
             <Text className="text__about__tag text-center">
-              And to finish this little summary, <Strong>I have</Strong> a{" "}
-              <Strong>little dog</Strong> who is sometimes too{" "}
-              <Strong>needy</Strong>.
+              {t("text5.part1")}
+              <Strong>{t("text5.part2")}</Strong>
+              {t("text5.part3")}
+              <Strong>{t("text5.part4")}</Strong>
+              {t("text5.part5")}
+              <Strong>{t("text5.part6")}</Strong>.
             </Text>
           </div>
           <Image src={ImageFive} alt="image__5" className="about__image__5" />

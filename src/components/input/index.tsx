@@ -11,7 +11,6 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   placeholder: string;
   variant: "outline" | "filled";
-  type: "email" | "text" | "password" | "textArea";
   width?: string;
 }
 
@@ -41,7 +40,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   return (
     <textarea
       placeholder={placeholder}
-      className={`input__text__area ${variant} ${width}`}
+      className={`input__text__area text__area__${variant} ${width}`}
       cols={33}
       rows={5}
       {...rest}

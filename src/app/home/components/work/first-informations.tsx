@@ -50,7 +50,7 @@ const FirstInformations: React.FC = () => {
           <div className="button__contact">
             <Link href="#contact">
               <Button variant="outline" width="w-full">
-                Contact Me
+                {t("contactButtonLabel")}
               </Button>
             </Link>
           </div>
