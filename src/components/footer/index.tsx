@@ -1,19 +1,16 @@
 "use client";
 import React from "react";
 // import { useTranslation } from "react-i18next";
-import {
-  FaGithubAlt,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import Link from "next/link";
 import { Text } from "../text";
 
 import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 const Footer: React.FC = () => {
-  // const { t } = useTranslation("menu");
+  const { t } = useTranslation("footer");
 
   return (
     <footer className="footer">
@@ -22,7 +19,7 @@ const Footer: React.FC = () => {
           TAKEDI
         </h1>
       </div>
-      <Text className="text-center">Made with ❤️‍🩹 by Vinicius Takedi</Text>
+      <Text className="text-center">{t("centeredText")}</Text>
       <div className="social__circles">
         <div className="social__circle">
           <Link href="https://github.com/viniciustakedi" target="_blank">

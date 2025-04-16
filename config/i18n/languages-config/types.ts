@@ -24,6 +24,86 @@ export type ILanguageConfig = {
       part2: string;
       part3: string;
     };
+    text1: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+    };
+    text2: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+      part5: string;
+      part6: string;
+      part7: string;
+      part8: string;
+      part9: string;
+    };
+    text3: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+      part5: string;
+      part6: string;
+      part7: string;
+      part8: string;
+    };
+    text4: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+      part5: string;
+      part6: string;
+      part7: string;
+    };
+    text5: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+      part5: string;
+      part6: string;
+    };
+  };
+  contactMe: {
+    title: {
+      part1: string;
+      part2: string;
+    };
+    form: {
+      input: {
+        email: {
+          placeholder: string;
+          errors: {
+            required: string;
+            invalidFormat: string;
+          };
+        };
+        name: {
+          placeholder: string;
+          errors: {
+            required: string;
+          };
+        };
+        message: {
+          placeholder: string;
+          errors: {
+            required: string;
+            minLength: string;
+          };
+        };
+        submitButton: {
+          text: string;
+        };
+      };
+    };
+  };
+  footer: {
+    centeredText: string;
   };
 };
 

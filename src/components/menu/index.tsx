@@ -37,12 +37,25 @@ const Menu: React.FC = () => {
     LanguagesSupported.en
   );
 
+  React.useEffect(() => {
+    const storedLang = localStorage.getItem(
+      "preferredLanguage"
+    ) as LanguagesSupported;
+
+    if (storedLang && languagesMap.some((lang) => lang.value === storedLang)) {
+      setCurrentLang(storedLang);
+    }
+  }, []);
+
   const { i18n, t } = useTranslation("menu");
 
   const handleLanguageChange = (lng: LanguagesSupported) => {
+    i18n.changeLanguage(lng);
+
     setIsSwitcherOpen(false);
     setCurrentLang(lng);
-    i18n.changeLanguage(lng);
+
+    localStorage.setItem("preferredLanguage", lng);
   };
 
   React.useEffect(() => {

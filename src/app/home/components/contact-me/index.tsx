@@ -9,6 +9,7 @@ import Button from "@/components/button";
 import BlurBg from "@/components/blur-bg";
 import { Resolver, useForm } from "react-hook-form";
 import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 type ContactMeFormValues = {
   email: string;
@@ -16,61 +17,49 @@ type ContactMeFormValues = {
   message: string;
 };
 
-const resolver: Resolver<ContactMeFormValues> = async (values) => {
-  const errors: Record<string, { type: string; message: string }> = {};
-
-  if (!values.email) {
-    errors.email = {
-      type: "required",
-      message: "Email is required.",
-    };
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = {
-      type: "pattern",
-      message: "Invalid email format.",
-    };
-  }
-
-  if (!values.name) {
-    errors.name = {
-      type: "required",
-      message: "Name is required.",
-    };
-  }
-
-  if (!values.message) {
-    errors.message = {
-      type: "required",
-      message: "Message is required.",
-    };
-  } else if (values.message.length < 10) {
-    errors.message = {
-      type: "minLength",
-      message: "Message must be at least 10 characters long.",
-    };
-  }
-
-  if (!values.name) {
-    errors.name = {
-      type: "required",
-      message: "Name is required.",
-    };
-  }
-
-  if (!values.message) {
-    errors.message = {
-      type: "required",
-      message: "Message is required.",
-    };
-  }
-
-  return {
-    values: Object.keys(errors).length === 0 ? values : {},
-    errors,
-  };
-};
-
 const ContactMe: React.FC = () => {
+  const { t } = useTranslation("contactMe");
+
+  const resolver: Resolver<ContactMeFormValues> = async (values) => {
+    const errors: Record<string, { type: string; message: string }> = {};
+
+    if (!values.email) {
+      errors.email = {
+        type: "required",
+        message: t("form.input.email.errors.required"),
+      };
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+      errors.email = {
+        type: "pattern",
+        message: t("form.input.email.errors.invalidFormat"),
+      };
+    }
+
+    if (!values.name) {
+      errors.name = {
+        type: "required",
+        message: t("form.input.name.errors.required"),
+      };
+    }
+
+    if (!values.message) {
+      errors.message = {
+        type: "required",
+        message: t("form.input.message.errors.required"),
+      };
+    } else if (values.message.length < 10) {
+      errors.message = {
+        type: "minLength",
+        message: t("form.input.message.errors.minLength"),
+      };
+    }
+
+    return {
+      values: Object.keys(errors).length === 0 ? values : {},
+      errors,
+    };
+  };
+
   const {
     register,
     handleSubmit,
@@ -85,7 +74,8 @@ const ContactMe: React.FC = () => {
     >
       <div className="title__contact__me">
         <Title className="font-extralight text-center z-10">
-          <Strong>Contact</Strong> me!
+          <Strong>{t("title.part1")}</Strong>
+          {t("title.part2")}
         </Title>
         <Image
           src={MemojiTitle}
@@ -97,7 +87,7 @@ const ContactMe: React.FC = () => {
         <Input
           width="md:w-1/2 w-full"
           type="email"
-          placeholder="Your best email"
+          placeholder={t("form.input.email.placeholder")}
           variant="outline"
           {...register("email")}
         />
@@ -107,7 +97,7 @@ const ContactMe: React.FC = () => {
         <Input
           width="md:w-1/2 w-full"
           type="text"
-          placeholder="Your name"
+          placeholder={t("form.input.name.placeholder")}
           variant="outline"
           {...register("name")}
         />
@@ -116,7 +106,7 @@ const ContactMe: React.FC = () => {
         )}
         <TextArea
           width="md:w-1/2 w-full"
-          placeholder="Your message..."
+          placeholder={t("form.input.message.placeholder")}
           variant="outline"
           {...register("message")}
         />
@@ -124,7 +114,7 @@ const ContactMe: React.FC = () => {
           <p className="error__message">{errors.message.message}</p>
         )}
         <Button variant="filled" width="md:w-1/2 w-full">
-          Send!
+          {t("form.input.submitButton.text")}
         </Button>
       </form>
       <BlurBg bottom="bottom-0" left="left-0" />
