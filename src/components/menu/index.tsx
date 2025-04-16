@@ -12,10 +12,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-// import { Text } from "../text";
-
 import {
-  // FlagsByLanguage,
   LabelByLanguage,
   languagesMap,
   LanguagesSupported,
@@ -33,6 +30,8 @@ const Menu: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
   const [isSwitcherOpen, setIsSwitcherOpen] = React.useState<boolean>(false);
+  const switcherRef = React.useRef<HTMLDivElement | null>(null);
+
   const [currentLang, setCurrentLang] = React.useState<LanguagesSupported>(
     LanguagesSupported.en
   );
@@ -59,20 +58,19 @@ const Menu: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const switcherOption = document.querySelector(".swicher__option");
-
-      if (switcherOption && switcherOption.contains(event.target as Node)) {
-        setIsSwitcherOpen(false);
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (
+      isSwitcherOpen &&
+      switcherRef.current &&
+      !switcherRef.current.contains(e.target as Node)
+      ) {
+      setIsSwitcherOpen(false);
       }
     };
 
-    if (isSwitcherOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", checkIfClickedOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [isSwitcherOpen]);
 
@@ -138,7 +136,6 @@ const Menu: React.FC = () => {
             onClick={() => setIsSwitcherOpen((state) => !state)}
           >
             <FaLanguage className="icon" />
-            {/* <Text className="leading-0 pt-1">{FlagsByLanguage[currentLang]}</Text> */}
             {isSwitcherOpen && (
               <div className="switcher">
                 {languagesMap.map(
@@ -187,9 +184,8 @@ const Menu: React.FC = () => {
           onClick={() => setIsSwitcherOpen((state) => !state)}
         >
           <FaLanguage className="icon" />
-          {/* <Text className="leading-0 pt-1">{FlagsByLanguage[currentLang]}</Text> */}
           {isSwitcherOpen && (
-            <div className="switcher">
+            <div className="switcher" ref={switcherRef}>
               {languagesMap.map(
                 (e: { value: LanguagesSupported; label: LabelByLanguage }) => {
                   return (
