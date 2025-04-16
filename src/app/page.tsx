@@ -6,9 +6,8 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   //TO-DO
-  // 1. Close language switcher when click outside
-  // 2. Fix menu anchor
-  // 3. Horizontal scroll
+  // 1. Fix menu anchor
+  // 2. Horizontal scroll
 
   return (
     <>

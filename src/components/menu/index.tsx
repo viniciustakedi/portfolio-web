@@ -58,13 +58,13 @@ const Menu: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
       if (
-        isSwitcherOpen &&
-        switcherRef.current &&
-        !switcherRef.current.contains(e.target)
+      isSwitcherOpen &&
+      switcherRef.current &&
+      !switcherRef.current.contains(e.target as Node)
       ) {
-        setIsSwitcherOpen(false);
+      setIsSwitcherOpen(false);
       }
     };
 
