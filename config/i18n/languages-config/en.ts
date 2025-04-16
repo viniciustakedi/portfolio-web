@@ -19,5 +19,13 @@ export const enContentConfig: ILanguageConfig = {
     },
     shortSummary:
       "As a Brazilian software engineer with over four years of experience, I specialize in crafting reliable, scalable solutions for companies building exceptional products.",
+    contactButtonLabel: "Contact Me",
+  },
+  about: {
+    title: {
+      part1: "Who ",
+      part2: "is Vinicius Takedi ",
+      part3: "?",
+    },
   },
 };

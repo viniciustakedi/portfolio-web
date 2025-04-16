@@ -16,6 +16,14 @@ export type ILanguageConfig = {
       part8: string;
     };
     shortSummary: string;
+    contactButtonLabel: string;
+  };
+  about: {
+    title: {
+      part1: string;
+      part2: string;
+      part3: string;
+    };
   };
 };
 
@@ -35,7 +43,9 @@ export enum LabelByLanguage {
 }
 
 // Create a map of languages by label
-export const languagesMap = Object.entries(LabelByLanguage).map(([key, label]) => ({
-  value: key as LanguagesSupported,
-  label,
-}));
+export const languagesMap = Object.entries(LabelByLanguage).map(
+  ([key, label]) => ({
+    value: key as LanguagesSupported,
+    label,
+  })
+);

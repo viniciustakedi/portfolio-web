@@ -8,8 +8,8 @@ export const ptContentConfig: ILanguageConfig = {
   },
   work: {
     title: {
-      part1: "Salveeeee!",
-      part2: "Eu sou ",
+      part1: "Olá, tudo certo?",
+      part2: "Eu sou o ",
       part3: "Vinicius Takedi",
       part4: ",",
       part5: "um ",
@@ -19,5 +19,13 @@ export const ptContentConfig: ILanguageConfig = {
     },
     shortSummary:
       "Sou um engenheiro de software brasileiro com mais de quatro anos de experiência, especializado em criar soluções confiáveis e escaláveis para empresas que constroem produtos excepcionais.",
+    contactButtonLabel: "Fale comigo!",
+  },
+  about: {
+    title: {
+      part1: "Quem ",
+      part2: "é Vinicius Takedi ",
+      part3: "?",
+    },
   },
 };

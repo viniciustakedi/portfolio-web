@@ -47,19 +47,9 @@ const Menu: React.FC = () => {
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const switcherElement = document.querySelector(
-        ".social__circle.relative"
-      );
-
       const switcherOption = document.querySelector(".swicher__option");
-      console.log(switcherElement, event.target);
 
-      if (
-        switcherElement &&
-        !switcherElement.contains(event.target as Node) &&
-        switcherOption &&
-        switcherOption.contains(event.target as Node)
-      ) {
+      if (switcherOption && switcherOption.contains(event.target as Node)) {
         setIsSwitcherOpen(false);
       }
     };

@@ -116,7 +116,6 @@ const ContactMe: React.FC = () => {
         )}
         <TextArea
           width="md:w-1/2 w-full"
-          type="textArea"
           placeholder="Your message..."
           variant="outline"
           {...register("message")}
@@ -124,10 +123,7 @@ const ContactMe: React.FC = () => {
         {errors?.message && (
           <p className="error__message">{errors.message.message}</p>
         )}
-        <Button
-          variant="filled"
-          width="md:w-1/2 w-full"
-        >
+        <Button variant="filled" width="md:w-1/2 w-full">
           Send!
         </Button>
       </form>
