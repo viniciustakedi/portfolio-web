@@ -22,6 +22,11 @@ const Footer: React.FC = () => {
       <Text className="text-center">{t("centeredText")}</Text>
       <div className="social__circles">
         <div className="social__circle">
+          <Link href="https://www.instagram.com/7akedi" target="_blank">
+            <FaInstagram className="icon" />
+          </Link>
+        </div>
+        <div className="social__circle">
           <Link href="https://github.com/viniciustakedi" target="_blank">
             <FaGithubAlt className="icon" />
           </Link>
@@ -32,11 +37,6 @@ const Footer: React.FC = () => {
             target="_blank"
           >
             <FaLinkedin className="icon" />
-          </Link>
-        </div>
-        <div className="social__circle">
-          <Link href="https://www.instagram.com/7akedi" target="_blank">
-            <FaInstagram className="icon" />
           </Link>
         </div>
       </div>

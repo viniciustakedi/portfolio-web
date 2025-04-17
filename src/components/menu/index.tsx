@@ -31,6 +31,7 @@ const Menu: React.FC = () => {
 
   const [isSwitcherOpen, setIsSwitcherOpen] = React.useState<boolean>(false);
   const switcherRef = React.useRef<HTMLDivElement | null>(null);
+  const switcherMobileRef = React.useRef<HTMLDivElement | null>(null);
 
   const [currentLang, setCurrentLang] = React.useState<LanguagesSupported>(
     LanguagesSupported.en
@@ -60,11 +61,21 @@ const Menu: React.FC = () => {
   React.useEffect(() => {
     const checkIfClickedOutside = (e: MouseEvent) => {
       if (
-      isSwitcherOpen &&
-      switcherRef.current &&
-      !switcherRef.current.contains(e.target as Node)
+        isSwitcherOpen &&
+        switcherRef.current &&
+        !switcherRef.current.contains(e.target as Node) &&
+        !switcherMobileRef.current
       ) {
-      setIsSwitcherOpen(false);
+        setIsSwitcherOpen(false);
+      }
+
+      if (
+        isSwitcherOpen &&
+        switcherMobileRef.current &&
+        !switcherRef.current &&
+        !switcherMobileRef.current.contains(e.target as Node)
+      ) {
+        setIsSwitcherOpen(false);
       }
     };
 
@@ -122,6 +133,7 @@ const Menu: React.FC = () => {
               className="menu__link"
               onClick={(event) => {
                 event.preventDefault();
+                document.querySelector(item.link)?.scrollIntoView({ behavior: "smooth" });
                 handleMenuAction(item.link);
               }}
             >
@@ -137,7 +149,7 @@ const Menu: React.FC = () => {
           >
             <FaLanguage className="icon" />
             {isSwitcherOpen && (
-              <div className="switcher">
+              <div className="switcher" ref={switcherMobileRef}>
                 {languagesMap.map(
                   (e: {
                     value: LanguagesSupported;
