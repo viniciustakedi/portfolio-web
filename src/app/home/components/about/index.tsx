@@ -18,7 +18,7 @@ const About: React.FC = () => {
   const { t } = useTranslation("about");
 
   return (
-    <section id="about" className="about__section padding__global relative">
+    <section id="about" className="about__section padding__global">
       <div className="title__who__is">
         <Title className="font-extralight text-center z-10">
           <Strong>{t("title.part1")}</Strong>
