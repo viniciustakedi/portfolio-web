@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 .about__section {
-  @apply flex items-center justify-center flex-col w-full h-full;
+  @apply flex items-center justify-center flex-col w-full h-full relative;
+  overflow-x: hidden;
 }
 
 .title__who__is {

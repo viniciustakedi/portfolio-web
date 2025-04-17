@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import FirstInformations from "./first-informations";
 import Jobs from "./jobs";

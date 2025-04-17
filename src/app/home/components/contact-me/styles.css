@@ -2,7 +2,7 @@
 
 .contact__me__section {
   @apply flex items-center justify-center flex-col w-full h-full bg-white;
-  @apply bg-cover bg-no-repeat;
+  @apply bg-cover bg-no-repeat overflow-x-hidden;
   background-position: top;
   background-size: auto 100vh;
   background-image: url("../../../../assets/images/grade-bg.png");

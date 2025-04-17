@@ -1,9 +1,11 @@
 @import "tailwindcss";
+
 .blue__blur-wrapper {
   width: 300px;
   height: 300px;
   filter: blur(100px);
   position: absolute;
+  border-radius: 100%;
 }
 
 .blue__blur-inner {

@@ -2,7 +2,8 @@
 
 .work__section {
   @apply flex flex-col items-baseline justify-start w-full h-full bg-white;
-  @apply bg-cover bg-no-repeat;
+  @apply bg-cover bg-no-repeat relative;
+  overflow-x: hidden;
   background-position: top;
   background-size: auto 80vh;
   background-image: url("../../../../assets/images/grade-bg.png");
@@ -17,11 +18,6 @@
 .first__content > .main__content {
   @apply flex flex-col justify-start lg:w-3/6 md:w-full h-full;
 }
-
-/* .first__content > .photo {
-  @apply flex flex-col lg:items-start lg:justify-center lg:w-3/6 h-full;
-  @apply items-center justify-center w-full mb-2;
-} */
 
 .first__content > .photo {
   @apply flex flex-col items-start justify-center lg:w-2/6 md:w-full h-full;
@@ -67,7 +63,7 @@
 }
 
 .jobs__content {
-  @apply flex flex-col items-start justify-start w-full h-full;
+  @apply flex flex-col items-start justify-start w-full h-full overflow-x-hidden;
 }
 
 .title__job {
