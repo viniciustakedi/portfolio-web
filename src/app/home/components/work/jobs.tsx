@@ -1,62 +1,57 @@
 "use client";
-import React from "react";
-import Image from "next/image";
-import { Strong, Text, Title } from "@/components/text";
-import DOMPurify from "isomorphic-dompurify";
 
-import Job0 from "../../../../assets/images/work/job0.jpg";
-import { StacksPng, StackKey } from "./stacks";
+import { useTranslation } from "react-i18next";
+import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
+import React from "react";
+
+import { Strong, Text, Title } from "@/components/text";
+import { getJobs, IJobContent } from "@/requests/get";
+import { useQuery } from "@tanstack/react-query";
 import BlurBg from "@/components/blur-bg";
 
-interface IJobContent {
-  title: string;
-  companyName: string;
-  content: string;
-  startDate: string;
-  location: string;
-  stacks: string[];
-  exitDate?: string;
-}
+import { StacksPng, StackKey } from "./stacks";
+import Job0 from "../../../../assets/images/work/job0.jpg";
+import { LanguagesSupported } from "../../../../../config/i18n/languages-config";
 
-const jobsContent: IJobContent[] = [
-  {
-    title: "Software Engineer",
-    companyName: "Idea Maker",
-    content: `
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining <strong>essentially</strong> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    <br/>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was <strong>popularised in the 1960s</strong> with the release of Letraset shdsa. survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.</p>
-    `,
-    startDate: "2024-05-07",
-    location: "On-site",
-    stacks: ["golang", "typescript"],
-  },
-  {
-    title: "Web Developer",
-    companyName: "Digigrow",
-    content: `
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining <strong>essentially</strong> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    `,
-    startDate: "2020-01-01",
-    exitDate: "2021-01-01",
-    location: "On-site",
-    stacks: ["react", "nodejs"],
-  },
-];
-
-function formatDateToMonthYear(dateString: string): string {
+function formatDateToMonthYear(
+  dateString: string,
+  lang: LanguagesSupported
+): string {
   const date = new Date(dateString);
   if (isNaN(date.getTime())) return "";
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
   };
-  return date.toLocaleDateString("en-US", options);
+
+  let localeDateString = "en-US";
+
+  if (lang === LanguagesSupported.pt) {
+    localeDateString = "pt-BR";
+  }
+
+  return date.toLocaleDateString(localeDateString, options);
 }
 
 const Jobs: React.FC = () => {
   const [currentJob, setCurrentJob] = React.useState<number>(0);
-  const jobContent = jobsContent[currentJob];
+
+  const { i18n, t } = useTranslation("work");
+  const currentLanguage = i18n.language;
+
+  const {
+    data: jobs,
+    // isLoading,
+    error,
+  } = useQuery<IJobContent[]>({ queryKey: ["jobsContent"], queryFn: getJobs });
+
+  const jobContent = jobs?.[currentJob];
+
+  if (error) return <div>Error loading jobs content</div>;
+  if (!jobContent || !jobs) {
+    return <></>;
+  }
 
   return (
     <div className="jobs__content relative">
@@ -74,18 +69,32 @@ const Jobs: React.FC = () => {
             } top-12 right-0 flex xl:hidden`}
           >
             {" "}
-            {formatDateToMonthYear(jobContent.startDate)} -{" "}
+            {formatDateToMonthYear(
+              jobContent.startDate,
+              currentLanguage as LanguagesSupported
+            )}{" "}
+            -{" "}
             {jobContent.exitDate
-              ? formatDateToMonthYear(jobContent.exitDate)
-              : "Present"}
+              ? formatDateToMonthYear(
+                  jobContent.exitDate,
+                  currentLanguage as LanguagesSupported
+                )
+              : t("job.noneDateText")}
           </Text>
         </div>
         <div className="period__job">
           <Title className="font-light">
-            {formatDateToMonthYear(jobContent.startDate)} -{" "}
+            {formatDateToMonthYear(
+              jobContent.startDate,
+              currentLanguage as LanguagesSupported
+            )}{" "}
+            -{" "}
             {jobContent.exitDate
-              ? formatDateToMonthYear(jobContent.exitDate)
-              : "Present"}
+              ? formatDateToMonthYear(
+                  jobContent.exitDate,
+                  currentLanguage as LanguagesSupported
+                )
+              : t("job.noneDateText")}
           </Title>
         </div>
       </div>
@@ -101,7 +110,9 @@ const Jobs: React.FC = () => {
           <div
             className="text"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(jobContent.content),
+              __html: DOMPurify.sanitize(
+                jobContent.content[currentLanguage as LanguagesSupported]
+              ),
             }}
           />
           <div className="stacks">
@@ -119,7 +130,7 @@ const Jobs: React.FC = () => {
         </div>
       </div>
       <div className="job__amount__reference">
-        {jobsContent.map((e, i) => {
+        {jobs.map((e, i) => {
           return (
             <div
               key={i}

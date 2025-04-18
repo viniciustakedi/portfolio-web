@@ -4,6 +4,7 @@ import { Anybody } from "next/font/google";
 import { I18nProvider } from "../../config/i18n/I18nProvider";
 
 import "./globals.css";
+import { ReactQuery } from "../../config/react-query/ReactQueryProvider";
 
 const anybody = Anybody({
   variable: "--font-anybody",
@@ -24,8 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${anybody.variable}  antialiased`}>
-        {" "}
-        <I18nProvider>{children}</I18nProvider>
+        <ReactQuery>
+          <I18nProvider>{children}</I18nProvider>
+        </ReactQuery>
       </body>
     </html>
   );

@@ -15,6 +15,9 @@ export type ILanguageConfig = {
       part7: string;
       part8: string;
     };
+    job: {
+      noneDateText: string
+    }
     shortSummary: string;
     contactButtonLabel: string;
   };

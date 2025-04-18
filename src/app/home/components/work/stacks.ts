@@ -5,11 +5,11 @@ import NodeJsPNG from "@/assets/images/work/stacks/nodejs.png";
 
 import type { StaticImageData } from "next/image";
 
-export type StackKey = "golang" | "typescript" | "react" | "nodejs";
+export type StackKey = "Golang" | "Typescript" | "React" | "NodeJS";
 
 export const StacksPng: Record<StackKey, StaticImageData> = {
-  golang: GolangPNG,
-  typescript: TypescriptPNG,
-  react: ReactPNG,
-  nodejs: NodeJsPNG,
+  Golang: GolangPNG,
+  Typescript: TypescriptPNG,
+  React: ReactPNG,
+  NodeJS: NodeJsPNG,
 };
