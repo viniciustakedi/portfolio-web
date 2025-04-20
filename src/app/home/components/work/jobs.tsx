@@ -13,6 +13,7 @@ import BlurBg from "@/components/blur-bg";
 import { StacksPng, StackKey } from "./stacks";
 import Job0 from "../../../../assets/images/work/job0.jpg";
 import { LanguagesSupported } from "../../../../../config/i18n/languages-config";
+import Tooltip from "@/components/tooltip";
 
 function formatDateToMonthYear(
   dateString: string,
@@ -133,12 +134,14 @@ const Jobs: React.FC = () => {
           <div className="stacks">
             {jobContent.stacks.map((e) => {
               return (
-                <Image
-                  key={e}
-                  src={StacksPng[e as StackKey]}
-                  alt={`image__about__tech__${e}`}
-                  className="job__stack__logo"
-                />
+                <Tooltip key={e} text={e}>
+                  <Image
+                    key={e}
+                    src={StacksPng[e as StackKey]}
+                    alt={`image__about__tech__${e}`}
+                    className="job__stack__logo"
+                  />
+                </Tooltip>
               );
             })}
           </div>
@@ -161,7 +164,6 @@ const Jobs: React.FC = () => {
           );
         })}
       </div>
-      <BlurBg bottom="bottom-0" left="left-1/2" />
     </section>
   );
 };

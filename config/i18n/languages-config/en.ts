@@ -17,6 +17,11 @@ export const enContentConfig: ILanguageConfig = {
       part7: "based in ",
       part8: "Brazil",
     },
+    iconsTooltip: {
+      instagram: "Go to my Instagram",
+      linkedin: "Go to my LinkedIn",
+      github: "Go to my Github",
+    },
     job: {
       noneDateText: "Present",
     },

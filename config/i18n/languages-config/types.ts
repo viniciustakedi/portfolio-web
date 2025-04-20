@@ -15,9 +15,14 @@ export type ILanguageConfig = {
       part7: string;
       part8: string;
     };
+    iconsTooltip: {
+      instagram: string;
+      linkedin: string;
+      github: string;
+    };
     job: {
-      noneDateText: string
-    }
+      noneDateText: string;
+    };
     shortSummary: string;
     contactButtonLabel: string;
   };
