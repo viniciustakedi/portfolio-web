@@ -11,6 +11,7 @@ import Button from "@/components/button";
 import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
 import "./styles.css";
 import BlurBg from "@/components/blur-bg";
+import Tooltip from "@/components/tooltip";
 
 const FirstInformations: React.FC = () => {
   const { t } = useTranslation("work");
@@ -55,24 +56,30 @@ const FirstInformations: React.FC = () => {
             </Link>
           </div>
           <div className="social__medias__icons">
-            <div className="social__circle">
-              <Link href="https://github.com/viniciustakedi" target="_blank">
-                <FaGithubAlt className="icon" />
-              </Link>
-            </div>
-            <div className="social__circle">
-              <Link
-                href="https://www.linkedin.com/in/vinicius-takedi/"
-                target="_blank"
-              >
-                <FaLinkedin className="icon" />
-              </Link>
-            </div>
-            <div className="social__circle">
-              <Link href="https://www.instagram.com/7akedi" target="_blank">
-                <FaInstagram className="icon" />
-              </Link>
-            </div>
+            <Tooltip text={t("iconsTooltip.github")}>
+              <div className="social__circle">
+                <Link href="https://github.com/viniciustakedi" target="_blank">
+                  <FaGithubAlt className="icon" />
+                </Link>
+              </div>
+            </Tooltip>
+            <Tooltip text={t("iconsTooltip.linkedin")}>
+              <div className="social__circle">
+                <Link
+                  href="https://www.linkedin.com/in/vinicius-takedi/"
+                  target="_blank"
+                >
+                  <FaLinkedin className="icon" />
+                </Link>
+              </div>
+            </Tooltip>
+            <Tooltip text={t("iconsTooltip.instagram")}>
+              <div className="social__circle">
+                <Link href="https://www.instagram.com/7akedi" target="_blank">
+                  <FaInstagram className="icon" />
+                </Link>
+              </div>
+            </Tooltip>
           </div>
         </div>
       </div>
