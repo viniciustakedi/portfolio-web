@@ -17,6 +17,9 @@ export const enContentConfig: ILanguageConfig = {
       part7: "based in ",
       part8: "Brazil",
     },
+    job: {
+      noneDateText: "Present",
+    },
     shortSummary:
       "As a Brazilian software engineer with over four years of experience, I specialize in crafting reliable, scalable solutions for companies building exceptional products.",
     contactButtonLabel: "Contact Me",
