@@ -36,17 +36,27 @@ function formatDateToMonthYear(
 
 const Jobs: React.FC = () => {
   const [currentJob, setCurrentJob] = React.useState<number>(0);
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
 
   const { i18n, t } = useTranslation("work");
   const currentLanguage = i18n.language;
 
-  const {
-    data: jobs,
-    // isLoading,
-    error,
-  } = useQuery<IJobContent[]>({ queryKey: ["jobsContent"], queryFn: getJobs });
+  const { data: jobs, error } = useQuery<IJobContent[]>({
+    queryKey: ["jobsContent"],
+    queryFn: getJobs,
+  });
 
   const jobContent = jobs?.[currentJob];
+
+  React.useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setInterval(() => {
+      setCurrentJob((prevJob) => (prevJob + 1) % (jobs?.length || 1));
+    }, 10 * 1000);
+
+    return () => clearInterval(timer);
+  }, [isHovered, jobs]);
 
   if (error) return <div>Error loading jobs content</div>;
   if (!jobContent || !jobs) {
@@ -54,7 +64,12 @@ const Jobs: React.FC = () => {
   }
 
   return (
-    <div className="jobs__content relative">
+    <section
+      id="jobs"
+      className="jobs__content relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="title__period__job">
         <div className="title__job">
           <Title>
@@ -135,13 +150,19 @@ const Jobs: React.FC = () => {
             <div
               key={i}
               className={currentJob === i ? "dot__active" : "dot"}
-              onClick={() => setCurrentJob(i)}
+              onClick={() => {
+                document
+                  .querySelector("#job")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                window.scrollBy(0, -20);
+                setCurrentJob(i);
+              }}
             />
           );
         })}
       </div>
       <BlurBg bottom="bottom-0" left="left-1/2" />
-    </div>
+    </section>
   );
 };
 
