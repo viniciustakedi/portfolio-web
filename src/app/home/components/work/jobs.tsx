@@ -8,7 +8,6 @@ import React from "react";
 import { Strong, Text, Title } from "@/components/text";
 import { getJobs, IJobContent } from "@/requests/get";
 import { useQuery } from "@tanstack/react-query";
-import BlurBg from "@/components/blur-bg";
 
 import { StacksPng, StackKey } from "./stacks";
 import Job0 from "../../../../assets/images/work/job0.jpg";
