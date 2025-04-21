@@ -5,6 +5,7 @@ const API_URL = "https://api.takedi.com/api";
 export interface IJobContent {
   title: string;
   companyName: string;
+  companyImageUrl: string;
   content: {
     en: string;
     pt: string;
