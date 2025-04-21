@@ -10,7 +10,6 @@ import { getJobs, IJobContent } from "@/requests/get";
 import { useQuery } from "@tanstack/react-query";
 
 import { StacksPng, StackKey } from "./stacks";
-import Job0 from "../../../../assets/images/work/job0.jpg";
 import { LanguagesSupported } from "../../../../../config/i18n/languages-config";
 import Tooltip from "@/components/tooltip";
 
@@ -116,9 +115,12 @@ const Jobs: React.FC = () => {
       <div className="job__infomation">
         <div className="job__image">
           <Image
-            src={Job0}
+            src={jobContent.companyImageUrl}
+            unoptimized
             alt={`image_about_company_${jobContent.companyName}`}
             className="job__photo"
+            width={1200}
+            height={1200}
           />
         </div>
         <div className="job__information__content">
