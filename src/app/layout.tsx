@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Anybody } from "next/font/google";
 
+import { ReactQuery } from "../../config/react-query/ReactQueryProvider";
 import { I18nProvider } from "../../config/i18n/I18nProvider";
 
 import "./globals.css";
-import { ReactQuery } from "../../config/react-query/ReactQueryProvider";
+import { Notistack } from "../../config/notistack/NotistackProvider";
 
 const anybody = Anybody({
   variable: "--font-anybody",
@@ -26,7 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${anybody.variable}  antialiased`}>
         <ReactQuery>
-          <I18nProvider>{children}</I18nProvider>
+          <I18nProvider>
+            <Notistack>{children}</Notistack>
+          </I18nProvider>
         </ReactQuery>
       </body>
     </html>
