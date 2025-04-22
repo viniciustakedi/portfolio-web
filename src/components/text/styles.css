@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.title {
+  @apply md:text-[3.25rem] text-[2rem] text-[#323232] md:leading-14 leading-9;
+}
+
+.text {
+  @apply md:text-[1.250rem] text-[1rem] text-[#323232] md:leading-7 leading-5 font-normal;
+}

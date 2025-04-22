@@ -1,47 +1,47 @@
-import { SiTailwindcss, SiTypescript, SiFramer } from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import { IoIosArrowDropupCircle } from "react-icons/io";
-import Tooltip from "../elements/tooltip";
+"use client";
+import React from "react";
+// import { useTranslation } from "react-i18next";
+import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-export default function Footer() {
-	const handleGoTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
-	}
+import Link from "next/link";
+import { Text } from "../text";
 
-	//Arrumar scroll horizontal no mobile
+import "./styles.css";
+import { useTranslation } from "react-i18next";
 
-	return (
-		<div className="flex items-center justify-center flex-col bg-dark-blue lg:py-10 lg:px-10 md:py-10 md:px-10 px-2 py-8 w-full">
-			<div className="flex items-center justify-center w-full mb-4 lg:justify-between md:justify-between">
-				<div className="flex items-center lg:flex-row md:flex-row flex-col md:gap-4 lg:gap-4 gap-0">
-					<h1 className="font-bold text-2xl text-white">Takedi</h1>
-					<h1 className="text-soft-blue font-bold lg:flex md:flex hidden">|</h1>
-					<h1 className="text-blue font-medium text-lg">Engenheiro de Software Full-Stack</h1>
-				</div>
-				<IoIosArrowDropupCircle
-					className="cursor-pointer text-blue hover:text-white transition-all lg:flex md:flex hidden"
-					size={28}
-					onClick={handleGoTop}
-				/>
-			</div>
-			<h1 className="font-medium text-lg mb-3 text-blue">Feito com ❤️ utilizando:</h1>
-			<div className="flex items-center gap-4">
-				<Tooltip text="NextJs">
-					<TbBrandNextjs className="text-blue hover:text-white transition-all" size={34} />
-				</Tooltip>
-				<Tooltip text="Typescript">
-					<SiTypescript className="text-blue hover:text-white transition-all" size={26} />
-				</Tooltip>
-				<Tooltip text="TailwindCss">
-					<SiTailwindcss className="text-blue hover:text-white transition-all" size={32} />
-				</Tooltip>
-				<Tooltip text="Framer Motion">
-					<SiFramer className="text-blue hover:text-white transition-all" size={26} />
-				</Tooltip>
-			</div>
-		</div>
-	);
-}
+const Footer: React.FC = () => {
+  const { t } = useTranslation("footer");
+
+  return (
+    <footer className="footer">
+      <div className="logo__footer">
+        <h1 className="md:text-4xl text-2xl font-black text-[#323232]">
+          TAKEDI
+        </h1>
+      </div>
+      <Text className="text-center">{t("centeredText")}</Text>
+      <div className="social__circles">
+        <div className="social__circle">
+          <Link href="https://www.instagram.com/7akedi" target="_blank">
+            <FaInstagram className="icon" />
+          </Link>
+        </div>
+        <div className="social__circle">
+          <Link href="https://github.com/viniciustakedi" target="_blank">
+            <FaGithubAlt className="icon" />
+          </Link>
+        </div>
+        <div className="social__circle">
+          <Link
+            href="https://www.linkedin.com/in/vinicius-takedi/"
+            target="_blank"
+          >
+            <FaLinkedin className="icon" />
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

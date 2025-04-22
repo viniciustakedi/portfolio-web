@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+.work__section {
+  @apply flex flex-col items-baseline justify-start w-full h-full bg-white;
+  @apply bg-cover bg-no-repeat relative;
+  overflow-x: hidden;
+  background-position: top;
+  background-size: auto 80vh;
+  background-image: url("../../../../assets/images/grade-bg.png");
+}
+
+.first__content {
+  @apply flex lg:flex-row items-center justify-between w-full h-full gap-4;
+  @apply flex-col-reverse;
+  @apply pb-20;
+}
+
+.first__content > .main__content {
+  @apply flex flex-col justify-start lg:w-3/6 md:w-full h-full;
+}
+
+.first__content > .photo {
+  @apply flex flex-col items-start justify-center lg:w-2/6 md:w-full h-full;
+  @apply lg:items-start items-center lg:mb-0 mb-5;
+}
+
+.photo__circle {
+  @apply lg:w-full md:w-2/6 w-3/6 object-cover;
+  @apply aspect-square h-auto flex items-center justify-center rounded-full bg-white shadow-xs border-1 border-[#e1e1e1];
+}
+
+.contact__options {
+  @apply flex lg:flex-row items-center justify-baseline w-full h-full gap-4;
+  @apply flex-col-reverse;
+}
+
+.social__medias__icons {
+  @apply flex flex-row items-center lg:justify-baseline justify-center h-full gap-4;
+  @apply lg:w-auto w-full;
+}
+
+.button__contact {
+  @apply lg:w-56 w-2/6 mr-1 lg:pt-0 lg:mt-0 mt-4;
+}
+
+.short__summary {
+  @apply py-10;
+}
+
+.social__circle {
+  @apply cursor-pointer w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-xs  border-1 border-[#e1e1e1];
+}
+
+.icon {
+  @apply w-6 h-6 flex items-center text-[#323232] justify-center;
+}
+
+/* # Job section to style */
+
+.title__period__job {
+  @apply flex xl:flex-row items-center justify-between w-full h-full;
+  @apply flex-col xl:mb-10 lg:mb-16 mb-12;
+}
+
+.jobs__content {
+  @apply flex flex-col items-start justify-start w-full h-full overflow-x-hidden;
+}
+
+.title__job {
+  @apply relative w-auto;
+}
+
+.period__job {
+  @apply w-auto xl:flex hidden items-center justify-end;
+}
+
+.job__infomation {
+  @apply flex lg:flex-row items-start justify-between w-full h-full;
+  @apply gap-4 flex-col;
+}
+
+.job__image {
+  @apply flex flex-col items-start justify-center lg:w-5/12 h-auto;
+  @apply w-full;
+}
+
+.job__photo {
+  @apply lg:rounded-bl-2xl lg:rounded-tr-none rounded-tr-2xl rounded-tl-2xl border-1 border-[#e1e1e1];
+  @apply aspect-square lg:h-auto h-[25vh] object-cover;
+  overflow: hidden;
+}
+
+.job__information__content {
+  @apply flex items-start justify-start flex-col w-full h-full;
+  @apply lg:w-7/12 w-full;
+}
+
+.stacks {
+  @apply mt-2 flex flex-row items-center justify-start gap-1;
+}
+
+.job__stack__logo {
+  @apply md:w-6 w-5 aspect-square h-auto;
+}
+
+.job__amount__reference {
+  @apply flex flex-row items-center justify-center w-full h-full mt-10;
+}
+
+.dot,
+.dot__active {
+  @apply w-3 h-3 rounded-full mx-1 mt-2 cursor-pointer;
+  transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.dot {
+  @apply bg-white  border-1 border-[#3B82F6] hover:bg-[#3B82F6];
+}
+
+.dot__active {
+  @apply bg-[#3B82F6];
+}
