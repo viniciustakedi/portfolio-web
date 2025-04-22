@@ -109,6 +109,8 @@ export const enContentConfig: ILanguageConfig = {
         },
         submitButton: {
           text: "Send!",
+          success: "Message sent successfully!",
+          loading: "Sending...",
         },
       },
     },

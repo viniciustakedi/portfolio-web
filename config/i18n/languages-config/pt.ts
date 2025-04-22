@@ -110,6 +110,8 @@ export const ptContentConfig: ILanguageConfig = {
         },
         submitButton: {
           text: "Enviar!",
+          success: "Mensagem enviada com sucesso!",
+          loading: "Enviando...",
         },
       },
     },

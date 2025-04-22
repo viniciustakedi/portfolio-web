@@ -10,6 +10,8 @@ import BlurBg from "@/components/blur-bg";
 import { Resolver, useForm } from "react-hook-form";
 import "./styles.css";
 import { useTranslation } from "react-i18next";
+import { sendPortfolioMessage } from "@/requests/post";
+import { useSnackbar } from "notistack";
 
 type ContactMeFormValues = {
   email: string;
@@ -18,6 +20,10 @@ type ContactMeFormValues = {
 };
 
 const ContactMe: React.FC = () => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [emailWasSent, setEmailWasSent] = React.useState<boolean>(false);
+  const { enqueueSnackbar } = useSnackbar();
+
   const { t } = useTranslation("contactMe");
 
   const resolver: Resolver<ContactMeFormValues> = async (values) => {
@@ -65,7 +71,15 @@ const ContactMe: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ContactMeFormValues>({ resolver });
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit(async (data) => {
+    setIsLoading(true);
+
+    const response = await sendPortfolioMessage(data);
+    enqueueSnackbar(response);
+
+    setEmailWasSent(true);
+    setIsLoading(false);
+  });
 
   return (
     <section
@@ -113,8 +127,20 @@ const ContactMe: React.FC = () => {
         {errors?.message && (
           <p className="error__message">{errors.message.message}</p>
         )}
-        <Button variant="filled" width="md:w-1/2 w-full">
-          {t("form.input.submitButton.text")}
+        <Button
+          variant="filled"
+          width="md:w-1/2 w-full"
+          disabled={isLoading || emailWasSent}
+        >
+          {!isLoading && !emailWasSent ? (
+            t("form.input.submitButton.text")
+          ) : emailWasSent ? (
+            t("form.input.submitButton.success")
+          ) : (
+            <span className="spinner mr-2 text-white">
+              {t("form.input.submitButton.loading")}
+            </span>
+          )}
         </Button>
       </form>
       <BlurBg bottom="bottom-0" left="left-0" />

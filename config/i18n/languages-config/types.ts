@@ -106,6 +106,8 @@ export type ILanguageConfig = {
         };
         submitButton: {
           text: string;
+          success: string;
+          loading: string;
         };
       };
     };
