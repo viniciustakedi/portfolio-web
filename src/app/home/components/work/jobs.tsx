@@ -12,6 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import { StacksPng, StackKey } from "./stacks";
 import { LanguagesSupported } from "../../../../../config/i18n/languages-config";
 import Tooltip from "@/components/tooltip";
+import Link from "next/link";
 
 function formatDateToMonthYear(
   dateString: string,
@@ -52,7 +53,7 @@ const Jobs: React.FC = () => {
 
     const timer = setInterval(() => {
       setCurrentJob((prevJob) => (prevJob + 1) % (jobs?.length || 1));
-    }, 10 * 1000);
+    }, 30 * 1000);
 
     return () => clearInterval(timer);
   }, [isHovered, jobs]);
@@ -74,13 +75,14 @@ const Jobs: React.FC = () => {
           <Title>
             <Strong>{jobContent.companyName}</Strong>
           </Title>
-          <Text className="absolute md:top-11 top-8 left-0">
+          <Text className="absolute w-auto min-w-[10rem] md:top-11 top-8 left-0">
             {jobContent.title}
           </Text>
           <Text
-            className={`absolute ${
-              jobContent.companyName.length > 15 ? "md:top-12" : "md:top-16"
-            } top-12 right-0 flex xl:hidden`}
+            className={`absolute
+              ${jobContent.companyName.length > 15 ? "md:top-12" : "md:top-16"}
+              ${jobContent.companyName.length < 10 ? "left-0 min-w-[14rem]" : "right-0"}
+              top-12 flex xl:hidden`}
           >
             {" "}
             {formatDateToMonthYear(
@@ -151,17 +153,32 @@ const Jobs: React.FC = () => {
       <div className="job__amount__reference">
         {jobs.map((e, i) => {
           return (
-            <div
+            <Link
               key={i}
-              className={currentJob === i ? "dot__active" : "dot"}
-              onClick={() => {
-                document
-                  .querySelector("#job")
-                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                window.scrollBy(0, -20);
+              href="#jobs"
+              className="menu__link"
+              onClick={(event) => {
+                event.preventDefault();
+                const element = document.querySelector("#jobs");
+                const offset = 100;
+
+                if (element) {
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - offset;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
+                }
+
                 setCurrentJob(i);
+                setIsHovered(true);
               }}
-            />
+            >
+              <div className={currentJob === i ? "dot__active" : "dot"} />
+            </Link>
           );
         })}
       </div>

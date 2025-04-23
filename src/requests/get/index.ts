@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://api.takedi.com/api";
+let API_URL = "https://api.takedi.com/api";
+
+if (process.env.NODE_ENV === "development") {
+  API_URL = "http://localhost:8000/api";
+}
 
 export interface IJobContent {
   title: string;
@@ -18,7 +22,9 @@ export interface IJobContent {
 
 export const getJobs = async (): Promise<IJobContent[]> => {
   try {
-    const response = await axios.get<{ data: IJobContent[] }>(`${API_URL}/jobs`);
+    const response = await axios.get<{ data: IJobContent[] }>(
+      `${API_URL}/jobs`
+    );
     return response.data.data;
   } catch (error) {
     console.error("Error fetching jobs:", error);

@@ -8,7 +8,7 @@ import React from "react";
 import { Title, Strong, Text } from "@/components/text";
 import Button from "@/components/button";
 
-import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
+import ProfilePhoto from "../../../../assets/images/work/profile-photo.webp";
 import "./styles.css";
 import BlurBg from "@/components/blur-bg";
 import Tooltip from "@/components/tooltip";
