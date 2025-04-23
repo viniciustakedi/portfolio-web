@@ -4,7 +4,7 @@ import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import React from "react";
 
-import { Strong, Title, Text } from "@/components/text";
+import { Strong, Title } from "@/components/text";
 import BlurBg from "@/components/blur-bg";
 
 import MemojiTitle from "@/assets/images/about/memoji.png";
