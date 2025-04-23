@@ -32,50 +32,14 @@ export type ILanguageConfig = {
       part2: string;
       part3: string;
     };
-    text1: {
-      part1: string;
-      part2: string;
-      part3: string;
-      part4: string;
+    textOne: {
+      partOne: string;
+      partTwo: string;
     };
-    text2: {
-      part1: string;
-      part2: string;
-      part3: string;
-      part4: string;
-      part5: string;
-      part6: string;
-      part7: string;
-      part8: string;
-      part9: string;
-    };
-    text3: {
-      part1: string;
-      part2: string;
-      part3: string;
-      part4: string;
-      part5: string;
-      part6: string;
-      part7: string;
-      part8: string;
-    };
-    text4: {
-      part1: string;
-      part2: string;
-      part3: string;
-      part4: string;
-      part5: string;
-      part6: string;
-      part7: string;
-    };
-    text5: {
-      part1: string;
-      part2: string;
-      part3: string;
-      part4: string;
-      part5: string;
-      part6: string;
-    };
+    textTwo: string;
+    textThree: string;
+    textFour: string;
+    textFive: string;
   };
   contactMe: {
     title: {

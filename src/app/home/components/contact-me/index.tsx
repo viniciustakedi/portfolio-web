@@ -129,7 +129,7 @@ const ContactMe: React.FC = () => {
         )}
         <Button
           variant="filled"
-          width="md:w-1/2 w-full"
+          width="md:w-1/2 w-full z-20"
           disabled={isLoading || emailWasSent}
         >
           {!isLoading && !emailWasSent ? (

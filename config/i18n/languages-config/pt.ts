@@ -36,50 +36,20 @@ export const ptContentConfig: ILanguageConfig = {
       part2: "é Vinicius Takedi ",
       part3: "?",
     },
-    text1: {
-      part1: "Eu sou ",
-      part2: "bacharel em ",
-      part3: "Ciência da Computação...",
-      part4: "...foi difícil mas no final tudo valeu a pena!",
+    textOne: {
+      partOne:
+        "<p><strong>Eu sou</strong> bacharel em <strong>Ciência da Computação</strong>, foi difícil, mas no final...</p>",
+      partTwo:
+        "<p>...as <strong>amizades</strong> feitas fizeram tudo valer a pena!</p>",
     },
-    text2: {
-      part1: "Eu ",
-      part2: "gosto muito de ",
-      part3: "ler ",
-      part4: "qualquer tipo de ",
-      part5: "livro ",
-      part6: "e ",
-      part7: "adoro ",
-      part8: "experimentar novos ",
-      part9: "pratos.",
-    },
-    text3: {
-      part1: "Sem ",
-      part2: "um ambiente ",
-      part3: "organizado ",
-      part4: "eu não consigo trabalhar, acho que um bom local ",
-      part5: "faz a diferença ",
-      part6: "em ",
-      part7: "todos ",
-      part8: "os dias da nossa rotina.",
-    },
-    text4: {
-      part1: "Estar ",
-      part2: "na ",
-      part3: "natureza ",
-      part4: "me faz bem, porque consigo ",
-      part5: "resetar ",
-      part6: "minha ",
-      part7: "mente. ",
-    },
-    text5: {
-      part1: "E para finalizar essa pequena apresentação, ",
-      part2: "Eu tenho ",
-      part3: "uma ",
-      part4: "cachorrinha ",
-      part5: "na qual às vezes é muito ",
-      part6: "carente!",
-    },
+    textTwo:
+      "<p><strong>Eu</strong> gosto muito de <strong>ler</strong> qualquer tipo de <strong>livro</strong> e <strong>adoro</strong> experimentar novos <strong>pratos</strong>.</p>",
+    textThree:
+      "<p><strong>Sem</strong> um ambiente <strong>organizado</strong> eu não consigo trabalhar, acho que um bom local <strong>faz a diferença</strong> em <strong>todos</strong> os dias da nossa rotina.</p>",
+    textFour:
+      "<p><strong>Estar</strong> em contato com a <strong>natureza</strong> sempre me faz <strong>resetar</strong> a <strong>mente</strong>.</p>",
+    textFive:
+      "<p>E para finalizar essa pequena apresentação, <strong>eu tenho</strong> uma <strong>cachorrinha</strong> na qual às vezes é muito <strong>carente</strong>.</p>",
   },
   contactMe: {
     title: {

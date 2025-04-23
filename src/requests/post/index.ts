@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://api.takedi.com/api";
+let API_URL = "https://api.takedi.com/api";
+
+if (process.env.NODE_ENV === "development") {
+  API_URL = "http://localhost:8000/api";
+}
 
 export interface IEmailFormFields {
   name: string;
