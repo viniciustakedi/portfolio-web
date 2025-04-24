@@ -42,11 +42,11 @@ export const enContentConfig: ILanguageConfig = {
         "<p>...however, <strong>friendships</strong> made were worth it!</p>",
     },
     textTwo:
-      "<p><strong>I</strong> really <strong>enjoys reading</strong> any kind of random <strong>book</strong> and <strong>enjoying</strong> a good/different <strong>dish</strong>.</p>",
+      "<p><strong>I</strong> really <strong>enjoy reading</strong> any kind of <strong>book</strong> and <strong>enjoy</strong> a good/different <strong>dish</strong>.</p>",
     textThree:
-      "<p><strong>Without</strong> an <strong>organized</strong> environment I can't work I think a good environment makes a <strong>difference</strong> in <strong>every</strong> life!</p>",
+      "<p><strong>Without</strong> an <strong>organized</strong> environment I can't work I think a good environment makes a <strong>difference</strong> in <strong>everyone's</strong> life!</p>",
     textFour:
-      "<p><strong>Being</strong> in <strong>nature</strong> always make me <strong>reset</strong> my <strong>mind</strong>.</p>",
+      "<p><strong>Being</strong> in <strong>nature</strong> always makes me <strong>reset</strong> my <strong>mind</strong>.</p>",
     textFive:
       "<p>And to finish this little summary, <strong>I have</strong> a <strong>little dog</strong> who is sometimes too <strong>needy</strong></p>",
   },
