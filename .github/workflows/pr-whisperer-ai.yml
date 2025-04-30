@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run AI PR Describer
+      - name: Run PR Whisperer AI
         uses: viniciustakedi/PR-Whisperer-AI@main
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}

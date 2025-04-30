@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 // import { useTranslation } from "react-i18next";
-import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 
 import Link from "next/link";
 import { Text } from "../text";

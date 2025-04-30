@@ -1,5 +1,5 @@
 "use client";
-import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
