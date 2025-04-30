@@ -22,6 +22,10 @@ export type ILanguageConfig = {
     };
     job: {
       noneDateText: string;
+      error: {
+        loadingContentTitle: string;
+        loadingContentDescription: string;
+      };
     };
     shortSummary: string;
     contactButtonLabel: string;
@@ -87,13 +91,13 @@ export enum LanguagesSupported {
 }
 
 export enum FlagsByLanguage {
-  en = "🇬🇧",
-  pt = "🇵🇹",
+  en = "🇺🇸",
+  pt = "🇧🇷",
 }
 
 export enum LabelByLanguage {
-  en = "🇬🇧 English",
-  pt = "🇵🇹 Português",
+  en = "🇺🇸 English",
+  pt = "🇧🇷 Português",
 }
 
 // Create a map of languages by label

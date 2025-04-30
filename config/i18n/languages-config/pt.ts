@@ -25,6 +25,11 @@ export const ptContentConfig: ILanguageConfig = {
     },
     job: {
       noneDateText: "Presente",
+      error: {
+        loadingContentTitle:
+          "Erro ao carregar a experiência profissional... Desculpe por isso!",
+        loadingContentDescription: "Por favor, tente novamente mais tarde.",
+      },
     },
     shortSummary:
       "Sou um engenheiro de software brasileiro com mais de quatro anos de experiência, especializado em criar soluções confiáveis e escaláveis para empresas que constroem produtos excepcionais.",
