@@ -24,6 +24,11 @@ export const enContentConfig: ILanguageConfig = {
     },
     job: {
       noneDateText: "Present",
+      error: {
+        loadingContentTitle:
+          "Error to get job experience...I'm sorry about that!",
+        loadingContentDescription: "Please try again later.",
+      },
     },
     shortSummary:
       "As a Brazilian software engineer with over four years of experience, I specialize in crafting reliable, scalable solutions for companies building exceptional products.",
