@@ -1,18 +1,21 @@
-name: PR-Whisperer-AI
+name: PR Whisperer AI
 
 on:
   pull_request:
     types: [opened, synchronize, edited]
 
 jobs:
-  generate-description:
+  whisper:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run PR Whisperer AI
         uses: viniciustakedi/PR-Whisperer-AI@main
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
