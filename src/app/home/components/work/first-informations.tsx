@@ -73,13 +73,13 @@ const FirstInformations: React.FC = () => {
                 </Link>
               </div>
             </Tooltip>
-            <Tooltip text={t("iconsTooltip.instagram")}>
+            {/* <Tooltip text={t("iconsTooltip.instagram")}>
               <div className="social__circle">
                 <Link href="https://www.instagram.com/7akedi" target="_blank">
                   <FaInstagram className="icon" />
                 </Link>
               </div>
-            </Tooltip>
+            </Tooltip> */}
           </div>
         </div>
       </div>
