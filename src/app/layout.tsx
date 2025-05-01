@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${anybody.variable}  antialiased`}>
+      <body className={`${anybody.variable} antialiased`}>
         <ReactQuery>
           <I18nProvider>
             <Notistack>{children}</Notistack>

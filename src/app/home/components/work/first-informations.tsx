@@ -1,5 +1,5 @@
 "use client";
-import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import React from "react";
 import { Title, Strong, Text } from "@/components/text";
 import Button from "@/components/button";
 
-import ProfilePhoto from "../../../../assets/images/work/profile-photo.jpg";
+import ProfilePhoto from "../../../../assets/images/work/profile-photo.webp";
 import "./styles.css";
 import BlurBg from "@/components/blur-bg";
 import Tooltip from "@/components/tooltip";
@@ -73,13 +73,13 @@ const FirstInformations: React.FC = () => {
                 </Link>
               </div>
             </Tooltip>
-            <Tooltip text={t("iconsTooltip.instagram")}>
+            {/* <Tooltip text={t("iconsTooltip.instagram")}>
               <div className="social__circle">
                 <Link href="https://www.instagram.com/7akedi" target="_blank">
                   <FaInstagram className="icon" />
                 </Link>
               </div>
-            </Tooltip>
+            </Tooltip> */}
           </div>
         </div>
       </div>

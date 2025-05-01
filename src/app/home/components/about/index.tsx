@@ -1,9 +1,13 @@
 "use client";
-import { Strong, Title, Text } from "@/components/text";
-import React from "react";
+import { useTranslation } from "react-i18next";
+import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
-import MemojiTitle from "@/assets/images/about/memoji.png";
+import React from "react";
 
+import { Strong, Title } from "@/components/text";
+import BlurBg from "@/components/blur-bg";
+
+import MemojiTitle from "@/assets/images/about/memoji.png";
 import ImageOne from "@/assets/images/about/about-me-one.png";
 import ImageTwo from "@/assets/images/about/about-me-two.png";
 import ImageThree from "@/assets/images/about/about-me-three.png";
@@ -11,8 +15,6 @@ import ImageFour from "@/assets/images/about/about-me-four.png";
 import ImageFive from "@/assets/images/about/about-me-five.png";
 
 import "./styles.css";
-import BlurBg from "@/components/blur-bg";
-import { useTranslation } from "react-i18next";
 
 const About: React.FC = () => {
   const { t } = useTranslation("about");
@@ -35,35 +37,37 @@ const About: React.FC = () => {
         {/* Image 1 */}
         <div className="image__1">
           <div className="text__about_1">
-            <Text className="text__about__tag">
-              <Strong>{t("text1.part1")}</Strong>
-              {t("text1.part2")}
-              <Strong>{t("text1.part3")}</Strong>
-            </Text>
-            <Text className="text__about__tag mt-5 md:flex hidden justify-end items-end">
-              {t("text1.part4")}
-            </Text>
+            <div
+              className="text text__about__tag"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textOne.partOne")),
+              }}
+            />
+            <div
+              className="text text__about__tag mt-5 md:flex hidden justify-end items-end"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textOne.partTwo")),
+              }}
+            />
           </div>
           <Image src={ImageOne} alt="image__1" className="about__image__1" />
-          <Text className="text__about__tag flex md:hidden w-full justify-end items-end">
-            {t("text1.part4")}
-          </Text>
+          <div
+            className="text text__about__tag flex md:hidden w-full justify-end items-end"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(t("textOne.partTwo")),
+            }}
+          />
         </div>
 
         {/* Image 2 */}
         <div className="image__2 md:mt-0 mt-10">
           <div className="text__about_2">
-            <Text className="text__about__tag md:text-left text-center">
-              <Strong>{t("text2.part1")}</Strong>
-              {t("text2.part2")}
-              <Strong>{t("text2.part3")}</Strong>
-              {t("text2.part4")}
-              <Strong>{t("text2.part5")}</Strong>
-              {t("text2.part6")}
-              <Strong>{t("text2.part7")}</Strong>
-              {t("text2.part8")}
-              <Strong>{t("text2.part9")}</Strong>
-            </Text>
+            <div
+              className="text text__about__tag md:text-left text-center"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textTwo")),
+              }}
+            />
           </div>
           <Image src={ImageTwo} alt="image__2" className="about__image__2" />
         </div>
@@ -71,16 +75,12 @@ const About: React.FC = () => {
         {/* Image 3 */}
         <div className="image__3">
           <div className="text__about_3">
-            <Text className="text__about__tag text-center">
-              <Strong>{t("text3.part1")}</Strong>
-              {t("text3.part2")}
-              <Strong>{t("text3.part3")}</Strong>
-              {t("text3.part4")}
-              <Strong>{t("text3.part5")}</Strong>
-              {t("text3.part6")}
-              <Strong>{t("text3.part7")}</Strong>
-              {t("text3.part8")}
-            </Text>
+            <div
+              className="text text__about__tag text-center"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textThree")),
+              }}
+            />
           </div>
           <Image src={ImageThree} alt="image__3" className="about__image__3" />
         </div>
@@ -88,15 +88,12 @@ const About: React.FC = () => {
         {/* Image 4 */}
         <div className="image__4 md:mt-0 mt-10">
           <div className="text__about_4">
-            <Text className="text__about__tag md:text-left text-center">
-              <Strong>{t("text4.part1")}</Strong>
-              {t("text4.part2")}
-              <Strong>{t("text4.part3")}</Strong>
-              {t("text4.part4")}
-              <Strong>{t("text4.part5")}</Strong>
-              {t("text4.part6")}
-              <Strong>{t("text4.part7")}</Strong>
-            </Text>
+            <div
+              className="text text__about__tag md:text-left text-center"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textFour")),
+              }}
+            />
           </div>
           <Image src={ImageFour} alt="image__2" className="about__image__4" />
         </div>
@@ -104,14 +101,12 @@ const About: React.FC = () => {
         {/* Image 5 */}
         <div className="image__5">
           <div className="text__about_5">
-            <Text className="text__about__tag text-center">
-              {t("text5.part1")}
-              <Strong>{t("text5.part2")}</Strong>
-              {t("text5.part3")}
-              <Strong>{t("text5.part4")}</Strong>
-              {t("text5.part5")}
-              <Strong>{t("text5.part6")}</Strong>.
-            </Text>
+            <div
+              className="text text__about__tag text-center"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t("textFive")),
+              }}
+            />
           </div>
           <Image src={ImageFive} alt="image__5" className="about__image__5" />
         </div>

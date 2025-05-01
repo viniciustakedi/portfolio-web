@@ -20,7 +20,7 @@
 }
 
 .image__1 {
-  @apply flex md:flex-row flex-col justify-between items-center w-full h-auto;
+  @apply flex md:flex-row flex-col justify-between items-center w-full h-auto gap-10;
 }
 
 .text__about_1 {
@@ -50,7 +50,7 @@
 
 .image__3 {
   @apply flex flex-col justify-between items-center w-full h-auto;
-  @apply gap-5 mt-10;
+  @apply gap-10 mt-20;
 }
 
 .about__image__3 {
@@ -63,7 +63,7 @@
 
 .image__4 {
   @apply flex md:flex-row flex-col justify-between items-center w-full h-auto;
-  @apply gap-5 bg-white;
+  @apply gap-10 mt-20 bg-white;
   @apply bg-cover bg-no-repeat;
   background-position: top;
   background-size: auto 100vh;
@@ -80,7 +80,7 @@
 
 .image__5 {
   @apply flex flex-col justify-between items-center w-full h-auto;
-  @apply gap-5 mt-10;
+  @apply gap-10 mt-20;
 }
 
 .about__image__5 {

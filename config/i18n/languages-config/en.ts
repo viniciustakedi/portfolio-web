@@ -24,6 +24,11 @@ export const enContentConfig: ILanguageConfig = {
     },
     job: {
       noneDateText: "Present",
+      error: {
+        loadingContentTitle:
+          "Error to get job experience...I'm sorry about that!",
+        loadingContentDescription: "Please try again later.",
+      },
     },
     shortSummary:
       "As a Brazilian software engineer with over four years of experience, I specialize in crafting reliable, scalable solutions for companies building exceptional products.",
@@ -35,50 +40,20 @@ export const enContentConfig: ILanguageConfig = {
       part2: "is Vinicius Takedi ",
       part3: "?",
     },
-    text1: {
-      part1: "I hold ",
-      part2: "a bachelor's degree in ",
-      part3: "computer science...",
-      part4: "...was hard, however now it was all worth it.",
+    textOne: {
+      partOne:
+        "<p><strong>I hold</strong> a bachelor's degree in <strong>computer science</strong>, was hard...</p>",
+      partTwo:
+        "<p>...however, <strong>friendships</strong> made were worth it!</p>",
     },
-    text2: {
-      part1: "I ",
-      part2: "really ",
-      part3: "enjoys reading ",
-      part4: "any kind of random ",
-      part5: "book ",
-      part6: "and ",
-      part7: "enjoying ",
-      part8: "a good/different ",
-      part9: "dish.",
-    },
-    text3: {
-      part1: "Without ",
-      part2: "an ",
-      part3: "organized ",
-      part4: "environment I can't work I think a good environment makes a ",
-      part5: "difference ",
-      part6: "in ",
-      part7: "everyday ",
-      part8: "life.",
-    },
-    text4: {
-      part1: "Being ",
-      part2: "in ",
-      part3: "nature ",
-      part4: "always makes me ",
-      part5: "reset ",
-      part6: "my ",
-      part7: "mind. ",
-    },
-    text5: {
-      part1: "And to finish this little summary, ",
-      part2: "I have ",
-      part3: "a ",
-      part4: "little dog ",
-      part5: "who is sometimes too ",
-      part6: "needy.",
-    },
+    textTwo:
+      "<p><strong>I</strong> really <strong>enjoy reading</strong> any kind of <strong>book</strong> and <strong>enjoy</strong> a good/different <strong>dish</strong>.</p>",
+    textThree:
+      "<p><strong>Without</strong> an <strong>organized</strong> environment I can't work I think a good environment makes a <strong>difference</strong> in <strong>everyone's</strong> life!</p>",
+    textFour:
+      "<p><strong>Being</strong> in <strong>nature</strong> always makes me <strong>reset</strong> my <strong>mind</strong>.</p>",
+    textFive:
+      "<p>And to finish this little summary, <strong>I have</strong> a <strong>little dog</strong> who is sometimes too <strong>needy</strong></p>",
   },
   contactMe: {
     title: {
