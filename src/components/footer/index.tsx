@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 // import { useTranslation } from "react-i18next";
-import { FaGithubAlt, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 
 import Link from "next/link";
 import { Text } from "../text";
@@ -21,11 +21,11 @@ const Footer: React.FC = () => {
       </div>
       <Text className="text-center">{t("centeredText")}</Text>
       <div className="social__circles">
-        <div className="social__circle">
+        {/* <div className="social__circle">
           <Link href="https://www.instagram.com/7akedi" target="_blank">
             <FaInstagram className="icon" />
           </Link>
-        </div>
+        </div> */}
         <div className="social__circle">
           <Link href="https://github.com/viniciustakedi" target="_blank">
             <FaGithubAlt className="icon" />
