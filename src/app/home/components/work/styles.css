@@ -27,6 +27,7 @@
 .photo__circle {
   @apply lg:w-full md:w-2/6 w-3/6 object-cover;
   @apply aspect-square h-auto flex items-center justify-center rounded-full bg-white shadow-xs border-1 border-[#e1e1e1];
+  @apply transform scale-x-[-1];
 }
 
 .contact__options {
