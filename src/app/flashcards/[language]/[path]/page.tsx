@@ -23,9 +23,7 @@ export default async function FlashcardsSessionPage({
       <Link href={`/flashcards/${language}`} className="flash-back">
         ← Path map
       </Link>
-      <h1 className="flash-title" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}>
-        {pathTitle}
-      </h1>
+      <h1 className="flash-title">{pathTitle}</h1>
       <CardSession language={language} path={path} />
     </>
   );

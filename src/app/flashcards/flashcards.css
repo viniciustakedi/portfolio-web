@@ -1,82 +1,85 @@
-/* Scoped to .flash-root — language journal + modern app */
+/* Scoped to .flash-root — matches Pomodoro tool styling (colors, fonts, card language). */
 
 .flash-root {
-  --flash-bg: #faf9f6;
-  --flash-text: #1c1c1e;
-  --flash-muted: #5c5c5e;
-  --flash-accent: #d85a30;
-  --flash-success: #3b6d11;
-  --flash-card: #fffefb;
-  --flash-border: #e8e4dc;
-  --flash-shadow: rgba(28, 28, 30, 0.08);
-  --flash-font-display: var(--font-flash-display), cursive;
-  --flash-font-body: var(--font-flash-body), system-ui, sans-serif;
+  /* Mirror .pom-root light theme */
+  --flash-bg: #f5f0eb;
+  --flash-surface: #ffffff;
+  --flash-text: #1a1a1a;
+  --flash-muted: #7a7a7a;
+  --flash-border: #e8e2da;
+  --flash-shadow: rgba(0, 0, 0, 0.07);
+  --flash-accent: #c96442;
+  --flash-accent-soft: color-mix(in srgb, var(--flash-accent) 12%, transparent);
+  --flash-success: #4a7c6f;
+  --flash-success-soft: color-mix(in srgb, var(--flash-success) 12%, transparent);
+  --flash-transition: 300ms ease;
 
+  font-family: var(--font-inter), sans-serif;
   min-height: 100dvh;
   width: 100%;
-  background-color: var(--flash-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--flash-bg);
   color: var(--flash-text);
-  font-family: var(--flash-font-body);
-  position: relative;
-}
-
-.flash-root::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
+  transition: background var(--flash-transition), color var(--flash-transition);
 }
 
 .flash-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 1.5rem 1.25rem 3rem;
+  width: 100%;
+  max-width: 520px;
+  padding: 28px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .flash-back {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--flash-muted);
   text-decoration: none;
-  margin-bottom: 1.5rem;
-  transition: color 0.2s ease;
+  margin-bottom: 20px;
+  transition: color var(--flash-transition);
 }
 .flash-back:hover {
   color: var(--flash-accent);
 }
 
 .flash-title {
-  font-family: var(--flash-font-display);
-  font-size: clamp(2rem, 6vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin: 0 0 0.5rem;
+  font-family: var(--font-dm-serif), serif;
+  font-size: clamp(1.85rem, 5.5vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
   color: var(--flash-text);
 }
 
 .flash-sub {
-  font-size: 1rem;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--flash-muted);
-  margin: 0 0 2rem;
-  line-height: 1.5;
+  margin: 0 0 28px;
+  max-width: 38ch;
 }
 
-/* Language cards */
+/* Language cards — pom-card feel */
 .flash-lang-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 16px;
+  width: 100%;
 }
-@media (min-width: 540px) {
+@media (min-width: 480px) {
   .flash-lang-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -84,55 +87,54 @@
 
 .flash-lang-card {
   border: 1px solid var(--flash-border);
-  border-radius: 1.25rem;
-  padding: 2rem 1.5rem;
-  background: var(--flash-card);
-  box-shadow: 0 8px 32px var(--flash-shadow);
+  border-radius: 28px;
+  padding: 28px 20px;
+  background: var(--flash-surface);
+  box-shadow: 0 6px 40px var(--flash-shadow);
   cursor: pointer;
   text-align: center;
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
-  position: relative;
-  overflow: hidden;
-}
-.flash-lang-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.05;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  transition: transform 120ms ease, box-shadow var(--flash-transition),
+    border-color var(--flash-transition);
+  outline: none;
 }
 .flash-lang-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(28, 28, 30, 0.12);
+  box-shadow: 0 8px 44px rgba(0, 0, 0, 0.09);
+}
+.flash-lang-card:active {
+  transform: scale(0.98);
 }
 .flash-lang-flag {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 12px;
 }
 .flash-lang-name {
-  font-family: var(--flash-font-display);
-  font-size: 1.85rem;
-  margin: 0 0 0.35rem;
+  font-family: var(--font-dm-serif), serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: var(--flash-text);
 }
 .flash-lang-hint {
-  font-size: 0.875rem;
+  font-size: 13px;
   color: var(--flash-muted);
   margin: 0;
+  line-height: 1.45;
 }
 
-/* Path map */
+/* Path map — centered column, pom surfaces */
 .flash-map-wrap {
   position: relative;
-  padding-left: 0.5rem;
+  width: 100%;
+  text-align: left;
+  padding-left: 8px;
 }
 .flash-map-svg {
   position: absolute;
-  left: 1.5rem;
+  left: 1.25rem;
   top: 2rem;
   bottom: 2rem;
-  width: 48px;
+  width: 44px;
   pointer-events: none;
   overflow: visible;
 }
@@ -143,33 +145,33 @@
   stroke-linecap: round;
 }
 .flash-map-path-active {
-  stroke: color-mix(in srgb, var(--flash-accent) 55%, var(--flash-border));
+  stroke: color-mix(in srgb, var(--flash-accent) 45%, var(--flash-border));
 }
 
 .flash-node {
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-  padding-left: 4rem;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding-left: 3.5rem;
   opacity: 0;
   animation: flash-node-in 0.55s ease forwards;
 }
-.flash-node:nth-child(1) {
+.flash-map-wrap > .flash-node:nth-child(2) {
   animation-delay: 0.05s;
 }
-.flash-node:nth-child(2) {
+.flash-map-wrap > .flash-node:nth-child(3) {
   animation-delay: 0.18s;
 }
-.flash-node:nth-child(3) {
+.flash-map-wrap > .flash-node:nth-child(4) {
   animation-delay: 0.31s;
 }
 
 @keyframes flash-node-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -179,114 +181,106 @@
 
 .flash-node-dot {
   position: absolute;
-  left: 1.25rem;
-  top: 1.25rem;
-  width: 18px;
-  height: 18px;
+  left: 1.1rem;
+  top: 1.35rem;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--flash-accent);
-  border: 3px solid var(--flash-card);
+  border: 3px solid var(--flash-surface);
   box-shadow: 0 0 0 2px var(--flash-border);
   z-index: 2;
 }
 .flash-node.locked .flash-node-dot {
   background: var(--flash-muted);
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .flash-node-card {
   flex: 1;
   border: 1px solid var(--flash-border);
-  border-radius: 1rem;
-  padding: 1.25rem 1.35rem;
-  background: var(--flash-card);
-  box-shadow: 0 6px 24px var(--flash-shadow);
+  border-radius: 28px;
+  padding: 20px 22px;
+  background: var(--flash-surface);
+  box-shadow: 0 6px 40px var(--flash-shadow);
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-}
-.flash-node-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0.06;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  transition: box-shadow var(--flash-transition), transform 120ms ease;
 }
 .flash-node:not(.locked) .flash-node-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(28, 28, 30, 0.1);
+  box-shadow: 0 8px 44px rgba(0, 0, 0, 0.09);
+}
+.flash-node:not(.locked) .flash-node-card:active {
+  transform: scale(0.99);
 }
 .flash-node.locked .flash-node-card {
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: 0.58;
 }
 
 .flash-node-icon {
-  font-size: 1.75rem;
-  margin-bottom: 0.35rem;
+  font-size: 1.5rem;
+  margin-bottom: 6px;
 }
 .flash-node-title {
-  font-family: var(--flash-font-display);
-  font-size: 1.5rem;
-  margin: 0 0 0.35rem;
+  font-family: var(--font-dm-serif), serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 6px;
 }
 .flash-node-desc {
-  font-size: 0.9rem;
+  font-size: 13px;
   color: var(--flash-muted);
-  margin: 0 0 0.5rem;
-  line-height: 1.45;
+  margin: 0 0 8px;
+  line-height: 1.5;
 }
 .flash-node-meta {
-  font-size: 0.8rem;
+  font-size: 12px;
   color: var(--flash-accent);
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 .flash-node-lock {
-  font-size: 0.75rem;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: var(--flash-muted);
-  margin-top: 0.35rem;
+  margin-top: 8px;
 }
 
-/* Progress bar */
+/* Progress — pom ring colors */
 .flash-progress-track {
-  height: 4px;
+  height: 5px;
   border-radius: 999px;
   background: var(--flash-border);
   overflow: hidden;
-  margin-bottom: 0.75rem;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 100%;
 }
 .flash-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--flash-accent),
-    color-mix(in srgb, var(--flash-accent) 70%, var(--flash-success))
-  );
+  background: var(--flash-accent);
   transform-origin: left center;
   transition: transform 0.35s ease;
 }
 
-/* 3D card */
+/* Study card — larger, centered, pom-card */
 .flash-card-scene {
   perspective: 1000px;
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto 1.5rem;
-  min-height: 280px;
+  max-width: 100%;
+  margin: 0 auto 22px;
+  min-height: min(52vh, 400px);
   touch-action: pan-y;
 }
 
 .flash-card-inner {
   position: relative;
   width: 100%;
-  min-height: 280px;
+  min-height: min(52vh, 400px);
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
   cursor: pointer;
@@ -300,25 +294,22 @@
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 1.15rem;
+  border-radius: 28px;
   border: 1px solid var(--flash-border);
-  background: var(--flash-card);
-  box-shadow: 0 12px 40px var(--flash-shadow);
-  padding: 1.5rem 1.35rem;
+  background: var(--flash-surface);
+  box-shadow: 0 6px 40px var(--flash-shadow);
+  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 4vw, 1.85rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: auto;
 }
-.flash-card-face::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0.07;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+/* Front: badge top, word vertically centered, hint bottom */
+.flash-card-face.flash-card-front {
+  justify-content: flex-start;
 }
+
 .flash-card-back {
   transform: rotateY(180deg);
   text-align: left;
@@ -326,130 +317,245 @@
 
 .flash-type-badge {
   align-self: flex-start;
-  font-size: 0.7rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.28rem 0.65rem;
+  letter-spacing: 0.12em;
+  padding: 8px 14px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--flash-accent) 14%, transparent);
+  background: var(--flash-accent-soft);
   color: var(--flash-accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
   position: relative;
   z-index: 1;
+}
+
+.flash-card-word-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
 }
 
 .flash-card-word {
-  font-family: var(--flash-font-display);
-  font-size: clamp(1.75rem, 5vw, 2.35rem);
-  line-height: 1.2;
+  font-family: var(--font-dm-serif), serif;
+  font-size: clamp(2rem, 7vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   margin: 0;
   position: relative;
   z-index: 1;
+  color: var(--flash-text);
+  text-align: center;
+  max-width: 100%;
 }
 
 .flash-card-translation {
-  font-family: var(--flash-font-display);
-  font-size: 1.35rem;
-  line-height: 1.35;
-  margin: 0 0 0.75rem;
+  font-family: var(--font-dm-serif), serif;
+  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 12px;
   color: var(--flash-text);
   position: relative;
   z-index: 1;
 }
 
 .flash-card-body-text {
-  font-size: 0.95rem;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--flash-muted);
-  margin: 0 0 0.75rem;
+  margin: 0 0 12px;
   position: relative;
   z-index: 1;
 }
 
 .flash-card-examples {
   margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.9rem;
+  padding-left: 1.15rem;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--flash-text);
   position: relative;
   z-index: 1;
 }
 .flash-card-examples li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 6px;
 }
 
 .flash-card-hint {
-  font-size: 0.75rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--flash-muted);
-  margin-top: 1rem;
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 12px;
+  margin-bottom: 0;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
 .flash-session-meta {
-  text-align: center;
-  font-size: 0.875rem;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--flash-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
 }
 
-.flash-actions {
+/* Prev / Known / Still / Next — one row, wraps on narrow screens */
+.flash-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
   justify-content: center;
-  max-width: 420px;
-  margin: 0 auto 1rem;
+  gap: 10px 12px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.flash-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--flash-border);
+  background: var(--flash-surface);
+  color: var(--flash-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  transition: color var(--flash-transition), background var(--flash-transition),
+    border-color var(--flash-transition), transform 120ms ease, opacity var(--flash-transition);
+}
+.flash-nav-btn:hover:not(:disabled) {
+  color: var(--flash-accent);
+  border-color: color-mix(in srgb, var(--flash-accent) 35%, var(--flash-border));
+}
+.flash-nav-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.flash-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .flash-btn {
-  font-family: var(--flash-font-body);
-  font-size: 0.9rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
   font-weight: 600;
-  padding: 0.75rem 1.35rem;
-  border-radius: 999px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  min-width: 0;
+  border-radius: 100px;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: box-shadow var(--flash-transition), transform 120ms ease,
+    background var(--flash-transition), color var(--flash-transition),
+    border-color var(--flash-transition);
 }
 .flash-btn:active {
   transform: scale(0.97);
 }
 
+/* Known — Pomodoro terracotta accent (orange) */
+.flash-btn-known {
+  background: var(--flash-accent);
+  color: #fff;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--flash-accent) 42%, transparent);
+}
+.flash-btn-known:hover {
+  box-shadow: 0 6px 28px color-mix(in srgb, var(--flash-accent) 55%, transparent);
+}
+
+/* Still learning — outlined secondary */
+.flash-btn-still {
+  background: transparent;
+  color: var(--flash-text);
+  border: 1px solid var(--flash-border);
+  box-shadow: none;
+}
+.flash-btn-still:hover {
+  border-color: var(--flash-muted);
+  background: color-mix(in srgb, var(--flash-border) 35%, transparent);
+}
+
 .flash-btn-primary {
   background: var(--flash-success);
   color: #fff;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--flash-success) 35%, transparent);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--flash-success) 42%, transparent);
 }
+.flash-btn-primary:hover {
+  box-shadow: 0 6px 28px color-mix(in srgb, var(--flash-success) 55%, transparent);
+}
+
 .flash-btn-secondary {
   background: var(--flash-accent);
   color: #fff;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--flash-accent) 35%, transparent);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--flash-accent) 42%, transparent);
 }
+.flash-btn-secondary:hover {
+  box-shadow: 0 6px 28px color-mix(in srgb, var(--flash-accent) 55%, transparent);
+}
+
 .flash-btn-ghost {
   background: transparent;
   color: var(--flash-muted);
   border: 1px solid var(--flash-border);
+  box-shadow: none;
+  letter-spacing: 0.08em;
+}
+.flash-btn-ghost:hover {
+  color: var(--flash-text);
+  border-color: var(--flash-muted);
 }
 
-/* Summary + confetti */
+a.flash-btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* Summary */
 .flash-summary {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 24px 16px;
   position: relative;
+  width: 100%;
 }
 .flash-summary-score {
-  font-family: var(--flash-font-display);
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-family: var(--font-dm-serif), serif;
+  font-size: clamp(3rem, 12vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--flash-accent);
-  margin: 0 0 0.5rem;
+  margin: 0 0 8px;
 }
 .flash-summary-sub {
+  font-size: 15px;
   color: var(--flash-muted);
-  margin: 0 0 1.5rem;
+  margin: 0 0 24px;
 }
 
 .flash-confetti {
@@ -489,8 +595,10 @@
     animation: none;
     opacity: 1;
   }
-  .flash-lang-card:hover,
-  .flash-node:not(.locked) .flash-node-card:hover {
+  .flash-lang-card:active,
+  .flash-node:not(.locked) .flash-node-card:active,
+  .flash-btn:active,
+  .flash-nav-btn:active:not(:disabled) {
     transform: none;
   }
   .flash-card-inner {
