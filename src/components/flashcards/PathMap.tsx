@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CheckCircle2, ChevronRight, Lock } from "lucide-react";
 import { getFlashcardPaths } from "@/requests/get";
 import type { IFlashcardPath } from "@/requests/get";
 import {
@@ -61,46 +62,89 @@ export function PathMap({ language }: { language: LangKey }) {
   }
 
   if (paths.length === 0) {
-    return <p className="flash-sub">Loading map…</p>;
+    return <p className="flash-sub">Loading your path…</p>;
   }
 
   const sorted = [...paths].sort((a, b) => a.order - b.order);
+  const lastIndex = sorted.length - 1;
 
   return (
-    <div className="flash-map-wrap">
-      <svg className="flash-map-svg" viewBox="0 0 48 320" preserveAspectRatio="none" aria-hidden>
-        <path
-          className="flash-map-path-line flash-map-path-active"
-          d="M 24 8 C 38 48, 10 88, 24 128 C 38 168, 10 208, 24 248 C 38 288, 10 312, 24 312"
-        />
-      </svg>
-      {sorted.map((p) => {
+    <div className="flash-path" role="list" aria-label="Learning path units">
+      <p className="flash-path-intro">Tap a unit to study. Complete earlier units to unlock the next.</p>
+      {sorted.map((p, index) => {
         const pk = pathKeyFromLevel(p.level);
         if (!pk) return null;
         const unlocked = isPathUnlocked(language, pk);
         const prog = getPathProgress(language, pk);
         const href = `/flashcards/${language}/${pk}`;
-        const inner = (
-          <>
-            <div className="flash-node-icon">{p.icon}</div>
-            <h2 className="flash-node-title">{p.title}</h2>
-            <p className="flash-node-desc">{p.description}</p>
-            <div className="flash-node-meta">
-              {p.totalCards} cards
-              {prog.known.length > 0 && ` · ${prog.known.length} known`}
+        const total = Math.max(1, p.totalCards);
+        const knownCount = prog.known.length;
+        const pct = Math.min(100, (knownCount / total) * 100);
+        const isComplete = knownCount >= total && total > 0;
+
+        const panel = (
+          <div className="flash-path-panel-main">
+            <div className="flash-path-panel-top">
+              <span className="flash-path-panel-label">
+                {pk.charAt(0).toUpperCase() + pk.slice(1)} level
+              </span>
+              <h2 className="flash-path-panel-title">{p.title}</h2>
+              <p className="flash-path-panel-desc">{p.description}</p>
             </div>
-            {!unlocked && <div className="flash-node-lock">Locked — keep studying the previous path</div>}
-          </>
-        );
-        return (
-          <div key={p.id} className={`flash-node ${!unlocked ? "locked" : ""}`}>
-            <div className="flash-node-dot" />
             {unlocked ? (
-              <Link href={href} className="flash-node-card">
-                {inner}
+              <div className="flash-path-panel-foot">
+                <div className="flash-path-panel-progress">
+                  <div className="flash-path-panel-progress-label">
+                    {isComplete ? (
+                      <span className="flash-path-done">
+                        <CheckCircle2 size={15} strokeWidth={2.25} aria-hidden />
+                        Completed
+                      </span>
+                    ) : (
+                      <>
+                        <span>{knownCount}</span>
+                        <span className="flash-path-panel-progress-of"> / {p.totalCards} known</span>
+                      </>
+                    )}
+                  </div>
+                  <div className="flash-path-panel-bar" role="presentation">
+                    <div className="flash-path-panel-bar-fill" style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
+                <span className="flash-path-panel-cta">
+                  {isComplete ? "Review" : knownCount > 0 ? "Continue" : "Start"}
+                  <ChevronRight size={18} strokeWidth={2.25} aria-hidden />
+                </span>
+              </div>
+            ) : (
+              <div className="flash-path-panel-foot flash-path-panel-foot-locked">
+                <Lock size={16} strokeWidth={2.25} aria-hidden />
+                <span>Finish the previous unit to unlock</span>
+              </div>
+            )}
+          </div>
+        );
+
+        return (
+          <div key={p.id} className="flash-path-unit" role="listitem">
+            <div className="flash-path-rail" aria-hidden>
+              {index > 0 && <div className="flash-path-rail-line flash-path-rail-line--up" />}
+              <div className={`flash-path-bubble ${unlocked ? "is-unlocked" : "is-locked"}`}>
+                <span className="flash-path-bubble-emoji">{p.icon}</span>
+                {!unlocked && (
+                  <span className="flash-path-bubble-lock">
+                    <Lock size={14} strokeWidth={2.5} aria-hidden />
+                  </span>
+                )}
+              </div>
+              {index < lastIndex && <div className="flash-path-rail-line flash-path-rail-line--down" />}
+            </div>
+            {unlocked ? (
+              <Link href={href} className="flash-path-panel">
+                {panel}
               </Link>
             ) : (
-              <div className="flash-node-card">{inner}</div>
+              <div className="flash-path-panel flash-path-panel--disabled">{panel}</div>
             )}
           </div>
         );
