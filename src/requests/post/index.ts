@@ -1,10 +1,7 @@
 import axios from "axios";
+import { PORTFOLIO_API_URL } from "@/lib/portfolio-api-url";
 
-let API_URL = "https://api.takedi.com/api";
-
-if (process.env.NODE_ENV === "development") {
-  API_URL = "http://localhost:8000/api";
-}
+const API_URL = PORTFOLIO_API_URL;
 
 export interface IEmailFormFields {
   name: string;

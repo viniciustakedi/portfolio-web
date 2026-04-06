@@ -44,13 +44,19 @@ export type ILanguageConfig = {
     textThree: string;
     textFour: string;
     textFive: string;
+    carousel: {
+      label: string;
+      photoAlt: string;
+    };
   };
   contactMe: {
     title: {
       part1: string;
       part2: string;
     };
+    modalSubtitle: string;
     form: {
+      submitError: string;
       input: {
         email: {
           placeholder: string;

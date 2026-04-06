@@ -55,13 +55,21 @@ export const ptContentConfig: ILanguageConfig = {
       "<p><strong>Estar</strong> em contato com a <strong>natureza</strong> sempre me faz <strong>resetar</strong> a <strong>mente</strong>.</p>",
     textFive:
       "<p>E para finalizar essa pequena apresentação, <strong>eu tenho</strong> uma <strong>cachorrinha</strong> na qual às vezes é muito <strong>carente</strong>.</p>",
+    carousel: {
+      label: "Fotos do dia a dia, viagens e momentos pessoais",
+      photoAlt: "Foto pessoal {{n}} de {{total}}",
+    },
   },
   contactMe: {
     title: {
       part1: "Fale ",
       part2: "comigo!",
     },
+    modalSubtitle:
+      "Envie uma mensagem pelo site — ela chega direto na minha caixa de entrada.",
     form: {
+      submitError:
+        "Não foi possível enviar sua mensagem. Tente novamente em instantes.",
       input: {
         email: {
           placeholder: "Seu melhor email",

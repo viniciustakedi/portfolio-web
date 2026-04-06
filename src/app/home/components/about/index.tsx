@@ -6,13 +6,9 @@ import React from "react";
 
 import { Strong, Title } from "@/components/text";
 import BlurBg from "@/components/blur-bg";
+import { AboutPhotoCarousel } from "@/components/sections/AboutPhotoCarousel";
 
 import MemojiTitle from "@/assets/images/about/memoji.png";
-import ImageOne from "@/assets/images/about/about-me-one.png";
-import ImageTwo from "@/assets/images/about/about-me-two.png";
-import ImageThree from "@/assets/images/about/about-me-three.png";
-import ImageFour from "@/assets/images/about/about-me-four.png";
-import ImageFive from "@/assets/images/about/about-me-five.png";
 
 import "./styles.css";
 
@@ -33,83 +29,53 @@ const About: React.FC = () => {
           className="memoji__title__about"
         />
       </div>
-      <div className="about__images">
-        {/* Image 1 */}
-        <div className="image__1">
-          <div className="text__about_1">
-            <div
-              className="text text__about__tag"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textOne.partOne")),
-              }}
-            />
-            <div
-              className="text text__about__tag mt-5 md:flex hidden justify-end items-end"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textOne.partTwo")),
-              }}
-            />
-          </div>
-          <Image src={ImageOne} alt="image__1" className="about__image__1" />
+      <div className="about__images w-full max-w-3xl mx-auto gap-12 flex flex-col">
+        <div className="relative w-full aspect-[4/5] max-h-[min(70vh,32rem)] mx-auto">
+          <AboutPhotoCarousel className="absolute inset-0 flex flex-col p-3 border border-border/50 bg-background/40" />
+        </div>
+
+        <div className="text__about_1 w-full">
           <div
-            className="text text__about__tag flex md:hidden w-full justify-end items-end"
+            className="text text__about__tag"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(t("textOne.partOne")),
+            }}
+          />
+          <div
+            className="text text__about__tag mt-5"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(t("textOne.partTwo")),
             }}
           />
         </div>
 
-        {/* Image 2 */}
-        <div className="image__2 md:mt-0 mt-10">
-          <div className="text__about_2">
-            <div
-              className="text text__about__tag md:text-left text-center"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textTwo")),
-              }}
-            />
-          </div>
-          <Image src={ImageTwo} alt="image__2" className="about__image__2" />
-        </div>
+        <div
+          className="text text__about__tag"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(t("textTwo")),
+          }}
+        />
 
-        {/* Image 3 */}
-        <div className="image__3">
-          <div className="text__about_3">
-            <div
-              className="text text__about__tag text-center"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textThree")),
-              }}
-            />
-          </div>
-          <Image src={ImageThree} alt="image__3" className="about__image__3" />
-        </div>
+        <div
+          className="text text__about__tag text-center"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(t("textThree")),
+          }}
+        />
 
-        {/* Image 4 */}
-        <div className="image__4 md:mt-0 mt-10">
-          <div className="text__about_4">
-            <div
-              className="text text__about__tag md:text-left text-center"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textFour")),
-              }}
-            />
-          </div>
-          <Image src={ImageFour} alt="image__2" className="about__image__4" />
-        </div>
+        <div
+          className="text text__about__tag"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(t("textFour")),
+          }}
+        />
 
-        {/* Image 5 */}
-        <div className="image__5">
-          <div className="text__about_5">
-            <div
-              className="text text__about__tag text-center"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(t("textFive")),
-              }}
-            />
-          </div>
-          <Image src={ImageFive} alt="image__5" className="about__image__5" />
-        </div>
+        <div
+          className="text text__about__tag text-center"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(t("textFive")),
+          }}
+        />
       </div>
       <BlurBg bottom="bottom-0" left="left-9/12" />
       <BlurBg bottom="bottom-2/12" left="left-7/12" />

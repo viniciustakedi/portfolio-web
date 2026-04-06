@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
-import { Anybody } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 
 import { ReactQuery } from "../../config/react-query/ReactQueryProvider";
 import { I18nProvider } from "../../config/i18n/I18nProvider";
+import { Notistack } from "../../config/notistack/NotistackProvider";
+import SmoothScroll from "@/components/providers/SmoothScroll";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 import "./globals.css";
-import { Notistack } from "../../config/notistack/NotistackProvider";
 
-const anybody = Anybody({
-  variable: "--font-anybody",
+const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const bodyFont = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Vinicius Takedi | Portfolio",
+  title: "Vinicius Takedi | Software Engineer",
   description:
-    "Explore the portfolio of Vinicius Takedi, a computer scientist and software engineer. Discover projects, skills, and more about his professional journey.",
+    "Portfolio of Vinicius Takedi, a Brazilian software engineer blending robust architecture with premium digital experiences.",
 };
 
 export default function RootLayout({
@@ -24,13 +35,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${anybody.variable} antialiased`}>
-        <ReactQuery>
-          <I18nProvider>
-            <Notistack>{children}</Notistack>
-          </I18nProvider>
-        </ReactQuery>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased bg-background text-foreground selection:bg-accent selection:text-white`}>
+        <ThemeProvider>
+          <ReactQuery>
+            <I18nProvider>
+              <Notistack>
+                <SmoothScroll>{children}</SmoothScroll>
+              </Notistack>
+            </I18nProvider>
+          </ReactQuery>
+        </ThemeProvider>
       </body>
     </html>
   );
