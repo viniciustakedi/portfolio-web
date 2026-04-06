@@ -54,13 +54,21 @@ export const enContentConfig: ILanguageConfig = {
       "<p><strong>Being</strong> in <strong>nature</strong> always makes me <strong>reset</strong> my <strong>mind</strong>.</p>",
     textFive:
       "<p>And to finish this little summary, <strong>I have</strong> a <strong>little dog</strong> who is sometimes too <strong>needy</strong></p>",
+    carousel: {
+      label: "Photos from life, travels, and everyday moments",
+      photoAlt: "Personal photo {{n}} of {{total}}",
+    },
   },
   contactMe: {
     title: {
       part1: "Contact ",
       part2: "me!",
     },
+    modalSubtitle:
+      "Send a note through the site — it goes straight to my inbox (no mail app needed).",
     form: {
+      submitError:
+        "We couldn’t send your message. Please try again in a moment.",
       input: {
         email: {
           placeholder: "Your best email",

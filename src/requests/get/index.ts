@@ -1,10 +1,7 @@
 import axios from "axios";
+import { PORTFOLIO_API_URL } from "@/lib/portfolio-api-url";
 
-let API_URL = "https://api.takedi.com/api";
-
-if (process.env.NODE_ENV === "development") {
-  API_URL = "http://localhost:8000/api";
-}
+const API_URL = PORTFOLIO_API_URL;
 
 export interface IJobContent {
   title: string;
@@ -19,6 +16,76 @@ export interface IJobContent {
   stacks: string[];
   exitDate?: string;
 }
+
+// —— Flashcards (portfolio API) ——————————————————————————————————
+
+export type FlashcardType =
+  | "verb"
+  | "noun"
+  | "adjective"
+  | "adverb"
+  | "phrasal_verb"
+  | "expression";
+
+export interface IFlashcard {
+  id: string;
+  word: string;
+  translation: string;
+  type: FlashcardType;
+  language: string;
+  path: string;
+  difficulty: number;
+  description: string;
+  examples: string[];
+  tags?: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IFlashcardsListResponse {
+  cards: IFlashcard[];
+  total: number;
+  limit: number;
+  skip: number;
+}
+
+export interface IFlashcardPath {
+  id: string;
+  language: string;
+  level: string;
+  title: string;
+  description: string;
+  order: number;
+  totalCards: number;
+  icon: string;
+}
+
+export const getFlashcards = async (params: {
+  language: "en" | "es";
+  path: "beginner" | "intermediate" | "advanced";
+  limit?: number;
+  skip?: number;
+}): Promise<IFlashcardsListResponse> => {
+  const { language, path, limit = 20, skip = 0 } = params;
+  const response = await axios.get<{ data: IFlashcardsListResponse }>(
+    `${API_URL}/flashcards`,
+    { params: { language, path, limit, skip } }
+  );
+  return response.data.data;
+};
+
+export const getFlashcardPaths = async (language: "en" | "es"): Promise<IFlashcardPath[]> => {
+  const response = await axios.get<{ data: IFlashcardPath[] }>(
+    `${API_URL}/flashcards/paths`,
+    { params: { language } }
+  );
+  return response.data.data;
+};
+
+export const getFlashcardById = async (id: string): Promise<IFlashcard> => {
+  const response = await axios.get<{ data: IFlashcard }>(`${API_URL}/flashcards/${id}`);
+  return response.data.data;
+};
 
 export const getJobs = async (): Promise<IJobContent[]> => {
   try {

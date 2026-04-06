@@ -1,17 +1,21 @@
-import Menu from "@/components/menu";
-import Work from "./home/components/work";
-import About from "./home/components/about";
-import ContactMe from "./home/components/contact-me";
-import Footer from "@/components/footer";
+import Navbar from "@/components/ui/Navbar";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Work from "@/components/sections/Work";
+import Lab from "@/components/sections/Lab";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Menu />
-      <Work />
+    <main className="relative bg-background min-h-screen">
+      <Navbar />
+      <Hero />
       <About />
-      <ContactMe />
+      <Work />
+      <Lab />
+      <Contact />
       <Footer />
-    </>
+    </main>
   );
 }

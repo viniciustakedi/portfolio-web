@@ -66,7 +66,7 @@ const FirstInformations: React.FC = () => {
             <Tooltip text={t("iconsTooltip.linkedin")}>
               <div className="social__circle">
                 <Link
-                  href="https://www.linkedin.com/in/vinicius-takedi/"
+                  href="https://www.linkedin.com/in/viniciustakedi/"
                   target="_blank"
                 >
                   <FaLinkedin className="icon" />

@@ -1,0 +1,503 @@
+/* Scoped to .flash-root — language journal + modern app */
+
+.flash-root {
+  --flash-bg: #faf9f6;
+  --flash-text: #1c1c1e;
+  --flash-muted: #5c5c5e;
+  --flash-accent: #d85a30;
+  --flash-success: #3b6d11;
+  --flash-card: #fffefb;
+  --flash-border: #e8e4dc;
+  --flash-shadow: rgba(28, 28, 30, 0.08);
+  --flash-font-display: var(--font-flash-display), cursive;
+  --flash-font-body: var(--font-flash-body), system-ui, sans-serif;
+
+  min-height: 100dvh;
+  width: 100%;
+  background-color: var(--flash-bg);
+  color: var(--flash-text);
+  font-family: var(--flash-font-body);
+  position: relative;
+}
+
+.flash-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.flash-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.flash-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--flash-muted);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+.flash-back:hover {
+  color: var(--flash-accent);
+}
+
+.flash-title {
+  font-family: var(--flash-font-display);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--flash-text);
+}
+
+.flash-sub {
+  font-size: 1rem;
+  color: var(--flash-muted);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+/* Language cards */
+.flash-lang-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 540px) {
+  .flash-lang-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.flash-lang-card {
+  border: 1px solid var(--flash-border);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  background: var(--flash-card);
+  box-shadow: 0 8px 32px var(--flash-shadow);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+.flash-lang-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.flash-lang-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(28, 28, 30, 0.12);
+}
+.flash-lang-flag {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.flash-lang-name {
+  font-family: var(--flash-font-display);
+  font-size: 1.85rem;
+  margin: 0 0 0.35rem;
+}
+.flash-lang-hint {
+  font-size: 0.875rem;
+  color: var(--flash-muted);
+  margin: 0;
+}
+
+/* Path map */
+.flash-map-wrap {
+  position: relative;
+  padding-left: 0.5rem;
+}
+.flash-map-svg {
+  position: absolute;
+  left: 1.5rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 48px;
+  pointer-events: none;
+  overflow: visible;
+}
+.flash-map-path-line {
+  fill: none;
+  stroke: var(--flash-border);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.flash-map-path-active {
+  stroke: color-mix(in srgb, var(--flash-accent) 55%, var(--flash-border));
+}
+
+.flash-node {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-left: 4rem;
+  opacity: 0;
+  animation: flash-node-in 0.55s ease forwards;
+}
+.flash-node:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.flash-node:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.flash-node:nth-child(3) {
+  animation-delay: 0.31s;
+}
+
+@keyframes flash-node-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flash-node-dot {
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--flash-accent);
+  border: 3px solid var(--flash-card);
+  box-shadow: 0 0 0 2px var(--flash-border);
+  z-index: 2;
+}
+.flash-node.locked .flash-node-dot {
+  background: var(--flash-muted);
+  opacity: 0.5;
+}
+
+.flash-node-card {
+  flex: 1;
+  border: 1px solid var(--flash-border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.35rem;
+  background: var(--flash-card);
+  box-shadow: 0 6px 24px var(--flash-shadow);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.flash-node-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.flash-node:not(.locked) .flash-node-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(28, 28, 30, 0.1);
+}
+.flash-node.locked .flash-node-card {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.flash-node-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+.flash-node-title {
+  font-family: var(--flash-font-display);
+  font-size: 1.5rem;
+  margin: 0 0 0.35rem;
+}
+.flash-node-desc {
+  font-size: 0.9rem;
+  color: var(--flash-muted);
+  margin: 0 0 0.5rem;
+  line-height: 1.45;
+}
+.flash-node-meta {
+  font-size: 0.8rem;
+  color: var(--flash-accent);
+  font-weight: 600;
+}
+.flash-node-lock {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--flash-muted);
+  margin-top: 0.35rem;
+}
+
+/* Progress bar */
+.flash-progress-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--flash-border);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.flash-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--flash-accent),
+    color-mix(in srgb, var(--flash-accent) 70%, var(--flash-success))
+  );
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+}
+
+/* 3D card */
+.flash-card-scene {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 1.5rem;
+  min-height: 280px;
+  touch-action: pan-y;
+}
+
+.flash-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+}
+.flash-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flash-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.15rem;
+  border: 1px solid var(--flash-border);
+  background: var(--flash-card);
+  box-shadow: 0 12px 40px var(--flash-shadow);
+  padding: 1.5rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+.flash-card-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.07;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.flash-card-back {
+  transform: rotateY(180deg);
+  text-align: left;
+}
+
+.flash-type-badge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--flash-accent) 14%, transparent);
+  color: var(--flash-accent);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flash-card-word {
+  font-family: var(--flash-font-display);
+  font-size: clamp(1.75rem, 5vw, 2.35rem);
+  line-height: 1.2;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.flash-card-translation {
+  font-family: var(--flash-font-display);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+  color: var(--flash-text);
+  position: relative;
+  z-index: 1;
+}
+
+.flash-card-body-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--flash-muted);
+  margin: 0 0 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flash-card-examples {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--flash-text);
+  position: relative;
+  z-index: 1;
+}
+.flash-card-examples li {
+  margin-bottom: 0.35rem;
+}
+
+.flash-card-hint {
+  font-size: 0.75rem;
+  color: var(--flash-muted);
+  margin-top: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.flash-session-meta {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--flash-muted);
+  margin-bottom: 1rem;
+}
+
+.flash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto 1rem;
+}
+
+.flash-btn {
+  font-family: var(--flash-font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.flash-btn:active {
+  transform: scale(0.97);
+}
+
+.flash-btn-primary {
+  background: var(--flash-success);
+  color: #fff;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--flash-success) 35%, transparent);
+}
+.flash-btn-secondary {
+  background: var(--flash-accent);
+  color: #fff;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--flash-accent) 35%, transparent);
+}
+.flash-btn-ghost {
+  background: transparent;
+  color: var(--flash-muted);
+  border: 1px solid var(--flash-border);
+}
+
+/* Summary + confetti */
+.flash-summary {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+.flash-summary-score {
+  font-family: var(--flash-font-display);
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  color: var(--flash-accent);
+  margin: 0 0 0.5rem;
+}
+.flash-summary-sub {
+  color: var(--flash-muted);
+  margin: 0 0 1.5rem;
+}
+
+.flash-confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+.flash-confetti span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -12px;
+  left: var(--x);
+  background: var(--c);
+  opacity: 0.9;
+  border-radius: 2px;
+  animation: flash-confetti-fall 2.8s ease-out forwards;
+  animation-delay: var(--d);
+}
+@keyframes flash-confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-lang-card,
+  .flash-node-card,
+  .flash-card-inner,
+  .flash-progress-fill {
+    transition: none;
+  }
+  .flash-node {
+    animation: none;
+    opacity: 1;
+  }
+  .flash-lang-card:hover,
+  .flash-node:not(.locked) .flash-node-card:hover {
+    transform: none;
+  }
+  .flash-card-inner {
+    transition: transform 0.01s linear;
+  }
+  .flash-confetti span {
+    animation: none;
+    display: none;
+  }
+}
