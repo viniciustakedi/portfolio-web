@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { getFlashcards, type IFlashcard } from "@/requests/get";
 import {
   getPathProgress,
@@ -93,6 +94,14 @@ export function CardSession({ language, path }: { language: LangKey; path: PathK
     advance([], [current.id]);
   }, [current, advance]);
 
+  const goPrevCard = useCallback(() => {
+    setIndex((i) => Math.max(0, i - 1));
+  }, []);
+
+  const goNextCard = useCallback(() => {
+    setIndex((i) => Math.min(total - 1, i + 1));
+  }, [total]);
+
   const summaryKnown = useMemo(() => sessionKnown.length, [sessionKnown]);
 
   if (gate === "check") {
@@ -153,11 +162,7 @@ export function CardSession({ language, path }: { language: LangKey; path: PathK
             {summaryKnown} / {total}
           </p>
           <p className="flash-summary-sub">cards marked known this session</p>
-          <Link
-            href={`/flashcards/${language}`}
-            className="flash-btn flash-btn-secondary"
-            style={{ display: "inline-block", textDecoration: "none" }}
-          >
+          <Link href={`/flashcards/${language}`} className="flash-btn flash-btn-secondary flash-btn-link">
             Back to map
           </Link>
         </div>
@@ -179,12 +184,32 @@ export function CardSession({ language, path }: { language: LangKey; path: PathK
           onSwipeRight={onKnown}
         />
       )}
-      <div className="flash-actions">
-        <button type="button" className="flash-btn flash-btn-primary" onClick={onKnown}>
+      <div className="flash-controls" role="group" aria-label="Card controls">
+        <button
+          type="button"
+          className="flash-nav-btn"
+          onClick={goPrevCard}
+          disabled={index <= 0}
+          aria-label="Previous card"
+        >
+          <ChevronLeft size={22} strokeWidth={2} aria-hidden />
+        </button>
+        <button type="button" className="flash-btn flash-btn-known" onClick={onKnown}>
+          <Check size={18} strokeWidth={2.5} aria-hidden />
           Known
         </button>
-        <button type="button" className="flash-btn flash-btn-secondary" onClick={onStillLearning}>
+        <button type="button" className="flash-btn flash-btn-still" onClick={onStillLearning}>
+          <X size={18} strokeWidth={2.5} aria-hidden />
           Still learning
+        </button>
+        <button
+          type="button"
+          className="flash-nav-btn"
+          onClick={goNextCard}
+          disabled={index >= total - 1}
+          aria-label="Next card"
+        >
+          <ChevronRight size={22} strokeWidth={2} aria-hidden />
         </button>
       </div>
     </>
@@ -193,7 +218,7 @@ export function CardSession({ language, path }: { language: LangKey; path: PathK
 
 function Confetti() {
   const pieces = useMemo(() => {
-    const colors = ["#D85A30", "#3B6D11", "#1C1C1E", "#C4A574", "#E8A090"];
+    const colors = ["#C96442", "#4A7C6F", "#5A6A8A", "#1A1A1A", "#A89888"];
     return Array.from({ length: 36 }, (_, i) => ({
       key: i,
       x: `${Math.random() * 100}%`,

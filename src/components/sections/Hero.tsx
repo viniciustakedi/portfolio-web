@@ -17,8 +17,8 @@ export default function Hero() {
       {/* Abstract Japanese-inspired circular accent (Sun motif, restrained) */}
       <div className="absolute top-1/4 right-1/4 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-accent/5 blur-[120px] pointer-events-none -z-10" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center h-full z-10">
-        <div className="order-2 lg:order-1 col-span-1 lg:col-span-8 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 2xl:gap-16 items-center h-full z-10">
+        <div className="order-2 lg:order-1 col-span-1 lg:col-span-8 2xl:col-span-7 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
           <div className="overflow-hidden mb-6">
             <motion.p
               initial={{ y: "100%" }}
@@ -79,9 +79,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95, filter: "grayscale(100%)" }}
           animate={{ opacity: 1, scale: 1, filter: "grayscale(0%)" }}
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="order-1 lg:order-2 col-span-1 lg:col-span-4 flex justify-center lg:justify-end relative w-full shrink-0"
+          className="order-1 lg:order-2 col-span-1 lg:col-span-4 2xl:col-span-5 flex justify-center lg:justify-end relative w-full shrink-0"
         >
-          <div className="relative w-full max-w-[min(100%,280px)] sm:max-w-[320px] lg:max-w-[400px] aspect-[3/4] overflow-hidden rounded-sm group">
+          <div className="relative w-full max-w-[min(100%,280px)] sm:max-w-[min(100%,20rem)] md:max-w-[min(100%,clamp(18rem,36vw,26rem))] lg:max-w-[min(100%,clamp(20rem,26vw,45rem))] xl:max-w-[min(100%,clamp(20rem,28vw,48rem))] 2xl:max-w-[min(100%,clamp(22rem,30vw,52rem))] aspect-[3/4] overflow-hidden rounded-sm group">
             {/* Ink-like overlay blending */}
             <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
             <div className="absolute inset-0 border border-border/50 z-20 m-4 pointer-events-none" />

@@ -57,7 +57,9 @@ export function FlashCard({
       >
         <div className="flash-card-face flash-card-front">
           <span className="flash-type-badge">{typeLabel(card.type)}</span>
-          <h2 className="flash-card-word">{card.word}</h2>
+          <div className="flash-card-word-center">
+            <h2 className="flash-card-word">{card.word}</h2>
+          </div>
           <p className="flash-card-hint">Tap to reveal · Swipe right: known · left: skip</p>
         </div>
         <div className="flash-card-face flash-card-back">

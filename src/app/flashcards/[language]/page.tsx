@@ -19,8 +19,7 @@ export default async function FlashcardsLanguagePage({
       <Link href="/flashcards" className="flash-back">
         ← Languages
       </Link>
-      <h1 className="flash-title">{label} paths</h1>
-      <p className="flash-sub">Follow the trail from beginner to advanced. Locked steps open as you mark cards known.</p>
+      <h1 className="flash-title">{label} path</h1>
       <PathMap language={language} />
     </>
   );
