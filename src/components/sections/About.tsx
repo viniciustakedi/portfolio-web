@@ -15,7 +15,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-start gap-4 mb-24">
           <span className="text-accent font-display text-xl tracking-tighter">01</span>
-          <div className="text-4xl md:text-6xl font-display uppercase tracking-tighter flex gap-2">
+          <div className="text-4xl md:text-6xl font-display uppercase tracking-tighter flex flex-col sm:flex-row gap-1">
             <TextReveal as="span">{t("title.part1")}</TextReveal> <span className="text-accent italic">{t("title.part2")}</span>
           </div>
         </div>
