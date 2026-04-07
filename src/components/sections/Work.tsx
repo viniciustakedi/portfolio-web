@@ -43,7 +43,7 @@ export default function Work() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-start gap-4 mb-20 flex-row sm:flex-col">
           <span className="text-accent font-display text-xl tracking-tighter">02</span>
-          <div className="text-4xl md:text-6xl font-display uppercase tracking-tighter flex flex-row sm:flex-col gap-2">
+          <div className="text-4xl md:text-6xl font-display uppercase tracking-tighter flex flex-col sm:flex-row gap-1">
             <TextReveal as="span">Selected</TextReveal> <span className="text-accent italic">Experience</span>
           </div>
         </div>
