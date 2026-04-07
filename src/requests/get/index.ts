@@ -30,7 +30,7 @@ export type FlashcardType =
 export interface IFlashcard {
   id: string;
   word: string;
-  translation: string;
+  synonyms: string[];
   type: FlashcardType;
   language: string;
   path: string;

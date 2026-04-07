@@ -187,24 +187,28 @@ export function CardSession({ language, path }: { language: LangKey; path: PathK
       <div className="flash-controls" role="group" aria-label="Card controls">
         <button
           type="button"
-          className="flash-nav-btn"
+          className="flash-nav-btn flash-control-prev"
           onClick={goPrevCard}
           disabled={index <= 0}
           aria-label="Previous card"
         >
           <ChevronLeft size={22} strokeWidth={2} aria-hidden />
         </button>
-        <button type="button" className="flash-btn flash-btn-known" onClick={onKnown}>
+        <button type="button" className="flash-btn flash-btn-known flash-control-known" onClick={onKnown}>
           <Check size={18} strokeWidth={2.5} aria-hidden />
           Known
         </button>
-        <button type="button" className="flash-btn flash-btn-still" onClick={onStillLearning}>
+        <button
+          type="button"
+          className="flash-btn flash-btn-still flash-control-still"
+          onClick={onStillLearning}
+        >
           <X size={18} strokeWidth={2.5} aria-hidden />
           Still learning
         </button>
         <button
           type="button"
-          className="flash-nav-btn"
+          className="flash-nav-btn flash-control-next"
           onClick={goNextCard}
           disabled={index >= total - 1}
           aria-label="Next card"

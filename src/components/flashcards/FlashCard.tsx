@@ -35,6 +35,7 @@ export function FlashCard({
   };
 
   const examples = card.examples.slice(0, 2);
+  const synonyms = Array.isArray(card.synonyms) ? card.synonyms : [];
 
   return (
     <div
@@ -63,14 +64,28 @@ export function FlashCard({
           <p className="flash-card-hint">Tap to reveal · Swipe right: known · left: skip</p>
         </div>
         <div className="flash-card-face flash-card-back">
-          <p className="flash-card-translation">{card.translation}</p>
+          {synonyms.length > 0 && (
+            <div className="flash-card-synonyms-block">
+              <span className="flash-card-synonyms-label">Synonyms · related words</span>
+              <ul className="flash-card-synonyms-list">
+                {synonyms.map((s, i) => (
+                  <li key={i} className="flash-card-synonym-chip">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <p className="flash-card-body-text">{card.description}</p>
           {examples.length > 0 && (
-            <ul className="flash-card-examples">
-              {examples.map((ex, i) => (
-                <li key={i}>{ex}</li>
-              ))}
-            </ul>
+            <div className="flash-card-examples-block">
+              <span className="flash-card-examples-label">Examples</span>
+              <ul className="flash-card-examples">
+                {examples.map((ex, i) => (
+                  <li key={i}>{ex}</li>
+                ))}
+              </ul>
+            </div>
           )}
           <p className="flash-card-hint">Tap to flip back</p>
         </div>
