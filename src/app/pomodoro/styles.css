@@ -1,0 +1,421 @@
+/* ─────────────────────────────────────────────────────────────
+   All selectors are scoped to .pom-root to avoid collisions
+   with the rest of the Next.js app (globals.css / Tailwind).
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Design Tokens (Light theme defaults) ────────────────────── */
+.pom-root {
+  /* Pomodoro-specific custom properties — shadow any globals */
+  --pom-bg:           #F5F0EB;
+  --pom-surface:      #FFFFFF;
+  --pom-text:         #1A1A1A;
+  --pom-text-muted:   #7A7A7A;
+  --pom-border:       #E8E2DA;
+  --pom-shadow:       rgba(0, 0, 0, 0.07);
+
+  --pom-clr-pomodoro: #C96442;
+  --pom-clr-short:    #4A7C6F;
+  --pom-clr-long:     #5A6A8A;
+  --pom-accent:       var(--pom-clr-pomodoro); /* default */
+
+  /* Override Tailwind's --border and --accent within this scope */
+  --border: var(--pom-border);
+  --accent: var(--pom-accent);
+
+  --pom-transition: 300ms ease;
+
+  /* Fonts (set by next/font variables applied to this element) */
+  font-family: var(--font-inter), sans-serif;
+
+  /* Layout — fills viewport */
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pom-bg);
+  color: var(--pom-text);
+  transition: background var(--pom-transition), color var(--pom-transition);
+}
+
+/* ── Dark theme ──────────────────────────────────────────────── */
+.pom-root[data-theme="dark"] {
+  --pom-bg:           #141414;
+  --pom-surface:      #1F1F1F;
+  --pom-text:         #F0EDE8;
+  --pom-text-muted:   #888888;
+  --pom-border:       #2A2A2A;
+  --pom-shadow:       rgba(0, 0, 0, 0.35);
+
+  --pom-clr-pomodoro: #D4724E;
+  --pom-clr-short:    #5A9B8A;
+  --pom-clr-long:     #6B7FAA;
+}
+
+/* ── Mode accent overrides ───────────────────────────────────── */
+.pom-root[data-mode="short"] { --pom-accent: var(--pom-clr-short); }
+.pom-root[data-mode="long"]  { --pom-accent: var(--pom-clr-long);  }
+
+/* ── Inner app container ─────────────────────────────────────── */
+.pom-app {
+  width: 100%;
+  max-width: 480px;
+  padding: 28px 20px 48px;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.pom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pom-logo {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pom-text-muted);
+  transition: color var(--pom-transition);
+}
+
+.pom-header-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.pom-icon-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--pom-border);
+  background: var(--pom-surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--pom-text-muted);
+  transition: color var(--pom-transition), background var(--pom-transition),
+              border-color var(--pom-transition), transform 120ms ease;
+  /* Reset any Tailwind outline/border base styles */
+  outline: none;
+}
+.pom-icon-btn:hover  { color: var(--pom-text); }
+.pom-icon-btn:active { transform: scale(0.91); }
+
+/* ── Card ────────────────────────────────────────────────────── */
+.pom-card {
+  background: var(--pom-surface);
+  border: 1px solid var(--pom-border);
+  border-radius: 28px;
+  padding: 28px 24px 32px;
+  box-shadow: 0 6px 40px var(--pom-shadow);
+  transition: background var(--pom-transition), border-color var(--pom-transition),
+              box-shadow var(--pom-transition);
+}
+
+/* ── Mode tabs ───────────────────────────────────────────────── */
+.pom-tabs {
+  display: flex;
+  background: var(--pom-bg);
+  border-radius: 14px;
+  padding: 4px;
+  gap: 2px;
+  margin-bottom: 28px;
+  transition: background var(--pom-transition);
+}
+
+.pom-tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 4px;
+  border-radius: 10px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--pom-text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--pom-transition);
+  outline: none;
+}
+.pom-tab.active {
+  background: var(--pom-surface);
+  color: var(--pom-accent);
+  box-shadow: 0 1px 6px var(--pom-shadow);
+}
+
+/* ── Session notice ──────────────────────────────────────────── */
+.pom-notice {
+  padding: 11px 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  background: color-mix(in srgb, var(--pom-accent) 12%, transparent);
+  color: var(--pom-accent);
+  transition: background var(--pom-transition), color var(--pom-transition);
+}
+
+/* ── Timer wrapper ───────────────────────────────────────────── */
+.pom-timer-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 28px;
+}
+
+.pom-ring {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pom-ring-track {
+  fill: none;
+  stroke: var(--pom-border);
+  stroke-width: 7;
+  transition: stroke var(--pom-transition);
+}
+
+.pom-ring-fill {
+  fill: none;
+  stroke: var(--pom-accent);
+  stroke-width: 7;
+  stroke-linecap: round;
+  transition: stroke var(--pom-transition), stroke-dashoffset 0.88s linear;
+}
+
+.pom-timer-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pom-time {
+  font-family: var(--font-dm-serif), serif;
+  font-size: 82px;
+  line-height: 1;
+  letter-spacing: -3px;
+  color: var(--pom-text);
+  user-select: none;
+  transition: color var(--pom-transition);
+}
+
+.pom-mode-sub {
+  margin-top: 9px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--pom-text-muted);
+  transition: color var(--pom-transition);
+}
+
+/* ── Controls ────────────────────────────────────────────────── */
+.pom-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 26px;
+}
+
+.pom-btn-start {
+  width: 172px;
+  height: 52px;
+  border: none;
+  background: var(--pom-accent);
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--pom-accent) 42%, transparent);
+  transition: background var(--pom-transition), box-shadow var(--pom-transition),
+              transform 120ms ease;
+}
+.pom-btn-start:hover  { box-shadow: 0 6px 28px color-mix(in srgb, var(--pom-accent) 55%, transparent); }
+.pom-btn-start:active { transform: scale(0.97); }
+
+.pom-btn-reset {
+  border: none;
+  background: transparent;
+  color: var(--pom-text-muted);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 8px;
+  outline: none;
+  transition: color var(--pom-transition);
+}
+.pom-btn-reset:hover { color: var(--pom-text); }
+
+/* ── Cycle indicator ─────────────────────────────────────────── */
+.pom-cycle-area { text-align: center; }
+
+.pom-cycle-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--pom-text-muted);
+  margin-bottom: 11px;
+  transition: color var(--pom-transition);
+}
+
+.pom-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pom-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--pom-border);
+  transition: background var(--pom-transition), transform var(--pom-transition);
+}
+.pom-dot.done {
+  background: var(--pom-clr-pomodoro);
+  transform: scale(1.18);
+}
+.pom-dot.current {
+  background: color-mix(in srgb, var(--pom-clr-pomodoro) 48%, transparent);
+  transform: scale(1.08);
+}
+
+/* ── Settings overlay ────────────────────────────────────────── */
+.pom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--pom-transition);
+}
+.pom-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pom-settings-card {
+  background: var(--pom-surface);
+  border: 1px solid var(--pom-border);
+  border-radius: 24px;
+  padding: 28px;
+  width: min(364px, calc(100vw - 40px));
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  transform: translateY(18px) scale(0.96);
+  transition: transform var(--pom-transition), background var(--pom-transition),
+              border-color var(--pom-transition);
+}
+.pom-overlay.open .pom-settings-card {
+  transform: translateY(0) scale(1);
+}
+
+.pom-settings-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pom-settings-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pom-text);
+}
+
+.pom-close-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: var(--pom-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--pom-text-muted);
+  font-size: 20px;
+  line-height: 1;
+  padding-bottom: 1px;
+  outline: none;
+  transition: color var(--pom-transition), background var(--pom-transition);
+}
+.pom-close-btn:hover { color: var(--pom-text); }
+
+.pom-field { margin-bottom: 16px; }
+
+.pom-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--pom-text-muted);
+  margin-bottom: 7px;
+  letter-spacing: 0.03em;
+  transition: color var(--pom-transition);
+}
+
+.pom-field input[type="number"] {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--pom-border);
+  border-radius: 11px;
+  background: var(--pom-bg);
+  color: var(--pom-text);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color 200ms ease, background var(--pom-transition),
+              color var(--pom-transition);
+}
+.pom-field input[type="number"]:focus { border-color: var(--pom-accent); }
+
+.pom-btn-save {
+  width: 100%;
+  height: 46px;
+  border: none;
+  background: var(--pom-accent);
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 6px;
+  outline: none;
+  transition: background var(--pom-transition), transform 120ms ease;
+}
+.pom-btn-save:active { transform: scale(0.98); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .pom-time          { font-size: 66px; letter-spacing: -2px; }
+  .pom-timer-wrapper { width: 260px; height: 260px; }
+  .pom-card          { padding: 22px 18px 28px; }
+}
